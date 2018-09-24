@@ -4,7 +4,6 @@ from bisect import bisect
 from itertools import count, islice
 from math import *
 import math
-from pprint import pprint
 
 # https://en.wikipedia.org/wiki/E_series_of_preferred_numbers
 e_series = {3: (1.0, 2.2, 4.7),
@@ -100,15 +99,15 @@ def to_eser(x):
     return mant, pw
 
 
-dims = (Var('w', value=2*pi*60),        # angular velocity, rad/s
-        Var('Vin', value=120*sqrt(2)),  # peak AC live line, V
-        Var('Prp', value=40),                # pulse power (1ms), W
-        Var('Pr', value=0.2),                # continuous res power, W
-        Var('Vf', value=1.1),                # Opto forward drop, V
-        Var('I', value=10e-3),               # peak current for opto, typ, A
-        Var('Imax', value=150e-3),           # max current for opto, A
-        Var('Vpasv', value='Vin - Vf'),      # potential over passives, V
-        Var('Rd', value='Vf/I'),             # equivalent diode res during Ityp, V
+dims = (Var('w', value=2*pi*60),         # angular velocity, rad/s
+        Var('Vin', value=120*sqrt(2)),   # peak AC live line, V
+        Var('Prp', value=40),            # pulse power (1ms), W
+        Var('Pr', value=0.2),            # continuous res power, W
+        Var('Vf', value=1.1),            # Opto forward drop, V
+        Var('I', value=10e-3),           # peak current for opto, typ, A
+        Var('Imax', value=150e-3),       # max current for opto, A
+        Var('Vpasv', value='Vin - Vf'),  # potential over passives, V
+        Var('Rd', value='Vf/I'),         # equivalent diode res during Ityp, V
 
         Var('Vbr', values=(6.4, 6.45, 6.67, 7.13, 7.22, 7.78, 7.79, 8.65, 8.89, 9.5, 10, 10.5, 11.1, 11.4, 12.2, 12.4,
                            14.3, 14.4, 15.2, 17.1, 17.8, 19, 20, 20.9, 22.2, 22.8, 25.7, 28.5, 31.4, 34.2, 37.1, 40,
@@ -126,7 +125,7 @@ dims = (Var('w', value=2*pi*60),        # angular velocity, rad/s
 
         Var('C2', precision=24, value='1/w/sqrt(Zz**2 - (R2 + Rd)**2)'),
         Var('Xc2', value='1/w/C2'),
-        Var('ImVz', value='I/Xc2'),
+        Var('ImVz', value='I*Xc2'),
 
         Var('R1', precision=24, vmin=('Vrc1/Imax',     # Limit discharged current for opto
                                       'Vrc1**2/Prp'),  # Limit pulse power for res

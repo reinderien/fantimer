@@ -153,11 +153,14 @@ def num_or_eval(n):
 
 def header():
     print('\n'
-          '{:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7}'.format(
-          'R1', 'C1', 'R2', 'C2', 'Vbr', 'Vz', 'IpkmA', 'IpspkmA', 'Pr1acmW', 'Pr1pkW', 'Pr2acmW', 'Pr2pkW'))
+          '{:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7}'.format(
+          'R1', 'C1', 'R2', 'C2', 'Vbr', 'Vz', 'IpkmA', 'IpspkmA', 'Pr1acmW', 'Pr1pkW', 'Pr2acmW', 'Pr2pkW', 'cost'))
 
 
-def dump():
+actuals = []
+
+
+def populate_actual():
     Rt = eval_env('Rd + R1 + R2')
     Xt = eval_env('-Xc1 - Xc2')
     Zt = sqrt(Rt ** 2 + Xt ** 2)
@@ -179,7 +182,7 @@ def dump():
     V2i = V2m * sin(V2a)
 
     err = V2m/sym_locals['Vbr'] - 1
-    if abs(err) > 0.02:
+    if not (-0.05 <= err <= 0):
         return
 
     Rz1 = sym_locals['R1']
@@ -203,31 +206,50 @@ def dump():
     Pr1 = Irms ** 2 * sym_locals['R1']
     Pr2 = Irms ** 2 * sym_locals['R2']
 
+    cost = (Ipulse/0.1 +
+            -err/.02 +
+            (Pr1 + Pr2)/0.05 +
+            (Ppr1 + Ppr2)/10)
+
     state = dict(sym_locals)
     state.update({'Vz': V2m,
-                  'Ityp': Itm * 1e3,
-                  'Ichg': Ipulse * 1e3,
-                  'Pr1': Pr1 * 1e3,
+                  'Ityp': Itm*1e3,
+                  'Ichg': Ipulse*1e3,
+                  'Pr1': Pr1*1e3,
                   'Ppr1': Ppr1,
-                  'Pr2': Pr2 * 1e3,
-                  'Ppr2': Ppr2})
-    # 'R1', 'C1', 'R2', 'C2', 'Vbr', 'Vz', 'Ityp', 'Ichg', 'Pr1', 'Ppr1', 'Pr2', 'Ppr2'
-    print(
-        '{R1:>7.0f} {C1:>7.1e} {R2:>7.0f} {C2:>7.1e} '
-        '{Vbr:>7.1f} {Vz:>7.2f} {Ityp:>7.2f} {Ichg:>7.2f} '
-        '{Pr1:>7.1f} {Ppr1:>7.1f} {Pr2:>7.1f} {Ppr2:>7.1f}'.format(**state))
+                  'Pr2': Pr2*1e3,
+                  'Ppr2': Ppr2,
+                  'cost': cost})
+    actuals.append(state)
+
+
+def dump():
+    tab_size = 40
+    for di in range(0, len(actuals), tab_size):
+        header()
+
+        for d in actuals[di: di+tab_size]:
+            # 'R1', 'C1', 'R2', 'C2', 'Vbr', 'Vz', 'Ityp', 'Ichg', 'Pr1', 'Ppr1', 'Pr2', 'Ppr2', 'cost'
+            print(
+               '{R1:>7.0f} {C1:>7.1e} {R2:>7.0f} {C2:>7.1e} '
+               '{Vbr:>7.1f} {Vz:>7.2f} {Ityp:>7.2f} {Ichg:>7.2f} '
+               '{Pr1:>7.1f} {Ppr1:>7.1f} {Pr2:>7.1f} {Ppr2:>7.1f} '
+               '{cost:>7.2f}'.format(**d))
 
 
 def recurse(dim_index=0):
     dim = dims[dim_index]
     for x in dim.get_values():
-        if dim.name == 'R2':
-            header()
         sym_locals[dim.name] = x
         if dim_index < len(dims) - 1:
             recurse(dim_index + 1)
         else:
-            dump()
+            populate_actual()
 
 
 recurse()
+
+# Cost function
+actuals.sort(key=lambda d: d['cost'])
+
+dump()

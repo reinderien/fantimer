@@ -123,7 +123,7 @@ dims = (Var('w', value=2*pi*60),         # angular velocity, rad/s
                                       'Prp/Imax**2',   # Limit pulse power for res
                                       'Pr/I**2')),     # Limit continous power for res
 
-        Var('C2', precision=24, value='1/w/sqrt(Zz**2 - (R2 + Rd)**2)'),
+        Var('C2', precision=12, value='1/w/sqrt(Zz**2 - (R2 + Rd)**2)'),
         Var('Xc2', value='1/w/C2'),
         Var('ImVz', value='I*Xc2'),
 
@@ -133,7 +133,7 @@ dims = (Var('w', value=2*pi*60),         # angular velocity, rad/s
                                       'Prp/Imax**2',   # Limit power pulse for res
                                       'Pr/I**2')),     # Limit continuous power for res
 
-        Var('C1', precision=24, value='I/w/(sqrt(Vin**2 - (Vf + I*R2)**2) - ImVz)'),
+        Var('C1', precision=12, value='I/w/(sqrt(Vin**2 - (Vf + I*R2)**2) - ImVz)'),
         Var('Xc1', value='1/w/C1'))
 
 math_locals = {n: getattr(math, n) for n in dir(math) if not n.startswith('_')}
@@ -177,6 +177,10 @@ def dump():
     V2a = Ita + Z2a
     V2r = V2m * cos(V2a)
     V2i = V2m * sin(V2a)
+
+    err = V2m/sym_locals['Vbr'] - 1
+    if abs(err) > 0.02:
+        return
 
     Rz1 = sym_locals['R1']
     Xz1 = -sym_locals['Xc1']

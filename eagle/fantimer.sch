@@ -12231,7 +12231,7 @@ R2 3 2 {val-val*var/100}
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="102-064X133" package3d_urn="urn:adsk.eagle:package:23653/1" value="330nF"/>
 <part name="R1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-US_" device="0207/7" package3d_urn="urn:adsk.eagle:package:25942/1" value="1.6k"/>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="POTENTIOMETER_" device="PT-10" package3d_urn="urn:adsk.eagle:package:23786/1" value="4.7k"/>
-<part name="IC3" library="ic-package" library_urn="urn:adsk.eagle:library:239" deviceset="DIL8" device="" package3d_urn="urn:adsk.eagle:package:14440/1" value="PIC10F220"/>
+<part name="IC1" library="ic-package" library_urn="urn:adsk.eagle:library:239" deviceset="DIL8" device="" package3d_urn="urn:adsk.eagle:package:14440/1" value="PIC10F220"/>
 <part name="P+6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -12349,7 +12349,7 @@ t = 9.43ms</text>
 <attribute name="NAME" x="1.27" y="45.72" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="1.27" y="43.18" size="1.778" layer="96" rot="MR180"/>
 </instance>
-<instance part="IC3" gate="G$1" x="33.02" y="49.53"/>
+<instance part="IC1" gate="G$1" x="33.02" y="49.53"/>
 <instance part="P+6" gate="1" x="21.59" y="54.61" smashed="yes">
 <attribute name="VALUE" x="20.32" y="55.88" size="1.778" layer="96"/>
 </instance>
@@ -12447,7 +12447,7 @@ t = 9.43ms</text>
 </segment>
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
-<pinref part="IC3" gate="G$1" pin="7"/>
+<pinref part="IC1" gate="G$1" pin="7"/>
 <wire x1="43.18" y1="41.91" x2="43.18" y2="49.53" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="49.53" x2="40.64" y2="49.53" width="0.1524" layer="91"/>
 </segment>
@@ -12468,7 +12468,7 @@ t = 9.43ms</text>
 <junction x="45.72" y="44.45"/>
 <label x="46.99" y="43.18" size="1.778" layer="95"/>
 <wire x1="40.64" y1="44.45" x2="45.72" y2="44.45" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="5"/>
+<pinref part="IC1" gate="G$1" pin="5"/>
 </segment>
 </net>
 <net name="COILOUT" class="0">
@@ -12495,7 +12495,7 @@ t = 9.43ms</text>
 <pinref part="C3" gate="G$1" pin="2"/>
 </segment>
 <segment>
-<pinref part="IC3" gate="G$1" pin="8"/>
+<pinref part="IC1" gate="G$1" pin="8"/>
 <wire x1="40.64" y1="52.07" x2="45.72" y2="52.07" width="0.1524" layer="91"/>
 <junction x="45.72" y="52.07"/>
 <label x="46.99" y="52.07" size="1.778" layer="95"/>
@@ -12537,7 +12537,7 @@ t = 9.43ms</text>
 <segment>
 <pinref part="R3" gate="1" pin="3"/>
 <wire x1="15.24" y1="44.45" x2="16.51" y2="44.45" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="4"/>
+<pinref part="IC1" gate="G$1" pin="4"/>
 <wire x1="25.4" y1="44.45" x2="16.51" y2="44.45" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -12567,7 +12567,7 @@ t = 9.43ms</text>
 </segment>
 <segment>
 <pinref part="P+6" gate="1" pin="+5V"/>
-<pinref part="IC3" gate="G$1" pin="2"/>
+<pinref part="IC1" gate="G$1" pin="2"/>
 <wire x1="21.59" y1="52.07" x2="21.59" y2="49.53" width="0.1524" layer="91"/>
 <wire x1="21.59" y1="49.53" x2="25.4" y2="49.53" width="0.1524" layer="91"/>
 <pinref part="R3" gate="1" pin="1"/>

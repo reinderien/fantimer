@@ -442,18 +442,14 @@ www.irf.com</description>
 <junction x="5.08" y="39.37"/>
 <label x="6.35" y="39.878" size="1.778" layer="95"/>
 <wire x1="26.67" y1="39.37" x2="46.99" y2="39.37" width="0.1524" layer="91"/>
-<wire x1="46.99" y1="39.37" x2="48.26" y2="39.37" width="0.1524" layer="91"/>
 <wire x1="26.67" y1="60.96" x2="26.67" y2="39.37" width="0.1524" layer="91"/>
 <junction x="26.67" y="39.37"/>
 <pinref part="SUPPLY1" gate="PE" pin="PE"/>
 <wire x1="53.34" y1="63.5" x2="46.99" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="46.99" y1="63.5" x2="46.99" y2="39.37" width="0.1524" layer="91"/>
 <junction x="46.99" y="39.37"/>
-<wire x1="48.26" y1="39.37" x2="69.85" y2="39.37" width="0.1524" layer="91"/>
-<junction x="80.01" y="39.37"/>
-<wire x1="69.85" y1="39.37" x2="80.01" y2="39.37" width="0.1524" layer="91" style="shortdash"/>
+<wire x1="46.99" y1="39.37" x2="69.85" y2="39.37" width="0.1524" layer="91"/>
 <wire x1="69.85" y1="39.37" x2="69.85" y2="81.28" width="0.1524" layer="91"/>
-<junction x="69.85" y="39.37"/>
 <pinref part="SUPPLY3" gate="PE" pin="PE"/>
 <wire x1="69.85" y1="81.28" x2="74.93" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="74.93" y1="81.28" x2="74.93" y2="80.01" width="0.1524" layer="91"/>

@@ -1,0 +1,56 @@
+<Qucs Schematic 0.0.19>
+<Properties>
+  <View=-62,-17,1221,2137,1,0,1269>
+  <Grid=10,10,0>
+  <DataSet=splitcap_detection.dat>
+  <DataDisplay=splitcap_detection.sch>
+  <OpenDisplay=1>
+  <Script=splitcap_detection.m>
+  <RunScript=0>
+  <showFrame=0>
+  <FrameText0=Title>
+  <FrameText1=Drawn By:>
+  <FrameText2=Date:>
+  <FrameText3=Revision:>
+</Properties>
+<Symbol>
+</Symbol>
+<Components>
+</Components>
+<Wires>
+</Wires>
+<Diagrams>
+  <Rect 90 953 1026 203 3 #c0c0c0 1 00 1 0 0.001 0.02 1 -0.15 0.05 0.0239537 1 -1 0.5 1 315 0 225 "" "" "">
+	<"Vline.It" #0000ff 0 3 0 0 0>
+	  <Mkr 0 60 -84 3 0 0>
+	  <Mkr 0.0127856 666 -113 3 0 0>
+  </Rect>
+  <Rect 90 1362 1030 322 3 #c0c0c0 1 01 1 0 0.001 0.02 0 0.001 10 100 1 -1 0.5 1 315 0 225 "time" "" "">
+	<"Pr1" #ff0000 0 3 0 0 0>
+	  <Mkr 0 60 -245 3 0 0>
+	  <Mkr 0.0128257 681 -215 3 0 0>
+	<"Pr2" #00ff00 0 3 0 0 0>
+	  <Mkr 0.00448898 251 -214 3 0 0>
+	  <Mkr 0 60 -317 3 0 0>
+  </Rect>
+  <Tab 90 2117 522 707 3 #c0c0c0 1 00 1 0 1 1 1 0 1 1 1 0 1 500 315 0 225 "" "" "">
+	<"Vline.Vt" #0000ff 0 3 0 0 0>
+	<"Vzen.Vt" #0000ff 0 3 0 0 0>
+	<"Vd.Vt" #0000ff 0 3 0 0 0>
+	<"Vline.It" #0000ff 0 3 0 0 0>
+	<"Pr1" #0000ff 0 3 0 0 0>
+	<"Pr2" #0000ff 0 3 0 0 0>
+  </Tab>
+  <Rect 90 692 1002 582 3 #c0c0c0 1 00 1 0 0.001 0.02 0 -200 25 200 0 -2 0.25 2 315 0 225 "time" "" "">
+	<"Vline.Vt" #0000ff 0 3 0 0 0>
+	  <Mkr 0.0166333 853 -598 3 0 0>
+	<"Vzen.Vt" #ff0000 0 3 0 0 0>
+	  <Mkr 0.0166333 713 -345 3 0 0>
+	  <Mkr 0 60 -534 3 0 0>
+	<"Vd.Vt" #ff00ff 0 3 0 0 1>
+	  <Mkr 0.0129459 539 -527 3 0 0>
+	  <Mkr 0 60 -609 3 0 0>
+  </Rect>
+</Diagrams>
+<Paintings>
+</Paintings>

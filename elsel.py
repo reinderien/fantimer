@@ -109,9 +109,10 @@ dims = (Var('w', value=2*pi*60),         # angular velocity, rad/s
         Var('Vpasv', value='Vin - Vf'),  # potential over passives, V
         Var('Rd', value='Vf/I'),         # equivalent diode res during Ityp, V
 
-        Var('Vbr', values=(6.4, 6.45, 6.67, 7.13, 7.22, 7.78, 7.79, 8.65, 8.89, 9.5, 10, 10.5, 11.1, 11.4, 12.2, 12.4,
-                           14.3, 14.4, 15.2, 17.1, 17.8, 19, 20, 20.9, 22.2, 22.8, 25.7, 28.5, 31.4, 34.2, 37.1, 40,
-                           40.9, 44.7, 48.5, 53.2, 58.9, 64.6, 71.3, 77.9, 86.5, 95, 105, 114, 124, 143)),
+        # Var('Vbr', values=(6.4, 6.45, 6.67, 7.13, 7.22, 7.78, 7.79, 8.65, 8.89, 9.5, 10, 10.5, 11.1, 11.4, 12.2, 12.4,
+        #                   14.3, 14.4, 15.2, 17.1, 17.8, 19, 20, 20.9, 22.2, 22.8, 25.7, 28.5, 31.4, 34.2, 37.1, 40,
+        #                   40.9, 44.7, 48.5, 53.2, 58.9, 64.6, 71.3, 77.9, 86.5, 95, 105, 114, 124, 143)),
+        Var('Vbr', value=86.5),
         Var('Zz', value='Vbr/I'),  # typ
         Var('Vrc1', value='Vin - Vbr'),
         Var('Vrc2', value='Vbr - Vf'),
@@ -152,18 +153,23 @@ def num_or_eval(n):
 
 
 def header():
-    print('\n'
-          '{:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7}'.format(
-          'R1', 'C1', 'R2', 'C2', 'Vbr', 'Vz', 'IpkmA', 'IpspkmA', 'Pr1acmW', 'Pr1pkW', 'Pr2acmW', 'Pr2pkW', 'cost'))
+    print(
+        '\n'
+        '{:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7}'.format(
+        'R1', 'C1', 'R2', 'C2', 'Vbr', 'Vz', 'IpkmA', 'IpspkmA',
+        'Pr1acmW', 'Pr1pkW', 'Pr2acmW', 'Pr2pkW', 'Vc1pk', 'Vc2pk'))
 
 
 actuals = []
 
 
 def populate_actual():
+    if sym_locals['R1'] != sym_locals['R2'] or sym_locals['C1'] != sym_locals['C2']:
+        return
+
     Rt = eval_env('Rd + R1 + R2')
     Xt = eval_env('-Xc1 - Xc2')
-    Zt = sqrt(Rt ** 2 + Xt ** 2)
+    Zt = sqrt(Rt**2 + Xt**2)
     Zta = atan2(Xt, Rt)
 
     Itm = sym_locals['Vin'] / Zt
@@ -173,7 +179,7 @@ def populate_actual():
 
     Rz2 = eval_env('Rd + R2')
     Xz2 = -sym_locals['Xc2']
-    Z2m = sqrt(Rz2 ** 2 + Xz2 ** 2)
+    Z2m = sqrt(Rz2**2 + Xz2**2)
     Z2a = atan2(Xz2, Rz2)
 
     V2m = Itm * Z2m
@@ -187,7 +193,7 @@ def populate_actual():
 
     Rz1 = sym_locals['R1']
     Xz1 = -sym_locals['Xc1']
-    Z1m = sqrt(Rz1 ** 2 + Xz1 ** 2)
+    Z1m = sqrt(Rz1**2 + Xz1**2)
     Z1a = atan2(Xz1, Rz1)
 
     V1m = Itm * Z1m
@@ -199,17 +205,12 @@ def populate_actual():
     assert (abs(V1r + V2r - sym_locals['Vin']) < 1e-12)  # Vin's components sum to Vin
 
     Ipulse = sym_locals['Vin'] / Rt
-    Ppr1 = Ipulse ** 2 * sym_locals['R1']
-    Ppr2 = Ipulse ** 2 * sym_locals['R2']
+    Ppr1 = Ipulse**2 * sym_locals['R1']
+    Ppr2 = Ipulse**2 * sym_locals['R2']
 
     Irms = Itm / sqrt(2)
-    Pr1 = Irms ** 2 * sym_locals['R1']
-    Pr2 = Irms ** 2 * sym_locals['R2']
-
-    cost = (Ipulse/0.1 +
-            -err/.02 +
-            (Pr1 + Pr2)/0.05 +
-            (Ppr1 + Ppr2)/10)
+    Pr1 = Irms**2 * sym_locals['R1']
+    Pr2 = Irms**2 * sym_locals['R2']
 
     state = dict(sym_locals)
     state.update({'Vz': V2m,
@@ -219,7 +220,8 @@ def populate_actual():
                   'Ppr1': Ppr1,
                   'Pr2': Pr2*1e3,
                   'Ppr2': Ppr2,
-                  'cost': cost})
+                  'Vc1': sym_locals['Xc1']*Itm,
+                  'Vc2': sym_locals['Xc2']*Itm})
     actuals.append(state)
 
 
@@ -234,7 +236,7 @@ def dump():
                '{R1:>7.0f} {C1:>7.1e} {R2:>7.0f} {C2:>7.1e} '
                '{Vbr:>7.1f} {Vz:>7.2f} {Ityp:>7.2f} {Ichg:>7.2f} '
                '{Pr1:>7.1f} {Ppr1:>7.1f} {Pr2:>7.1f} {Ppr2:>7.1f} '
-               '{cost:>7.2f}'.format(**d))
+               '{Vc1:>7.2f} {Vc2:>7.2f}'.format(**d))
 
 
 def recurse(dim_index=0):
@@ -248,8 +250,5 @@ def recurse(dim_index=0):
 
 
 recurse()
-
-# Cost function
-actuals.sort(key=lambda d: d['cost'])
-
+actuals.sort(key=lambda d: d['R1'])
 dump()

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.spreadsheet">
- <office:meta><dc:date>2018-09-27T17:52:35.560000000</dc:date><meta:editing-duration>PT6M13S</meta:editing-duration><meta:editing-cycles>1</meta:editing-cycles><meta:document-statistic meta:table-count="1" meta:cell-count="100" meta:object-count="0"/><meta:generator>LibreOffice/6.0.2.1$Windows_X86_64 LibreOffice_project/f7f06a8f319e4b62f9bc5095aa112a65d2f3ac89</meta:generator></office:meta>
+ <office:meta><dc:date>2018-09-27T20:52:50.299000000</dc:date><meta:editing-duration>PT11M44S</meta:editing-duration><meta:editing-cycles>3</meta:editing-cycles><meta:generator>LibreOffice/6.0.2.1$Windows_X86_64 LibreOffice_project/f7f06a8f319e4b62f9bc5095aa112a65d2f3ac89</meta:generator><meta:document-statistic meta:table-count="1" meta:cell-count="130" meta:object-count="0"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="VisibleAreaTop" config:type="int">0</config:config-item>
    <config:config-item config:name="VisibleAreaLeft" config:type="int">0</config:config-item>
-   <config:config-item config:name="VisibleAreaWidth" config:type="int">25082</config:config-item>
+   <config:config-item config:name="VisibleAreaWidth" config:type="int">28908</config:config-item>
    <config:config-item config:name="VisibleAreaHeight" config:type="int">7302</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
@@ -14,7 +14,7 @@
      <config:config-item-map-named config:name="Tables">
       <config:config-item-map-entry config:name="Sheet1">
        <config:config-item config:name="CursorPositionX" config:type="int">0</config:config-item>
-       <config:config-item config:name="CursorPositionY" config:type="int">0</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">10</config:config-item>
        <config:config-item config:name="HorizontalSplitMode" config:type="short">0</config:config-item>
        <config:config-item config:name="VerticalSplitMode" config:type="short">0</config:config-item>
        <config:config-item config:name="HorizontalSplitPosition" config:type="int">0</config:config-item>
@@ -32,7 +32,7 @@
       </config:config-item-map-entry>
      </config:config-item-map-named>
      <config:config-item config:name="ActiveTable" config:type="string">Sheet1</config:config-item>
-     <config:config-item config:name="HorizontalScrollbarWidth" config:type="int">1616</config:config-item>
+     <config:config-item config:name="HorizontalScrollbarWidth" config:type="int">774</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ZoomValue" config:type="int">100</config:config-item>
      <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
@@ -77,8 +77,8 @@
    <config:config-item config:name="IsRasterAxisSynchronized" config:type="boolean">true</config:config-item>
    <config:config-item config:name="AutoCalculate" config:type="boolean">true</config:config-item>
    <config:config-item config:name="ApplyUserData" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrinterName" config:type="string"/>
-   <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
+   <config:config-item config:name="PrinterName" config:type="string">HP LaserJet 2100 PCL6</config:config-item>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary">FQX+/0hQIExhc2VySmV0IDIxMDAgUENMNgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASFAgTGFzZXJKZXQgMjEwMCBQQ0w2AAAAAAAAAAAAAAAWAAEAMgQAAAAAAAAIAFZUAAAkbQAAM1ROVwAAAAAKAEgAUAAgAEwAYQBzAGUAcgBKAGUAdAAgADIAMQAwADAAIABQAEMATAA2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBAMG3ABMA0PvgAUBAAEA6gpvCGQAAQAPAFgCAQABAFgCAwABAEwAZQB0AHQAZQByAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAQAAAAIAAAABAAAA/////wAAAAAAAAAAAAAAAAAAAABESU5VIgDwAEwDAAAfT4a2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAAFNNVEoAAAAAEADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgBDT01QQVRfRFVQTEVYX01PREUTAER1cGxleE1vZGU6OlVua25vd24=</config:config-item>
    <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
    <config:config-item config:name="SaveVersionOnClose" config:type="boolean">false</config:config-item>
    <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
@@ -91,7 +91,9 @@
  </office:settings>
  <office:scripts>
   <office:script script:language="ooo:Basic">
-   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <ooo:library-embedded ooo:name="Standard"/>
+   </ooo:libraries>
   </office:script>
  </office:scripts>
  <office:font-face-decls>
@@ -262,108 +264,23 @@
    <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
    <style:map style:condition="value()&gt;=0" style:apply-style-name="N10121P0"/>
   </number:number-style>
-  <number:number-style style:name="N10122P0" style:volatile="true" number:language="en" number:country="CA">
+  <number:number-style style:name="N10125P0" style:volatile="true" number:language="en" number:country="CA">
    <loext:text> </loext:text>
    <loext:fill-character> </loext:fill-character>
    <number:number number:decimal-places="0" loext:min-decimal-places="0" number:min-integer-digits="1" number:grouping="true"/>
    <number:text> </number:text>
   </number:number-style>
-  <number:number-style style:name="N10122P1" style:volatile="true" number:language="en" number:country="CA">
+  <number:number-style style:name="N10125P1" style:volatile="true" number:language="en" number:country="CA">
    <loext:text>-</loext:text>
    <loext:fill-character> </loext:fill-character>
    <number:number number:decimal-places="0" loext:min-decimal-places="0" number:min-integer-digits="1" number:grouping="true"/>
    <number:text> </number:text>
   </number:number-style>
-  <number:number-style style:name="N10122P2" style:volatile="true" number:language="en" number:country="CA">
+  <number:number-style style:name="N10125P2" style:volatile="true" number:language="en" number:country="CA">
    <loext:text> </loext:text>
    <loext:fill-character> </loext:fill-character>
    <number:text>- </number:text>
   </number:number-style>
-  <number:text-style style:name="N10122" number:language="en" number:country="CA">
-   <number:text> </number:text>
-   <number:text-content/>
-   <number:text> </number:text>
-   <style:map style:condition="value()&gt;0" style:apply-style-name="N10122P0"/>
-   <style:map style:condition="value()&lt;0" style:apply-style-name="N10122P1"/>
-   <style:map style:condition="value()=0" style:apply-style-name="N10122P2"/>
-  </number:text-style>
-  <number:currency-style style:name="N10123P0" style:volatile="true" number:language="en" number:country="CA">
-   <number:text> </number:text>
-   <number:currency-symbol/>
-   <loext:fill-character> </loext:fill-character>
-   <number:number number:decimal-places="0" loext:min-decimal-places="0" number:min-integer-digits="1" number:grouping="true"/>
-   <number:text> </number:text>
-  </number:currency-style>
-  <number:currency-style style:name="N10123P1" style:volatile="true" number:language="en" number:country="CA">
-   <number:text>-</number:text>
-   <number:currency-symbol/>
-   <loext:fill-character> </loext:fill-character>
-   <number:number number:decimal-places="0" loext:min-decimal-places="0" number:min-integer-digits="1" number:grouping="true"/>
-   <number:text> </number:text>
-  </number:currency-style>
-  <number:currency-style style:name="N10123P2" style:volatile="true" number:language="en" number:country="CA">
-   <number:text> </number:text>
-   <number:currency-symbol/>
-   <loext:fill-character> </loext:fill-character>
-   <number:text>- </number:text>
-  </number:currency-style>
-  <number:text-style style:name="N10123" number:language="en" number:country="CA">
-   <number:text> </number:text>
-   <number:text-content/>
-   <number:text> </number:text>
-   <style:map style:condition="value()&gt;0" style:apply-style-name="N10123P0"/>
-   <style:map style:condition="value()&lt;0" style:apply-style-name="N10123P1"/>
-   <style:map style:condition="value()=0" style:apply-style-name="N10123P2"/>
-  </number:text-style>
-  <number:number-style style:name="N10124P0" style:volatile="true" number:language="en" number:country="CA">
-   <loext:text> </loext:text>
-   <loext:fill-character> </loext:fill-character>
-   <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
-   <number:text> </number:text>
-  </number:number-style>
-  <number:number-style style:name="N10124P1" style:volatile="true" number:language="en" number:country="CA">
-   <loext:text>-</loext:text>
-   <loext:fill-character> </loext:fill-character>
-   <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
-   <number:text> </number:text>
-  </number:number-style>
-  <number:number-style style:name="N10124P2" style:volatile="true" number:language="en" number:country="CA">
-   <loext:text> </loext:text>
-   <loext:fill-character> </loext:fill-character>
-   <number:text>-</number:text>
-   <number:number number:decimal-places="0" loext:min-decimal-places="0" number:min-integer-digits="0"/>
-   <number:text> </number:text>
-  </number:number-style>
-  <number:text-style style:name="N10124" number:language="en" number:country="CA">
-   <number:text> </number:text>
-   <number:text-content/>
-   <number:text> </number:text>
-   <style:map style:condition="value()&gt;0" style:apply-style-name="N10124P0"/>
-   <style:map style:condition="value()&lt;0" style:apply-style-name="N10124P1"/>
-   <style:map style:condition="value()=0" style:apply-style-name="N10124P2"/>
-  </number:text-style>
-  <number:currency-style style:name="N10125P0" style:volatile="true" number:language="en" number:country="CA">
-   <number:text> </number:text>
-   <number:currency-symbol/>
-   <loext:fill-character> </loext:fill-character>
-   <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
-   <number:text> </number:text>
-  </number:currency-style>
-  <number:currency-style style:name="N10125P1" style:volatile="true" number:language="en" number:country="CA">
-   <number:text>-</number:text>
-   <number:currency-symbol/>
-   <loext:fill-character> </loext:fill-character>
-   <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
-   <number:text> </number:text>
-  </number:currency-style>
-  <number:currency-style style:name="N10125P2" style:volatile="true" number:language="en" number:country="CA">
-   <number:text> </number:text>
-   <number:currency-symbol/>
-   <loext:fill-character> </loext:fill-character>
-   <number:text>-</number:text>
-   <number:number number:decimal-places="0" loext:min-decimal-places="0" number:min-integer-digits="0"/>
-   <number:text> </number:text>
-  </number:currency-style>
   <number:text-style style:name="N10125" number:language="en" number:country="CA">
    <number:text> </number:text>
    <number:text-content/>
@@ -372,16 +289,97 @@
    <style:map style:condition="value()&lt;0" style:apply-style-name="N10125P1"/>
    <style:map style:condition="value()=0" style:apply-style-name="N10125P2"/>
   </number:text-style>
-  <number:currency-style style:name="N10126P0" style:volatile="true" number:language="en" number:country="CA">
+  <number:currency-style style:name="N10129P0" style:volatile="true" number:language="en" number:country="CA">
+   <number:currency-symbol/>
+   <loext:fill-character> </loext:fill-character>
+   <number:number number:decimal-places="0" loext:min-decimal-places="0" number:min-integer-digits="1" number:grouping="true"/>
+   <number:text> </number:text>
+  </number:currency-style>
+  <number:currency-style style:name="N10129P1" style:volatile="true" number:language="en" number:country="CA">
+   <number:text>-</number:text>
+   <number:currency-symbol/>
+   <loext:fill-character> </loext:fill-character>
+   <number:number number:decimal-places="0" loext:min-decimal-places="0" number:min-integer-digits="1" number:grouping="true"/>
+   <number:text> </number:text>
+  </number:currency-style>
+  <number:currency-style style:name="N10129P2" style:volatile="true" number:language="en" number:country="CA">
+   <number:currency-symbol/>
+   <loext:fill-character> </loext:fill-character>
+   <number:text>- </number:text>
+  </number:currency-style>
+  <number:text-style style:name="N10129" number:language="en" number:country="CA">
+   <number:text> </number:text>
+   <number:text-content/>
+   <number:text> </number:text>
+   <style:map style:condition="value()&gt;0" style:apply-style-name="N10129P0"/>
+   <style:map style:condition="value()&lt;0" style:apply-style-name="N10129P1"/>
+   <style:map style:condition="value()=0" style:apply-style-name="N10129P2"/>
+  </number:text-style>
+  <number:number-style style:name="N10133P0" style:volatile="true" number:language="en" number:country="CA">
+   <loext:text> </loext:text>
+   <loext:fill-character> </loext:fill-character>
+   <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
+   <number:text> </number:text>
+  </number:number-style>
+  <number:number-style style:name="N10133P1" style:volatile="true" number:language="en" number:country="CA">
+   <loext:text>-</loext:text>
+   <loext:fill-character> </loext:fill-character>
+   <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
+   <number:text> </number:text>
+  </number:number-style>
+  <number:number-style style:name="N10133P2" style:volatile="true" number:language="en" number:country="CA">
+   <loext:text> </loext:text>
+   <loext:fill-character> </loext:fill-character>
+   <number:text>-</number:text>
+   <number:number number:decimal-places="0" loext:min-decimal-places="0" number:min-integer-digits="0"/>
+   <number:text> </number:text>
+  </number:number-style>
+  <number:text-style style:name="N10133" number:language="en" number:country="CA">
+   <number:text> </number:text>
+   <number:text-content/>
+   <number:text> </number:text>
+   <style:map style:condition="value()&gt;0" style:apply-style-name="N10133P0"/>
+   <style:map style:condition="value()&lt;0" style:apply-style-name="N10133P1"/>
+   <style:map style:condition="value()=0" style:apply-style-name="N10133P2"/>
+  </number:text-style>
+  <number:currency-style style:name="N10137P0" style:volatile="true" number:language="en" number:country="CA">
+   <number:currency-symbol/>
+   <loext:fill-character> </loext:fill-character>
+   <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
+   <number:text> </number:text>
+  </number:currency-style>
+  <number:currency-style style:name="N10137P1" style:volatile="true" number:language="en" number:country="CA">
+   <number:text>-</number:text>
+   <number:currency-symbol/>
+   <loext:fill-character> </loext:fill-character>
+   <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
+   <number:text> </number:text>
+  </number:currency-style>
+  <number:currency-style style:name="N10137P2" style:volatile="true" number:language="en" number:country="CA">
+   <number:currency-symbol/>
+   <loext:fill-character> </loext:fill-character>
+   <number:text>-</number:text>
+   <number:number number:decimal-places="0" loext:min-decimal-places="0" number:min-integer-digits="0"/>
+   <number:text> </number:text>
+  </number:currency-style>
+  <number:text-style style:name="N10137" number:language="en" number:country="CA">
+   <number:text> </number:text>
+   <number:text-content/>
+   <number:text> </number:text>
+   <style:map style:condition="value()&gt;0" style:apply-style-name="N10137P0"/>
+   <style:map style:condition="value()&lt;0" style:apply-style-name="N10137P1"/>
+   <style:map style:condition="value()=0" style:apply-style-name="N10137P2"/>
+  </number:text-style>
+  <number:currency-style style:name="N10139P0" style:volatile="true" number:language="en" number:country="CA">
    <number:currency-symbol>$</number:currency-symbol>
    <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
   </number:currency-style>
-  <number:currency-style style:name="N10126" number:language="en" number:country="CA">
+  <number:currency-style style:name="N10139" number:language="en" number:country="CA">
    <style:text-properties fo:color="#ff0000"/>
    <number:text>-</number:text>
    <number:currency-symbol>$</number:currency-symbol>
    <number:number number:decimal-places="2" loext:min-decimal-places="2" number:min-integer-digits="1" number:grouping="true"/>
-   <style:map style:condition="value()&gt;=0" style:apply-style-name="N10126P0"/>
+   <style:map style:condition="value()&gt;=0" style:apply-style-name="N10139P0"/>
   </number:currency-style>
   <style:style style:name="Default" style:family="table-cell">
    <style:table-cell-properties style:rotation-align="none" style:vertical-align="bottom"/>
@@ -456,19 +454,22 @@
    <style:table-column-properties fo:break-before="auto" style:column-width="67.89mm"/>
   </style:style>
   <style:style style:name="co5" style:family="table-column">
-   <style:table-column-properties fo:break-before="auto" style:column-width="23.23mm"/>
+   <style:table-column-properties fo:break-before="auto" style:column-width="22.58mm"/>
   </style:style>
   <style:style style:name="co6" style:family="table-column">
-   <style:table-column-properties fo:break-before="auto" style:column-width="25.14mm"/>
+   <style:table-column-properties fo:break-before="auto" style:column-width="23.23mm"/>
   </style:style>
   <style:style style:name="co7" style:family="table-column">
-   <style:table-column-properties fo:break-before="auto" style:column-width="33.85mm"/>
+   <style:table-column-properties fo:break-before="auto" style:column-width="25.14mm"/>
   </style:style>
   <style:style style:name="co8" style:family="table-column">
-   <style:table-column-properties fo:break-before="auto" style:column-width="16.67mm"/>
+   <style:table-column-properties fo:break-before="auto" style:column-width="23.62mm"/>
   </style:style>
   <style:style style:name="co9" style:family="table-column">
-   <style:table-column-properties fo:break-before="auto" style:column-width="22.58mm"/>
+   <style:table-column-properties fo:break-before="auto" style:column-width="25.91mm"/>
+  </style:style>
+  <style:style style:name="co10" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="16.67mm"/>
   </style:style>
   <style:style style:name="ro1" style:family="table-row">
    <style:table-row-properties style:row-height="4.87mm" fo:break-before="auto" style:use-optimal-row-height="true"/>
@@ -479,11 +480,11 @@
   <number:number-style style:name="N1">
    <number:number number:decimal-places="0" loext:min-decimal-places="0" number:min-integer-digits="1"/>
   </number:number-style>
-  <style:style style:name="ce1" style:family="table-cell" style:parent-style-name="Default">
+  <style:style style:name="ce12" style:family="table-cell" style:parent-style-name="Default">
    <style:table-cell-properties style:diagonal-bl-tr="none" style:diagonal-tl-br="none" fo:background-color="transparent" fo:border="none" style:rotation-align="none"/>
    <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Calibri" fo:font-size="11pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="bold" style:font-size-asian="11pt" style:font-style-asian="normal" style:font-weight-asian="bold" style:font-name-complex="Calibri" style:font-size-complex="11pt" style:font-style-complex="normal" style:font-weight-complex="bold"/>
   </style:style>
-  <style:style style:name="ce2" style:family="table-cell" style:parent-style-name="Default">
+  <style:style style:name="ce13" style:family="table-cell" style:parent-style-name="Default">
    <style:table-cell-properties style:diagonal-bl-tr="none" style:diagonal-tl-br="none" style:text-align-source="fix" style:repeat-content="false" fo:background-color="transparent" fo:border="none" style:rotation-align="none"/>
    <style:paragraph-properties fo:text-align="end" fo:margin-left="0mm"/>
    <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Calibri" fo:font-size="11pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="bold" style:font-size-asian="11pt" style:font-style-asian="normal" style:font-weight-asian="bold" style:font-name-complex="Calibri" style:font-size-complex="11pt" style:font-style-complex="normal" style:font-weight-complex="bold"/>
@@ -492,7 +493,7 @@
    <style:table-cell-properties style:text-align-source="fix" style:repeat-content="false"/>
    <style:paragraph-properties fo:text-align="end" fo:margin-left="0mm"/>
   </style:style>
-  <style:style style:name="ce4" style:family="table-cell" style:parent-style-name="Default">
+  <style:style style:name="ce15" style:family="table-cell" style:parent-style-name="Default">
    <style:table-cell-properties style:diagonal-bl-tr="none" style:diagonal-tl-br="none" style:text-align-source="fix" style:repeat-content="false" fo:background-color="transparent" fo:border="none" style:rotation-align="none"/>
    <style:paragraph-properties fo:text-align="start" fo:margin-left="0mm"/>
    <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Calibri" fo:font-size="11pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="bold" style:font-size-asian="11pt" style:font-style-asian="normal" style:font-weight-asian="bold" style:font-name-complex="Calibri" style:font-size-complex="11pt" style:font-style-complex="normal" style:font-weight-complex="bold"/>
@@ -506,6 +507,11 @@
    <style:paragraph-properties fo:text-align="start" fo:margin-left="0mm"/>
    <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Calibri" fo:font-size="11pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:font-size-asian="11pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="Calibri" style:font-size-complex="11pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
   </style:style>
+  <style:style style:name="ce18" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N10139">
+   <style:table-cell-properties style:diagonal-bl-tr="none" style:diagonal-tl-br="none" fo:background-color="transparent" fo:border="none" style:rotation-align="none"/>
+   <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Calibri" fo:font-size="11pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="bold" style:font-size-asian="11pt" style:font-style-asian="normal" style:font-weight-asian="bold" style:font-name-complex="Calibri" style:font-size-complex="11pt" style:font-style-complex="normal" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce10" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N10139"/>
   <style:style style:name="ce7" style:family="table-cell" style:parent-style-name="Default">
    <style:table-cell-properties style:text-align-source="fix" style:repeat-content="false"/>
    <style:paragraph-properties fo:text-align="end" fo:margin-left="0mm"/>
@@ -515,12 +521,10 @@
    <style:table-cell-properties style:diagonal-bl-tr="none" style:diagonal-tl-br="none" fo:background-color="transparent" fo:border="none" style:rotation-align="none"/>
    <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Calibri" fo:font-size="11pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:font-size-asian="11pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="Calibri" style:font-size-complex="11pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
   </style:style>
-  <style:style style:name="ce9" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N10126">
-   <style:table-cell-properties style:diagonal-bl-tr="none" style:diagonal-tl-br="none" fo:background-color="transparent" fo:border="none" style:rotation-align="none"/>
-   <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Calibri" fo:font-size="11pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="bold" style:font-size-asian="11pt" style:font-style-asian="normal" style:font-weight-asian="bold" style:font-name-complex="Calibri" style:font-size-complex="11pt" style:font-style-complex="normal" style:font-weight-complex="bold"/>
+  <style:style style:name="ce22" style:family="table-cell" style:parent-style-name="Default">
+   <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
   </style:style>
-  <style:style style:name="ce10" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N10126"/>
-  <style:style style:name="ce11" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N10126">
+  <style:style style:name="ce11" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N10139">
    <style:table-cell-properties style:diagonal-bl-tr="none" style:diagonal-tl-br="none" fo:background-color="transparent" fo:border="none" style:rotation-align="none"/>
    <style:text-properties style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Calibri" fo:font-size="11pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:font-size-asian="11pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="Calibri" style:font-size-complex="11pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
   </style:style>
@@ -573,7 +577,7 @@
      <text:p><text:sheet-name>???</text:sheet-name><text:s/>(<text:title>???</text:title>)</text:p>
     </style:region-left>
     <style:region-right>
-     <text:p><text:date style:data-style-name="N2" text:date-value="2018-09-27">0000-00-00</text:date>, <text:time>00:00:00</text:time></text:p>
+     <text:p><text:date style:data-style-name="N2" text:date-value="2018-09-27">0000-00-00</text:date>, <text:time style:data-style-name="N2" text:time-value="20:26:58.069000000">00:00:00</text:time></text:p>
     </style:region-right>
    </style:header>
    <style:header-left style:display="false"/>
@@ -599,32 +603,40 @@
     <table:table-column table:style-name="co3" table:default-cell-style-name="ce5"/>
     <table:table-column table:style-name="co4" table:default-cell-style-name="Default"/>
     <table:table-column table:style-name="co5" table:default-cell-style-name="Default"/>
-    <table:table-column table:style-name="co6" table:default-cell-style-name="ce10"/>
+    <table:table-column table:style-name="co6" table:default-cell-style-name="Default"/>
     <table:table-column table:style-name="co7" table:default-cell-style-name="ce10"/>
-    <table:table-column table:style-name="co8" table:number-columns-repeated="1014" table:default-cell-style-name="Default"/>
+    <table:table-column table:style-name="co8" table:default-cell-style-name="ce10"/>
+    <table:table-column table:style-name="co9" table:default-cell-style-name="Default"/>
+    <table:table-column table:style-name="co10" table:number-columns-repeated="1013" table:default-cell-style-name="Default"/>
     <table:table-row table:style-name="ro1">
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
+     <table:table-cell table:style-name="ce12" office:value-type="string" calcext:value-type="string">
       <text:p>Reference</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+     <table:table-cell table:style-name="ce13" office:value-type="string" calcext:value-type="string">
       <text:p>Part Number</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce4" office:value-type="string" calcext:value-type="string">
+     <table:table-cell table:style-name="ce15" office:value-type="string" calcext:value-type="string">
       <text:p>Mfg Part Number</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
+     <table:table-cell table:style-name="ce12" office:value-type="string" calcext:value-type="string">
       <text:p>Description</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce1" office:value-type="string" calcext:value-type="string">
-      <text:p>Quantity</text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="ce9" office:value-type="string" calcext:value-type="string">
+     <table:table-cell table:style-name="ce18" office:value-type="string" calcext:value-type="string">
       <text:p>Unit Price</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce9" office:value-type="string" calcext:value-type="string">
-      <text:p>Extended Price</text:p>
+     <table:table-cell table:style-name="ce12" office:value-type="string" calcext:value-type="string">
+      <text:p>Sys Qty</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:style-name="ce22" office:value-type="string" calcext:value-type="string">
+      <text:p>Sys Price</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce18" office:value-type="string" calcext:value-type="string">
+      <text:p>Order Qty</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce22" office:value-type="string" calcext:value-type="string">
+      <text:p>Order Price</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
@@ -639,16 +651,22 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>CAP FILM 0.33UF 10% 250VDC RAD</text:p>
      </table:table-cell>
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="0.57" calcext:value-type="currency">
+      <text:p>$0.57</text:p>
+     </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="float" office:value="2" calcext:value-type="float">
       <text:p>2</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="0.57" calcext:value-type="currency">
-      <text:p>$0.57</text:p>
+     <table:table-cell table:style-name="ce11" table:formula="of:=[.E2]*[.F2]" office:value-type="currency" office:currency="CAD" office:value="1.14" calcext:value-type="currency">
+      <text:p>$1.14</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce11" office:value-type="currency" office:currency="CAD" office:value="2.28" calcext:value-type="currency">
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="4" calcext:value-type="float">
+      <text:p>4</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H2]*[.E2]" office:value-type="currency" office:currency="CAD" office:value="2.28" calcext:value-type="currency">
       <text:p>$2.28</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
@@ -663,16 +681,22 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>CAP CER 1UF 25V X7R RADIAL</text:p>
      </table:table-cell>
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="0.45" calcext:value-type="currency">
+      <text:p>$0.45</text:p>
+     </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="0.45" calcext:value-type="currency">
+     <table:table-cell table:style-name="ce11" table:formula="of:=[.E3]*[.F3]" office:value-type="currency" office:currency="CAD" office:value="0.45" calcext:value-type="currency">
       <text:p>$0.45</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce11" office:value-type="currency" office:currency="CAD" office:value="0.9" calcext:value-type="currency">
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H3]*[.E3]" office:value-type="currency" office:currency="CAD" office:value="0.9" calcext:value-type="currency">
       <text:p>$0.90</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
@@ -687,16 +711,22 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>DIODE SCHOTTKY 40V 1A DO41</text:p>
      </table:table-cell>
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="0.35" calcext:value-type="currency">
+      <text:p>$0.35</text:p>
+     </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="0.35" calcext:value-type="currency">
+     <table:table-cell table:style-name="ce11" table:formula="of:=[.E4]*[.F4]" office:value-type="currency" office:currency="CAD" office:value="0.35" calcext:value-type="currency">
       <text:p>$0.35</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce11" office:value-type="currency" office:currency="CAD" office:value="0.7" calcext:value-type="currency">
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H4]*[.E4]" office:value-type="currency" office:currency="CAD" office:value="0.7" calcext:value-type="currency">
       <text:p>$0.70</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
@@ -711,40 +741,52 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>TVS DIODE 77.8V 125V DO204AC</text:p>
      </table:table-cell>
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="0.64" calcext:value-type="currency">
+      <text:p>$0.64</text:p>
+     </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="0.64" calcext:value-type="currency">
+     <table:table-cell table:style-name="ce11" table:formula="of:=[.E5]*[.F5]" office:value-type="currency" office:currency="CAD" office:value="0.64" calcext:value-type="currency">
       <text:p>$0.64</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce11" office:value-type="currency" office:currency="CAD" office:value="1.28" calcext:value-type="currency">
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H5]*[.E5]" office:value-type="currency" office:currency="CAD" office:value="1.28" calcext:value-type="currency">
       <text:p>$1.28</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>IC1</text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>PIC10F200-I/P-ND</text:p>
+      <text:p>PIC10F220-I/P-ND‎ </text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
-      <text:p>PIC10F200-I/P</text:p>
+      <text:p>PIC10F220-I/P‎ </text:p>
      </table:table-cell>
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>IC MCU 8BIT 384B FLASH 8DIP</text:p>
      </table:table-cell>
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="0.86" calcext:value-type="currency">
+      <text:p>$0.86</text:p>
+     </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="0.8" calcext:value-type="currency">
-      <text:p>$0.80</text:p>
+     <table:table-cell table:style-name="ce11" table:formula="of:=[.E6]*[.F6]" office:value-type="currency" office:currency="CAD" office:value="0.86" calcext:value-type="currency">
+      <text:p>$0.86</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce11" office:value-type="currency" office:currency="CAD" office:value="1.6" calcext:value-type="currency">
-      <text:p>$1.60</text:p>
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H6]*[.E6]" office:value-type="currency" office:currency="CAD" office:value="1.72" calcext:value-type="currency">
+      <text:p>$1.72</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
@@ -759,16 +801,22 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>RELAY GEN PURPOSE SPDT 10A 5V</text:p>
      </table:table-cell>
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="1.75" calcext:value-type="currency">
+      <text:p>$1.75</text:p>
+     </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="1.75" calcext:value-type="currency">
+     <table:table-cell table:style-name="ce11" table:formula="of:=[.E7]*[.F7]" office:value-type="currency" office:currency="CAD" office:value="1.75" calcext:value-type="currency">
       <text:p>$1.75</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce11" office:value-type="currency" office:currency="CAD" office:value="3.5" calcext:value-type="currency">
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H7]*[.E7]" office:value-type="currency" office:currency="CAD" office:value="3.5" calcext:value-type="currency">
       <text:p>$3.50</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
@@ -783,16 +831,22 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>OPTOISOLATR 5KV TRANSISTOR 4-DIP</text:p>
      </table:table-cell>
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="0.7" calcext:value-type="currency">
+      <text:p>$0.70</text:p>
+     </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="0.7" calcext:value-type="currency">
+     <table:table-cell table:style-name="ce11" table:formula="of:=[.E8]*[.F8]" office:value-type="currency" office:currency="CAD" office:value="0.7" calcext:value-type="currency">
       <text:p>$0.70</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce11" office:value-type="currency" office:currency="CAD" office:value="1.4" calcext:value-type="currency">
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H8]*[.E8]" office:value-type="currency" office:currency="CAD" office:value="1.4" calcext:value-type="currency">
       <text:p>$1.40</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
@@ -807,16 +861,22 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>MOSFET N-CH 60V 0.2A TO92-3</text:p>
      </table:table-cell>
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="0.53" calcext:value-type="currency">
+      <text:p>$0.53</text:p>
+     </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="0.53" calcext:value-type="currency">
+     <table:table-cell table:style-name="ce11" table:formula="of:=[.E9]*[.F9]" office:value-type="currency" office:currency="CAD" office:value="0.53" calcext:value-type="currency">
       <text:p>$0.53</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce11" office:value-type="currency" office:currency="CAD" office:value="1.06" calcext:value-type="currency">
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H9]*[.E9]" office:value-type="currency" office:currency="CAD" office:value="1.06" calcext:value-type="currency">
       <text:p>$1.06</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
@@ -831,16 +891,22 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>RES 1.6K OHM 1/4W 5% AXIAL</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce8" office:value-type="float" office:value="10" calcext:value-type="float">
-      <text:p>10</text:p>
-     </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="0.06" calcext:value-type="currency">
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="0.06" calcext:value-type="currency">
       <text:p>$0.06</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce11" office:value-type="currency" office:currency="CAD" office:value="0.6" calcext:value-type="currency">
+     <table:table-cell table:style-name="ce8" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce11" table:formula="of:=[.E10]*[.F10]" office:value-type="currency" office:currency="CAD" office:value="0.12" calcext:value-type="currency">
+      <text:p>$0.12</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="10" calcext:value-type="float">
+      <text:p>10</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H10]*[.E10]" office:value-type="currency" office:currency="CAD" office:value="0.6" calcext:value-type="currency">
       <text:p>$0.60</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
@@ -855,16 +921,22 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>TRIMMER 4.7KOHM 0.15W PC PIN TOP</text:p>
      </table:table-cell>
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="0.6" calcext:value-type="currency">
+      <text:p>$0.60</text:p>
+     </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="0.6" calcext:value-type="currency">
+     <table:table-cell table:style-name="ce11" table:formula="of:=[.E11]*[.F11]" office:value-type="currency" office:currency="CAD" office:value="0.6" calcext:value-type="currency">
       <text:p>$0.60</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce11" office:value-type="currency" office:currency="CAD" office:value="1.2" calcext:value-type="currency">
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H11]*[.E11]" office:value-type="currency" office:currency="CAD" office:value="1.2" calcext:value-type="currency">
       <text:p>$1.20</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
@@ -879,16 +951,22 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>AC/DC CONVERTER 5V 1W</text:p>
      </table:table-cell>
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="8.05" calcext:value-type="currency">
+      <text:p>$8.05</text:p>
+     </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="8.05" calcext:value-type="currency">
+     <table:table-cell table:style-name="ce11" table:formula="of:=[.E12]*[.F12]" office:value-type="currency" office:currency="CAD" office:value="8.05" calcext:value-type="currency">
       <text:p>$8.05</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce11" office:value-type="currency" office:currency="CAD" office:value="16.1" calcext:value-type="currency">
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H12]*[.E12]" office:value-type="currency" office:currency="CAD" office:value="16.1" calcext:value-type="currency">
       <text:p>$16.10</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell office:value-type="string" calcext:value-type="string">
@@ -903,16 +981,22 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>TERM BLOCK 4POS SIDE ENTRY 5MM</text:p>
      </table:table-cell>
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="1.01" calcext:value-type="currency">
+      <text:p>$1.01</text:p>
+     </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
-     </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="1.01" calcext:value-type="currency">
-      <text:p>$1.01</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="ce11" table:formula="of:=[.E13]*[.F13]" office:value-type="currency" office:currency="CAD" office:value="1.01" calcext:value-type="currency">
       <text:p>$1.01</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H13]*[.E13]" office:value-type="currency" office:currency="CAD" office:value="2.02" calcext:value-type="currency">
+      <text:p>$2.02</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
      <table:table-cell/>
@@ -925,45 +1009,52 @@
      <table:table-cell office:value-type="string" calcext:value-type="string">
       <text:p>BREADBOARD GENERAL PURPOSE PTH</text:p>
      </table:table-cell>
+     <table:table-cell table:style-name="ce10" office:value-type="currency" office:currency="CAD" office:value="2.17" calcext:value-type="currency">
+      <text:p>$2.17</text:p>
+     </table:table-cell>
      <table:table-cell table:style-name="ce8" office:value-type="float" office:value="1" calcext:value-type="float">
       <text:p>1</text:p>
      </table:table-cell>
-     <table:table-cell office:value-type="currency" office:currency="CAD" office:value="2.17" calcext:value-type="currency">
+     <table:table-cell table:style-name="ce11" table:formula="of:=[.E14]*[.F14]" office:value-type="currency" office:currency="CAD" office:value="2.17" calcext:value-type="currency">
       <text:p>$2.17</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="ce11" office:value-type="currency" office:currency="CAD" office:value="4.34" calcext:value-type="currency">
+     <table:table-cell table:style-name="Default" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=[.H14]*[.E14]" office:value-type="currency" office:currency="CAD" office:value="4.34" calcext:value-type="currency">
       <text:p>$4.34</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
-     <table:table-cell table:number-columns-repeated="3"/>
+     <table:table-cell table:number-columns-repeated="4"/>
      <table:table-cell table:style-name="ce7" office:value-type="string" calcext:value-type="string">
       <text:p>Total</text:p>
      </table:table-cell>
-     <table:table-cell table:formula="of:=SUM([.E2:.E14])" office:value-type="float" office:value="23" calcext:value-type="float">
-      <text:p>23</text:p>
+     <table:table-cell table:formula="of:=SUM([.F2:.F14])" office:value-type="float" office:value="15" calcext:value-type="float">
+      <text:p>15</text:p>
      </table:table-cell>
-     <table:table-cell/>
-     <table:table-cell table:formula="of:=SUM([.G2:.G14])" office:value-type="currency" office:currency="CAD" office:value="35.97" calcext:value-type="currency">
-      <text:p>$35.97</text:p>
+     <table:table-cell table:formula="of:=SUM([.G2:.G14])" office:value-type="currency" office:currency="CAD" office:value="18.37" calcext:value-type="currency">
+      <text:p>$18.37</text:p>
      </table:table-cell>
-     <table:table-cell table:number-columns-repeated="1014"/>
+     <table:table-cell table:style-name="Default" table:formula="of:=SUM([.H2:.H14])" office:value-type="float" office:value="36" calcext:value-type="float">
+      <text:p>36</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce10" table:formula="of:=SUM([.I2:.I14])" office:value-type="currency" office:currency="CAD" office:value="37.1" calcext:value-type="currency">
+      <text:p>$37.10</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1013"/>
     </table:table-row>
     <table:table-row table:style-name="ro1" table:number-rows-repeated="1048560">
-     <table:table-cell table:number-columns-repeated="1021"/>
+     <table:table-cell table:number-columns-repeated="1022"/>
     </table:table-row>
     <table:table-row table:style-name="ro1">
-     <table:table-cell table:number-columns-repeated="1021"/>
+     <table:table-cell table:number-columns-repeated="1022"/>
     </table:table-row>
    </table:table>
    <table:named-expressions/>
    <table:database-ranges>
-    <table:database-range table:name="__Anonymous_Sheet_DB__0" table:target-range-address="Sheet1.A1:Sheet1.G14" table:display-filter-buttons="true">
-     <table:sort>
-      <table:sort-by table:field-number="0" table:data-type="automatic"/>
-     </table:sort>
-    </table:database-range>
+    <table:database-range table:name="__Anonymous_Sheet_DB__0" table:target-range-address="Sheet1.A1:Sheet1.I15" table:display-filter-buttons="true"/>
    </table:database-ranges>
   </office:spreadsheet>
  </office:body>

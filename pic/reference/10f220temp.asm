@@ -1,0 +1,1 @@
+D:/Program Files (x86)/Microchip/MPLABX/v5.05/mpasmx/templates/Code/10F220TEMP.ASM

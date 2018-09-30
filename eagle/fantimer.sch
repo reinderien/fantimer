@@ -12183,12 +12183,13 @@ R2 3 2 {val-val*var/100}
 <part name="IC1" library="microchip-addl" deviceset="PIC10F220" device="-I/P" package3d_urn="urn:adsk.eagle:package:14440/1" value="PIC10F200"/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R4" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-US_" device="0207/7" package3d_urn="urn:adsk.eagle:package:25942/1" value="10k"/>
+<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="1uF"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="8.89" y="172.72" size="1.778" layer="96">5mm 16A 300V</text>
-<text x="7.62" y="24.13" size="1.778" layer="96" rot="MR180">R3 can choose from 2.2k, 4.7k, 47k, 220k, 1M
+<text x="7.62" y="21.59" size="1.778" layer="96" rot="MR180">R3 can choose from 2.2k, 4.7k, 47k, 220k, 1M
 Rinadc &lt; 10k: R5=4.7k</text>
 <text x="86.36" y="161.29" size="1.778" layer="96">85-305 Vac 47-63 Hz in
 5V 200mA out
@@ -12288,8 +12289,8 @@ t = 9.43ms</text>
 <attribute name="NAME" x="11.43" y="45.72" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="11.43" y="43.18" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="P+6" gate="1" x="49.53" y="54.61" smashed="yes">
-<attribute name="VALUE" x="48.26" y="55.88" size="1.778" layer="96"/>
+<instance part="P+6" gate="1" x="49.53" y="55.88" smashed="yes">
+<attribute name="VALUE" x="48.26" y="57.15" size="1.778" layer="96"/>
 </instance>
 <instance part="GND5" gate="1" x="16.51" y="36.83" rot="MR0"/>
 <instance part="C3" gate="G$1" x="80.01" y="139.7"/>
@@ -12297,11 +12298,12 @@ t = 9.43ms</text>
 <attribute name="VALUE" x="17.78" y="55.88" size="1.778" layer="96" rot="MR0"/>
 </instance>
 <instance part="IC1" gate="G$1" x="46.99" y="44.45"/>
-<instance part="GND2" gate="1" x="49.53" y="27.94"/>
+<instance part="GND2" gate="1" x="49.53" y="26.67"/>
 <instance part="R4" gate="G$1" x="82.55" y="31.75" smashed="yes" rot="R90">
 <attribute name="NAME" x="77.47" y="34.5186" size="1.778" layer="95"/>
 <attribute name="VALUE" x="76.2" y="32.258" size="1.778" layer="96"/>
 </instance>
+<instance part="C4" gate="G$1" x="57.15" y="43.18"/>
 </instances>
 <busses>
 </busses>
@@ -12405,6 +12407,11 @@ t = 9.43ms</text>
 <pinref part="IC1" gate="G$1" pin="VSS"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 <wire x1="49.53" y1="31.75" x2="49.53" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="C4" gate="G$1" pin="2"/>
+<wire x1="49.53" y1="30.48" x2="49.53" y2="29.21" width="0.1524" layer="91"/>
+<wire x1="57.15" y1="38.1" x2="57.15" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="57.15" y1="30.48" x2="49.53" y2="30.48" width="0.1524" layer="91"/>
+<junction x="49.53" y="30.48"/>
 </segment>
 </net>
 <net name="FAN" class="0">
@@ -12519,7 +12526,12 @@ t = 9.43ms</text>
 <segment>
 <pinref part="P+6" gate="1" pin="+5V"/>
 <pinref part="IC1" gate="G$1" pin="VDD"/>
+<wire x1="49.53" y1="53.34" x2="49.53" y2="52.07" width="0.1524" layer="91"/>
+<pinref part="C4" gate="G$1" pin="1"/>
 <wire x1="49.53" y1="52.07" x2="49.53" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="57.15" y1="45.72" x2="57.15" y2="52.07" width="0.1524" layer="91"/>
+<wire x1="57.15" y1="52.07" x2="49.53" y2="52.07" width="0.1524" layer="91"/>
+<junction x="49.53" y="52.07"/>
 </segment>
 </net>
 <net name="ADJ" class="0">

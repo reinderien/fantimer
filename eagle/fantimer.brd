@@ -2898,11 +2898,14 @@ design rules under a new name.</description>
 <attribute name="SPICEMODEL" value="POT" x="45.72" y="48.26" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SPICEPREFIX" value="X" x="45.72" y="48.26" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="1uF" x="48.26" y="7.62" rot="R270">
-<attribute name="SPICEPREFIX" value="C" x="48.26" y="7.62" size="1.778" layer="27" rot="R270" display="off"/>
+<element name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="1uF" x="35.56" y="27.94" rot="R270">
+<attribute name="SPICEPREFIX" value="C" x="35.56" y="27.94" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="IC1" library="microchip-addl" package="DIL08" package3d_urn="urn:adsk.eagle:package:14440/1" value="PIC10F200" x="0" y="-20.32"/>
-<element name="R4" library="resistor" library_urn="urn:adsk.eagle:library:348" package="0207/7" package3d_urn="urn:adsk.eagle:package:25942/1" value="10k" x="-2.54" y="-30.48"/>
+<element name="IC1" library="microchip-addl" package="DIL08" package3d_urn="urn:adsk.eagle:package:14440/1" value="PIC10F200" x="45.72" y="33.02" rot="R270"/>
+<element name="R4" library="resistor" library_urn="urn:adsk.eagle:library:348" package="0207/7" package3d_urn="urn:adsk.eagle:package:25942/1" value="10k" x="43.18" y="20.32" rot="R180"/>
+<element name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="1uF" x="45.72" y="25.4">
+<attribute name="SPICEPREFIX" value="C" x="45.72" y="25.4" size="1.778" layer="27" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="AC/N">
@@ -2935,8 +2938,8 @@ design rules under a new name.</description>
 <contactref element="Q1" pad="2"/>
 <contactref element="IC1" pad="3"/>
 <contactref element="R4" pad="2"/>
-<wire x1="1.27" y1="-24.13" x2="36.195" y2="35.56" width="0" layer="19" extent="1-1"/>
-<wire x1="1.27" y1="-30.48" x2="1.27" y2="-24.13" width="0" layer="19" extent="1-1"/>
+<wire x1="41.91" y1="31.75" x2="36.195" y2="35.56" width="0" layer="19" extent="1-1"/>
+<wire x1="39.37" y1="20.32" x2="41.91" y2="31.75" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="COILOUT">
 <contactref element="Q1" pad="1"/>
@@ -2949,8 +2952,8 @@ design rules under a new name.</description>
 <contactref element="OK1" pad="4"/>
 <contactref element="C3" pad="2"/>
 <contactref element="IC1" pad="4"/>
-<wire x1="43.18" y1="5.08" x2="48.26" y2="6.35" width="0" layer="19" extent="1-1"/>
-<wire x1="3.81" y1="-24.13" x2="43.18" y2="5.08" width="0" layer="19" extent="1-1"/>
+<wire x1="35.56" y1="26.67" x2="41.91" y2="29.21" width="0" layer="19" extent="1-1"/>
+<wire x1="43.18" y1="5.08" x2="35.56" y2="26.67" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="DETECT_IN">
 <contactref element="R2" pad="2"/>
@@ -2983,11 +2986,13 @@ design rules under a new name.</description>
 <contactref element="R3" pad="2"/>
 <contactref element="IC1" pad="7"/>
 <contactref element="R4" pad="1"/>
+<contactref element="C4" pad="2"/>
 <wire x1="30.48" y1="45.74" x2="40.64" y2="45.72" width="0" layer="19" extent="1-1"/>
 <wire x1="34.29" y1="36.83" x2="30.48" y2="45.74" width="0" layer="19" extent="1-1"/>
-<wire x1="43.18" y1="2.54" x2="34.29" y2="36.83" width="0" layer="19" extent="1-1"/>
-<wire x1="-1.27" y1="-16.51" x2="43.18" y2="2.54" width="0" layer="19" extent="1-1"/>
-<wire x1="-6.35" y1="-30.48" x2="-1.27" y2="-16.51" width="0" layer="19" extent="1-1"/>
+<wire x1="49.53" y1="34.29" x2="40.64" y2="45.72" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="25.4" x2="49.53" y2="34.29" width="0" layer="19" extent="1-1"/>
+<wire x1="46.99" y1="20.32" x2="46.99" y2="25.4" width="0" layer="19" extent="1-1"/>
+<wire x1="43.18" y1="2.54" x2="46.99" y2="20.32" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+5V">
 <contactref element="K1" pad="2"/>
@@ -2996,16 +3001,18 @@ design rules under a new name.</description>
 <contactref element="C3" pad="1"/>
 <contactref element="R3" pad="1"/>
 <contactref element="IC1" pad="2"/>
+<contactref element="C4" pad="1"/>
 <wire x1="30.48" y1="53.34" x2="40.64" y2="50.8" width="0" layer="19" extent="1-1"/>
 <wire x1="24.13" y1="39.37" x2="30.48" y2="53.34" width="0" layer="19" extent="1-1"/>
 <wire x1="25.4" y1="30.353" x2="24.13" y2="39.37" width="0" layer="19" extent="1-1"/>
-<wire x1="48.26" y1="8.89" x2="25.4" y2="30.353" width="0" layer="19" extent="1-1"/>
-<wire x1="-1.27" y1="-24.13" x2="48.26" y2="8.89" width="0" layer="19" extent="1-1"/>
+<wire x1="35.56" y1="29.21" x2="25.4" y2="30.353" width="0" layer="19" extent="1-1"/>
+<wire x1="41.91" y1="34.29" x2="35.56" y2="29.21" width="0" layer="19" extent="1-1"/>
+<wire x1="44.45" y1="25.4" x2="41.91" y2="34.29" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="ADJ">
 <contactref element="R3" pad="3"/>
 <contactref element="IC1" pad="5"/>
-<wire x1="3.81" y1="-16.51" x2="50.8" y2="48.26" width="0" layer="19" extent="1-1"/>
+<wire x1="49.53" y1="29.21" x2="50.8" y2="48.26" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

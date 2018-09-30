@@ -12171,7 +12171,7 @@ R2 3 2 {val-val*var/100}
 <part name="R2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-US_" device="0207/7" package3d_urn="urn:adsk.eagle:package:25942/1" value="1.6k"/>
 <part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="D3" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="P6KEXXC" device="" package3d_urn="urn:adsk.eagle:package:43349/1" value="P6KE91CA"/>
+<part name="D2" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="P6KEXXC" device="" package3d_urn="urn:adsk.eagle:package:43349/1" value="P6KE91CA"/>
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="102-064X133" package3d_urn="urn:adsk.eagle:package:23653/1" value="330nF"/>
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="102-064X133" package3d_urn="urn:adsk.eagle:package:23653/1" value="330nF"/>
 <part name="R1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-US_" device="0207/7" package3d_urn="urn:adsk.eagle:package:25942/1" value="1.6k"/>
@@ -12182,7 +12182,7 @@ R2 3 2 {val-val*var/100}
 <part name="P+2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="IC1" library="microchip-addl" deviceset="PIC10F220" device="-I/P" package3d_urn="urn:adsk.eagle:package:14440/1" value="PIC10F200"/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="R4" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-US_" device="0207/7" package3d_urn="urn:adsk.eagle:package:25942/1" value="10k"/>
+<part name="R4" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-US_" device="0207/7" package3d_urn="urn:adsk.eagle:package:25942/1" value="100k"/>
 <part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="1uF"/>
 </parts>
 <sheets>
@@ -12269,7 +12269,7 @@ t = 9.43ms</text>
 <attribute name="VALUE" x="77.47" y="146.05" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="GND4" gate="1" x="77.47" y="121.92"/>
-<instance part="D3" gate="1" x="35.56" y="115.57" smashed="yes" rot="R90">
+<instance part="D2" gate="1" x="35.56" y="115.57" smashed="yes" rot="R90">
 <attribute name="NAME" x="39.37" y="118.745" size="1.778" layer="95"/>
 <attribute name="VALUE" x="39.37" y="115.951" size="1.778" layer="96"/>
 </instance>
@@ -12331,7 +12331,7 @@ t = 9.43ms</text>
 <label x="0" y="111.76" size="1.778" layer="95"/>
 <pinref part="OK1" gate="G$1" pin="C"/>
 <wire x1="57.15" y1="125.73" x2="57.15" y2="127" width="0.1524" layer="91"/>
-<pinref part="D3" gate="1" pin="1"/>
+<pinref part="D2" gate="1" pin="1"/>
 <wire x1="35.56" y1="113.03" x2="35.56" y2="110.49" width="0.1524" layer="91"/>
 <junction x="35.56" y="110.49"/>
 </segment>
@@ -12471,7 +12471,7 @@ t = 9.43ms</text>
 </net>
 <net name="VZ" class="0">
 <segment>
-<pinref part="D3" gate="1" pin="2"/>
+<pinref part="D2" gate="1" pin="2"/>
 <wire x1="35.56" y1="120.65" x2="35.56" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="29.21" y1="132.08" x2="35.56" y2="132.08" width="0.1524" layer="91"/>

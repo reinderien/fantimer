@@ -114,7 +114,7 @@ tmr0_loop:
     
     ; Fan off ------------------------------------------------------------------
     
-    clrf GPIO, GP_FAN ; Turn the fan off
-    sleep             ; Sleep until light comes on again
+    bcf GPIO, GP_FAN ; Turn the fan off
+    sleep            ; Sleep until light comes on again
     
     end

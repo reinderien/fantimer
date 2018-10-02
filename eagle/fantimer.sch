@@ -12311,12 +12311,12 @@ Pulse derating curve: P&lt;40W for 1ms
 Vc = √(86.5² - (1.1 + 10mA·1.6kΩ)²) ~ 84.8V
 C = 10mA/2π/60/Vc = 313nF ~ 330nF</text>
 <text x="39.37" y="113.03" size="1.778" layer="96">Vbrmin = 86.5V</text>
-<text x="88.9" y="137.16" size="1.778" layer="96">GP3 weak pullup 21kΩ
+<text x="88.9" y="137.16" size="1.778" layer="96">GP1 weak pullup 22kΩ
 Vih=2V
 tcycle 1/60/2 = 8.3ms
-1 - (2-0.3)/(5-0.3) = e^(-t/21k/C)
-C = 883nF; go longer: 1uF
-t = 9.43ms</text>
+1 - (2-0.3)/(5-0.3) = e^(-t/22k/C)
+C = 844nF; go longer: 1uF
+t = 9.88ms</text>
 <text x="17.78" y="134.62" size="1.778" layer="97">CF14JT1K60‎ - 250mW</text>
 <text x="11.43" y="121.92" size="1.778" layer="97">334MMR250K‎ - 250V</text>
 <text x="-13.97" y="200.66" size="2.54" layer="97">Mains Line</text>

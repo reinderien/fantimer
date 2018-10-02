@@ -58,8 +58,12 @@
 <layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
 </layers>
 <library>
+<description>&lt;h2&gt;MeanWell IRM-01 Series&lt;/h2&gt;
+&lt;h3&gt;1W Single Output Encapsulated Type&lt;/h3&gt;
+
+&lt;p&gt;Library by &lt;author&gt;Greg Toombs (&lt;a href="mailto:greg.toombs@ieee.org"&gt;greg.toombs@ieee.org&lt;/a&gt;)&lt;/author&gt;&lt;/p&gt;</description>
 <packages>
-<package name="IRM02-PCB">
+<package name="IRM-01-X">
 <pad name="+V" x="0" y="0" drill="0.6" shape="octagon"/>
 <pad name="-V" x="0" y="7.6" drill="0.6" shape="octagon"/>
 <pad name="AC/N" x="28" y="7.6" drill="0.6" shape="octagon"/>
@@ -85,12 +89,102 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="IRM-01">
+<deviceset name="IRM-01-3.3">
 <gates>
 <gate name="G$1" symbol="ACDC" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="IRM02-PCB">
+<device name="" package="IRM-01-X">
+<connects>
+<connect gate="G$1" pin="AC/L" pad="AC/L"/>
+<connect gate="G$1" pin="AC/N" pad="AC/N"/>
+<connect gate="G$1" pin="V+" pad="+V"/>
+<connect gate="G$1" pin="V-" pad="-V"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="IRM-01-5">
+<gates>
+<gate name="G$1" symbol="ACDC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="IRM-01-X">
+<connects>
+<connect gate="G$1" pin="AC/L" pad="AC/L"/>
+<connect gate="G$1" pin="AC/N" pad="AC/N"/>
+<connect gate="G$1" pin="V+" pad="+V"/>
+<connect gate="G$1" pin="V-" pad="-V"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="IRM-01-9">
+<gates>
+<gate name="G$1" symbol="ACDC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="IRM-01-X">
+<connects>
+<connect gate="G$1" pin="AC/L" pad="AC/L"/>
+<connect gate="G$1" pin="AC/N" pad="AC/N"/>
+<connect gate="G$1" pin="V+" pad="+V"/>
+<connect gate="G$1" pin="V-" pad="-V"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="IRM-01-12">
+<gates>
+<gate name="G$1" symbol="ACDC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="IRM-01-X">
+<connects>
+<connect gate="G$1" pin="AC/L" pad="AC/L"/>
+<connect gate="G$1" pin="AC/N" pad="AC/N"/>
+<connect gate="G$1" pin="V+" pad="+V"/>
+<connect gate="G$1" pin="V-" pad="-V"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="IRM-01-15">
+<gates>
+<gate name="G$1" symbol="ACDC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="IRM-01-X">
+<connects>
+<connect gate="G$1" pin="AC/L" pad="AC/L"/>
+<connect gate="G$1" pin="AC/N" pad="AC/N"/>
+<connect gate="G$1" pin="V+" pad="+V"/>
+<connect gate="G$1" pin="V-" pad="-V"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="IRM-01-24">
+<gates>
+<gate name="G$1" symbol="ACDC" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="IRM-01-X">
 <connects>
 <connect gate="G$1" pin="AC/L" pad="AC/L"/>
 <connect gate="G$1" pin="AC/N" pad="AC/N"/>

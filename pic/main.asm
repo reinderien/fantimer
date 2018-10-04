@@ -60,12 +60,12 @@ res_vect code 0
     ; and TRIS will be temporarily reset to all inputs, but that's fine because
     ; we have a pulldown and output should be low anyway. (The light is logic-
     ; low.)
-    btfsc GPIO, GP_LIGHT
-    sleep
+    btfsc GPIO, GP_LIGHT ; If the light is on (negative logic), don't sleep
+    sleep                ; The light is off, so sleep
 
 wait_fanoff:
     bsf GPIO, GP_FAN     ; The light is on (GP1==0), so turn the fan on.
-    btfsc GPIO, GP_LIGHT ; Until the light is off..
+    btfss GPIO, GP_LIGHT ; Until the light is off (negative logic)
     goto $-1             ; spin.
     
     ; Adjust -------------------------------------------------------------------

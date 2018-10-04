@@ -12269,7 +12269,7 @@ Block, Siemens and generic&lt;p&gt;
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="POTENTIOMETER_" device="PT-10" package3d_urn="urn:adsk.eagle:package:23786/1" value="4.7k"/>
 <part name="P+6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="1uF"/>
+<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="47nF"/>
 <part name="P+2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="IC1" library="microchip-addl" deviceset="PIC10F220" device="-I/P" package3d_urn="urn:adsk.eagle:package:14440/1" value="PIC10F220"/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -12292,8 +12292,8 @@ Io &lt; 15A @ Vo = 125Vac</text>
 <text x="59.69" y="102.87" size="1.778" layer="96">(input actually double opposing LEDs)
 If &lt; 150mApk, use 10mApk
 Vf ~ 1.1V @ 10mA
-Ic &lt; 80mA, will be ~224uA
-Vsat ~ 0.3V @ If=10mA, Ic=1mA
+Ic &lt; 80mA, will be ~227uA
+Vsat negligible for Ic &lt;&lt; 1mA
 5kVrms isolation</text>
 <text x="7.62" y="107.95" size="1.778" layer="96" rot="MR180">Vin = 120Vrms = 169.7Vpk
 Vpasv = 169.7 - 1.1 = 168.6Vpk
@@ -12314,9 +12314,11 @@ C = 10mA/2π/60/Vc = 313nF ~ 330nF</text>
 <text x="88.9" y="137.16" size="1.778" layer="96">GP1 weak pullup 22kΩ
 Vih=2V
 tcycle 1/60/2 = 8.3ms
-1 - (2-0.3)/(5-0.3) = e^(-t/22k/C)
-C = 844nF; go longer: 1uF
-t = 9.88ms</text>
+Almost always in saturation except for
+a spike when input crosses 0.
+If C=47nF, then Vspike&lt;0.76V
+Time for discharge when light turns off:
+to 2V, t=700us &lt;&lt; 8.3ms</text>
 <text x="17.78" y="134.62" size="1.778" layer="97">CF14JT1K60‎ - 250mW</text>
 <text x="11.43" y="121.92" size="1.778" layer="97">334MMR250K‎ - 250V</text>
 <text x="-13.97" y="200.66" size="2.54" layer="97">Mains Line</text>

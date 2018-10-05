@@ -27,15 +27,20 @@ res_vect code 0
     ; We get here on powerup, any kind of reset, or wakeup-from-sleep.
     
     ; First: PC starts at the end of memory, containing MOVLW <factory osccal>
-    movwf OSCCAL      ; so move W into OSCCAL
-    bcf OSCCAL, FOSC4 ; Disable osc output; enable digital I/O on GP2
+    ; but only if it's a power-on-reset
+    btfsc STATUS, GPWUF  ; wakeup must be clear (no wakeup)
+    goto cal_done
+    btfss STATUS, NOT_TO ; !TO must be high (no WDT timeout)
+    goto cal_done
+    btfss STATUS, NOT_PD ; !PD must be high (no sleep)
+    goto cal_done
+    movwf OSCCAL         ; If these are all true, it was a POR; move W into OSCCAL
+    bcf OSCCAL, FOSC4    ; Disable osc output; enable digital I/O on GP2
+cal_done:
     
     ; GP0: analog in - time adj (ANS0=1)
     ; GP1: digital in, WPU - !light (ANS1=0)
     ; GP2: digital out - fan (FOSC4=0, T0CS=0)
-    bcf GPIO, GP_FAN ; fan initially off
-    movlw b'1011'    ; only GP2 output, others input
-    tris GPIO
     
     ; !GPWU=0: enable wakeup on pin change 
     ; !GPPU=0: enable weak pullup on GP0,1,3
@@ -53,6 +58,21 @@ res_vect code 0
     ; ADON=1: ADC is enabled
     movlw b'01000001'
     movwf ADCON0
+    
+    ; We can write to the fan port latch even if it's still in input mode;
+    ; this ensures no glitch between clearing TRIS and sending the fan output.
+    ; (but this doesn't work in the simulator)
+    btfsc GPIO, GP_LIGHT  ; Check fan status (negative logic)
+    goto light_off
+light_on:            ; if it's clear, the light's on
+    bsf GPIO, GP_FAN ; turn fan on
+    goto fan_done
+light_off:           ; if it's set, the light's off
+    bcf GPIO, GP_FAN ; turn fan off (we'll go to sleep in a bit)
+fan_done:
+    
+    movlw b'1011'    ; only GP2 output, others input
+    tris GPIO
     
     ; Pin change logic ---------------------------------------------------------
 
@@ -79,7 +99,7 @@ wait_fanoff:
     
     bsf ADCON0, NOT_DONE   ; Start conversion
     btfsc ADCON0, NOT_DONE ; Done waiting if conversion is done
-    goto $-2               ; Keep waiting
+    goto $-1               ; Keep waiting
     movf ADRES, W          ; Copy ADC result
     movwf post+1           ; to upper postscale byte
     
@@ -87,7 +107,6 @@ wait_fanoff:
     
     clrf TMR0 ; The timer is already running; clear it
     clrf post+0 ; Clear lower soft postscaler
-    clrf post+1 ;       upper
     
     ; 1:256 prescaler, 8 bit, uses 4MHz/4
     ;     pre tm0 po1 po2 fosc/4
@@ -100,7 +119,7 @@ tmr0_loop:
     goto $-2        ; keep comparing
     
     ; Wait for timer overflow
-    btfsc GPIO, GP_LIGHT ; Check if the light turned on while we were waiting
+    btfss GPIO, GP_LIGHT ; Check if the light turned on while we were waiting
     goto wait_fanoff     ; If so, abort wait
     movf TMR0, W         ; Check TMR0
     btfss STATUS, Z      ; If it's zero, stop comparing

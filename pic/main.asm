@@ -62,7 +62,7 @@ cal_done:
     ; We can write to the fan port latch even if it's still in input mode;
     ; this ensures no glitch between clearing TRIS and sending the fan output.
     ; (but this doesn't work in the simulator)
-    btfsc GPIO, GP_LIGHT  ; Check fan status (negative logic)
+    btfsc GPIO, GP_LIGHT  ; Check light status (negative logic)
     goto light_off
 light_on:            ; if it's clear, the light's on
     bsf GPIO, GP_FAN ; turn fan on

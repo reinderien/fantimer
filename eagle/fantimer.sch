@@ -12269,20 +12269,27 @@ Block, Siemens and generic&lt;p&gt;
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="POTENTIOMETER_" device="PT-10" package3d_urn="urn:adsk.eagle:package:23786/1" value="4.7k"/>
 <part name="P+6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="47nF"/>
+<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="100nF"/>
 <part name="P+2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="IC1" library="microchip-addl" deviceset="PIC10F220" device="-I/P" package3d_urn="urn:adsk.eagle:package:14440/1" value="PIC10F220"/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R4" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-US_" device="0207/7" package3d_urn="urn:adsk.eagle:package:23493/1" value="100k"/>
 <part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="1uF"/>
 <part name="R5" library="varistor" library_urn="urn:adsk.eagle:library:410" deviceset="S05K300" device="" package3d_urn="urn:adsk.eagle:package:30536/1" value="MOV-07D201K"/>
+<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="1uF"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="-13.97" y="172.72" size="1.778" layer="96">5mm 16A 300V</text>
 <text x="7.62" y="21.59" size="1.778" layer="96" rot="MR180">R3 can choose from 2.2k, 4.7k, 47k, 220k, 1M
-Rinadc &lt; 10k: R5=4.7k</text>
+Rinadc &lt; 10k: R5=4.7kΩ
+
+Neglect Chold=25pF, Cpin=5pF, Rleak&gt;10MΩ
+Rmin=Rss=7kΩ
+Rmax=Rss+Ricmax+2.4k||2.4k
+=7k+1k+1175Ω ~ 9.2kΩ
+If C=1uF, fc ~ 17.3-22.7Hz</text>
 <text x="86.36" y="161.29" size="1.778" layer="96">85-305 Vac 47-63 Hz in
 5V 200mA out
 Class II isolation</text>
@@ -12311,14 +12318,14 @@ Pulse derating curve: P&lt;40W for 1ms
 Vc = √(86.5² - (1.1 + 10mA·1.6kΩ)²) ~ 84.8V
 C = 10mA/2π/60/Vc = 313nF ~ 330nF</text>
 <text x="39.37" y="113.03" size="1.778" layer="96">Vbrmin = 86.5V</text>
-<text x="88.9" y="137.16" size="1.778" layer="96">GP1 weak pullup 22kΩ
+<text x="90.17" y="137.16" size="1.778" layer="96">GP1 weak pullup 22kΩ (in practice closer to 11kΩ)
 Vih=2V
 tcycle 1/60/2 = 8.3ms
 Almost always in saturation except for
 a spike when input crosses 0.
-If C=47nF, then Vspike&lt;0.76V
+If C=100nF, then Vspike&lt;1V
 Time for discharge when light turns off:
-to 2V, t=700us &lt;&lt; 8.3ms</text>
+to 2V, t&lt;&lt;8.3ms</text>
 <text x="17.78" y="134.62" size="1.778" layer="97">CF14JT1K60‎ - 250mW</text>
 <text x="11.43" y="121.92" size="1.778" layer="97">334MMR250K‎ - 250V</text>
 <text x="-13.97" y="200.66" size="2.54" layer="97">Mains Line</text>
@@ -12380,17 +12387,17 @@ to 2V, t=700us &lt;&lt; 8.3ms</text>
 <attribute name="NAME" x="17.78" y="139.9286" size="1.778" layer="95"/>
 <attribute name="VALUE" x="17.78" y="137.668" size="1.778" layer="96"/>
 </instance>
-<instance part="R3" gate="1" x="16.51" y="45.72" smashed="yes" rot="MR270">
-<attribute name="NAME" x="11.43" y="45.72" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="11.43" y="43.18" size="1.778" layer="96" rot="MR0"/>
+<instance part="R3" gate="1" x="3.81" y="45.72" smashed="yes" rot="MR270">
+<attribute name="NAME" x="-1.27" y="45.72" size="1.778" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="-1.27" y="43.18" size="1.778" layer="96" rot="MR0"/>
 </instance>
 <instance part="P+6" gate="1" x="49.53" y="55.88" smashed="yes">
 <attribute name="VALUE" x="48.26" y="57.15" size="1.778" layer="96"/>
 </instance>
-<instance part="GND5" gate="1" x="16.51" y="36.83" rot="MR0"/>
+<instance part="GND5" gate="1" x="3.81" y="31.75" rot="MR0"/>
 <instance part="C3" gate="G$1" x="80.01" y="139.7"/>
-<instance part="P+2" gate="1" x="16.51" y="54.61" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="17.78" y="55.88" size="1.778" layer="96" rot="MR0"/>
+<instance part="P+2" gate="1" x="3.81" y="54.61" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="5.08" y="55.88" size="1.778" layer="96" rot="MR0"/>
 </instance>
 <instance part="IC1" gate="G$1" x="43.18" y="41.91"/>
 <instance part="GND2" gate="1" x="49.53" y="26.67"/>
@@ -12403,6 +12410,7 @@ to 2V, t=700us &lt;&lt; 8.3ms</text>
 <attribute name="NAME" x="21.59" y="202.0316" size="1.778" layer="95"/>
 <attribute name="VALUE" x="21.59" y="198.755" size="1.778" layer="96"/>
 </instance>
+<instance part="C5" gate="G$1" x="11.43" y="41.91"/>
 </instances>
 <busses>
 </busses>
@@ -12507,8 +12515,13 @@ to 2V, t=700us &lt;&lt; 8.3ms</text>
 </segment>
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
-<wire x1="16.51" y1="39.37" x2="16.51" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="3.81" y1="34.29" x2="3.81" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="R3" gate="1" pin="2"/>
+<pinref part="C5" gate="G$1" pin="2"/>
+<wire x1="3.81" y1="35.56" x2="3.81" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="11.43" y1="36.83" x2="11.43" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="11.43" y1="35.56" x2="3.81" y2="35.56" width="0.1524" layer="91"/>
+<junction x="3.81" y="35.56"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="VSS"/>
@@ -12628,7 +12641,7 @@ to 2V, t=700us &lt;&lt; 8.3ms</text>
 <segment>
 <pinref part="R3" gate="1" pin="1"/>
 <pinref part="P+2" gate="1" pin="+5V"/>
-<wire x1="16.51" y1="50.8" x2="16.51" y2="52.07" width="0.1524" layer="91"/>
+<wire x1="3.81" y1="50.8" x2="3.81" y2="52.07" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="P+6" gate="1" pin="+5V"/>
@@ -12644,9 +12657,13 @@ to 2V, t=700us &lt;&lt; 8.3ms</text>
 <net name="ADJ" class="0">
 <segment>
 <pinref part="R3" gate="1" pin="3"/>
-<wire x1="21.59" y1="45.72" x2="24.13" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="8.89" y1="45.72" x2="11.43" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="GP0"/>
+<wire x1="11.43" y1="45.72" x2="24.13" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="24.13" y1="45.72" x2="31.75" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="C5" gate="G$1" pin="1"/>
+<wire x1="11.43" y1="44.45" x2="11.43" y2="45.72" width="0.1524" layer="91"/>
+<junction x="11.43" y="45.72"/>
 </segment>
 </net>
 </nets>

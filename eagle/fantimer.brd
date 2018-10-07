@@ -2932,7 +2932,7 @@ design rules under a new name.</description>
 <attribute name="SPICEMODEL" value="POT" x="48.26" y="53.34" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="SPICEPREFIX" value="X" x="48.26" y="53.34" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="47nF" x="35.56" y="22.86" rot="R270">
+<element name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="100nF" x="35.56" y="22.86" rot="R270">
 <attribute name="SPICEPREFIX" value="C" x="35.56" y="22.86" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="IC1" library="microchip-addl" package="DIL08" package3d_urn="urn:adsk.eagle:package:14440/1" value="PIC10F220" x="45.72" y="25.4" rot="R270"/>
@@ -2941,6 +2941,9 @@ design rules under a new name.</description>
 <attribute name="SPICEPREFIX" value="C" x="45.72" y="38.1" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R5" library="varistor" library_urn="urn:adsk.eagle:library:410" package="S05K300" package3d_urn="urn:adsk.eagle:package:30536/1" value="MOV-07D201K" x="11.684" y="30.48"/>
+<element name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="1uF" x="-5.08" y="-20.32">
+<attribute name="SPICEPREFIX" value="C" x="-5.08" y="-20.32" size="1.778" layer="27" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="AC/N">
@@ -3026,12 +3029,14 @@ design rules under a new name.</description>
 <contactref element="IC1" pad="7"/>
 <contactref element="R4" pad="1"/>
 <contactref element="C4" pad="2"/>
+<contactref element="C5" pad="2"/>
 <wire x1="38.1" y1="46.99" x2="43.18" y2="50.8" width="0" layer="19" extent="1-1"/>
 <wire x1="30.48" y1="45.74" x2="38.1" y2="46.99" width="0" layer="19" extent="1-1"/>
-<wire x1="36.83" y1="34.29" x2="30.48" y2="45.74" width="0" layer="19" extent="1-1"/>
 <wire x1="46.99" y1="38.1" x2="38.1" y2="46.99" width="0" layer="19" extent="1-1"/>
+<wire x1="36.83" y1="34.29" x2="46.99" y2="38.1" width="0" layer="19" extent="1-1"/>
 <wire x1="49.53" y1="26.67" x2="46.99" y2="38.1" width="0" layer="19" extent="1-1"/>
 <wire x1="45.72" y1="5.08" x2="49.53" y2="26.67" width="0" layer="19" extent="1-1"/>
+<wire x1="-3.81" y1="-20.32" x2="45.72" y2="5.08" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+5V">
 <contactref element="K1" pad="2"/>
@@ -3051,7 +3056,9 @@ design rules under a new name.</description>
 <signal name="ADJ">
 <contactref element="R3" pad="3"/>
 <contactref element="IC1" pad="5"/>
+<contactref element="C5" pad="1"/>
 <wire x1="49.53" y1="21.59" x2="53.34" y2="53.34" width="0" layer="19" extent="1-1"/>
+<wire x1="-6.35" y1="-20.32" x2="49.53" y2="21.59" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

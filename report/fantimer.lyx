@@ -631,6 +631,7 @@ V_{mid}=\frac{(120\textrm{V})\sqrt{2}+1.1}{2}=85.4\textrm{V}\approx86.5\textrm{V
 
 \begin_layout Standard
 The TVS diode D2 can be assigned the Littelfuse P6KE91CA which has a Vbrmin=86.5V
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "tvs"
@@ -675,11 +676,10 @@ The resistors chosen must support the surge power:
 
 \begin_layout Standard
 This surge power occurs for less than 1ms.
- The surge power derating curve for StackPole's affordable CF14 series (Figure
- 
+ The surge power derating curve for StackPole's affordable CF14 series (
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "figure-derating"
+LatexCommand formatted
+reference "fig:derating"
 plural "false"
 caps "false"
 noprefix "false"
@@ -727,7 +727,7 @@ literal "false"
 
 \begin_inset CommandInset label
 LatexCommand label
-name "figure-derating"
+name "fig:derating"
 
 \end_inset
 
@@ -789,7 +789,7 @@ C_{1,2}=\frac{10\textrm{mA}}{2\pi\cdot60\textrm{Hz}\cdot V_{C}}=316\textrm{nF}\a
 For high-voltage, mid-capacitance applications like this, metallized polyester-f
 ilm capacitors are well-suited.
  The Illinois Capacitor MMR series offers a 330nF capacitor that can withstand
- 160Vac, the 334MMR250K
+ 160Vac, the 334MMR250K 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "illinois-cap"
@@ -801,7 +801,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The output of the optoisolator is an optical-base transistor.
+The output of the optoisolator is an optical-base transistor, in this circuit
+ configured for common emitter mode.
  High collector current severely impedes the performance of the transistor
  and increases saturation voltage, so it should be kept as low as possible.
  Rather than using a discrete resistor for load, the load resistance can
@@ -810,33 +811,7 @@ The output of the optoisolator is an optical-base transistor.
 \begin_inset Formula $V_{DD}=5\textrm{V}$
 \end_inset
 
- and T=25°C this is typically 22k
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Ω
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- (
+ and T=25°C this is typically 22k (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "pic"
@@ -903,6 +878,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename opto peak.png
 	width 60line%
@@ -943,6 +919,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Graphics
 	filename opto off.png
 	width 60line%
@@ -993,59 +970,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Itemize
-tolerance in the WPU (15k
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Ω
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-–34k
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Ω
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-, or -32% to +55%);
+tolerance in the WPU (15k–34k, or -32% to +55%);
 \end_layout
 
 \begin_layout Itemize
@@ -1053,7 +978,7 @@ the fact that
 \begin_inset Formula $V_{DD}$
 \end_inset
 
-is likely smaller than the 5.5V quoted in the WPU spec, and T < 25°C;
+ is smaller than the 5.5V quoted in the WPU spec, and T < 25°C;
 \end_layout
 
 \begin_layout Itemize
@@ -1074,10 +999,10 @@ dark
 \end_inset
 
 ) opto collector current, which is rated at 
-\begin_inset Formula $I_{CEO}\approx1\textrm{nA for}V_{CE}=10\textrm{V}$
+\begin_inset Formula $I_{CEO}\approx1\textrm{nA for }V_{CE}=10\textrm{V}$
 \end_inset
 
-
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "opto"
@@ -1091,7 +1016,7 @@ literal "false"
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\textrm{For}V_{DD}=4.5\textrm{V},\,R_{WPUmax}\approx\frac{34-187}{5.5-2}\left(4.5-2\right)+187=77.7\textrm{k}\Omega
+\textrm{For }V_{DD}=4.5\textrm{V},\,R_{WPUmax}\approx\frac{34-187}{5.5-2}\left(4.5-2\right)+187=77.7\textrm{k}\Omega
 \]
 
 \end_inset

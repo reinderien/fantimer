@@ -1,0 +1,2468 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language canadian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\listings_params "basicstyle={\ttfamily}"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A low-cost, autonomous mains timed switch
+\end_layout
+
+\begin_layout Author
+Greg Toombs (820021)
+\end_layout
+
+\begin_layout Section
+Motivation
+\end_layout
+
+\begin_layout Standard
+This project has been completed to satisfy the continuing professional developme
+nt (CPD) requirements to retain CET (Certified Engineering Technologist)
+ status with the Ontario Association of Certified Engineering Technicians
+ and Technologists (OACETT).
+ According to OACETT,
+\end_layout
+
+\begin_layout Quote
+Mandatory CPD will be introduced for most members beginning January 1, 2016.
+ [...] The Continuing Professional Development applies to all certified members
+ (working full- or part-time), including Life and Fellow OACETT categories.
+ Associates admitted to membership prior to July 2005 are required to complete
+ continuing professional development as well.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cpd"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Under the CPD policy, members can stay compliant if they undergo at least
+ one full day per three-year cycle of self-directed study.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "comply"
+literal "false"
+
+\end_inset
+
+ This project, having taken two weeks of part-time self-directed study and
+ falling under the category of 
+\begin_inset Quotes eld
+\end_inset
+
+Contributions to Technical Knowledge
+\begin_inset Quotes erd
+\end_inset
+
+, should satisfy these requirements.
+\end_layout
+
+\begin_layout Section
+Overview
+\end_layout
+
+\begin_layout Standard
+The device being designed is a timed switch.
+ It is intended for residential installation to control a fan in a washroom.
+ It is designed to retrofit an existing light switch, to be installed behind
+ drywall in the same electrical box (or an adjacent electrical box, depending
+ on available space).
+ When the light switch turns on, the timer turns on the fan; when the light
+ switch turns off, the timer continues to run the fan for an additional
+ amount of time configurable by an on-board potentiometer.
+\end_layout
+
+\begin_layout Standard
+The timer is intended to be simple, safe, and low-cost.
+ It does not have any user-accessible controls once the box has been closed.
+ Potential applications include a rental property where the owner needs
+ some assurance that the fan will reduce mould risk in an environment prone
+ to humidity.
+\end_layout
+
+\begin_layout Standard
+To simplify prototyping, all parts chosen are through-hole, to be soldered
+ to a through-hole perforated prototype board (
+\begin_inset Quotes eld
+\end_inset
+
+perfboard
+\begin_inset Quotes erd
+\end_inset
+
+).
+ This eliminates the need for a custom printed circuit board (PCB).
+ Hand soldering is feasible due to the low number of component connections.
+\end_layout
+
+\begin_layout Section
+Safety Considerations
+\end_layout
+
+\begin_layout Standard
+As in all electrical design, safety must be the top priority.
+ Safety applies both to the technologist assembling and testing the circuit,
+ as well as the end user.
+\end_layout
+
+\begin_layout Subsection
+Lab Safety
+\end_layout
+
+\begin_layout Standard
+When testing and installing circuits that operate at 120V, the following
+ precautions must be observed:
+\end_layout
+
+\begin_layout Itemize
+The lab must have a working breaker or fuse.
+ If possible, power the circuit through a ground-fault circuit interrupter
+ (GFCI).
+\end_layout
+
+\begin_layout Itemize
+Have a local switch to disable mains power to the circuit during wiring
+ work.
+ Never rewire the circuit unless the mains are de-energized.
+\end_layout
+
+\begin_layout Itemize
+Keep a clean and uncluttered workspace.
+ Only have on hand the tools and parts needed.
+ Remove any unneeded conductors that could cause unintentional shorts.
+\end_layout
+
+\begin_layout Itemize
+Do not wear any metal jewellery, watches, or accessories that might cause
+ unintentional shorts.
+\end_layout
+
+\begin_layout Itemize
+Before energizing any high-voltage circuits, always do a cursory inspection
+ of the circuit to check for faults.
+\end_layout
+
+\begin_layout Itemize
+When using testing equipment (e.g.
+ multimeter, oscilloscope), take care to select an appropriate range setting.
+\end_layout
+
+\begin_layout Itemize
+Always have at least one other person on the premises in case of emergency.
+ At least one person on the premises must have first-aid training.
+\end_layout
+
+\begin_layout Subsection
+Circuit Safety
+\end_layout
+
+\begin_layout Standard
+Detection of the light switch status should be done with a circuit isolated
+ from mains voltage; a simple and safe option is an optoisolator.
+ The board power supply and the output switch should also be isolated from
+ mains voltage.
+\end_layout
+
+\begin_layout Standard
+The enclosure is not described in this document, but should either be metal
+ with a connection to earth ground, or plastic (typically ABS).
+ The perfboard has mounting holes on its corners.
+ A bolt should run through each hole and through plastic stand-off sleeves
+ to prevent contact between the circuit and the enclosure.
+\end_layout
+
+\begin_layout Standard
+When running wire between solder pads, only strip the necessary amount of
+ insulator from the wire ends and no more.
+ Trim excess component leads after soldering.
+\end_layout
+
+\begin_layout Standard
+Exterior connections to the board use a terminal block with a compression
+ screw, leaf spring and wire guard, for a secure and shielded connection.
+ During installation, mains wires that are stripped should have insulator
+ running right to the edge of the terminal block aperture so that any exposed
+ copper is shielded by the terminal block.
+\end_layout
+
+\begin_layout Standard
+The circuit should have some safety against surges.
+ The board power supply has built-in surge protection.
+ The optoisolator is preceded by a bidirectional-channel transient voltage
+ suppression (TVS) diode and surge absorption resistors.
+ The relay output is protected by a metal-oxide varistor (MOV) and not a
+ TVS, due to the absence of absorption resistors and the failure mode characteri
+stics of a TVS.
+ MOVs have a negative temperature coefficient (NTC), meaning that as they
+ heat up in an over-voltage event, their resistance decreases, increasing
+ current on the circuit and allowing the circuit breaker to trip; a TVS
+ would fail before the circuit breaker tripping.
+\end_layout
+
+\begin_layout Section
+Design Tools
+\end_layout
+
+\begin_layout Subsection
+Third-Party Software
+\end_layout
+
+\begin_layout Standard
+Eagle is the electronic computer-aided design (ECAD) tool used, because
+ it is free and popular.
+ It is used for the wiring diagram, circuit schematic, and airwire board
+ diagram.
+\end_layout
+
+\begin_layout Standard
+Microchip PIC® Lab (MPLAB®) X is used for the embedded integrated development
+ environment (IDE).
+ It includes an editor, assembler, linker, driver for the PICkit™ 3 programmer,
+ and simulator, all used in this project.
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Quotes eld
+\end_inset
+
+Quite Universal Circuit Simulator
+\begin_inset Quotes erd
+\end_inset
+
+ (QUCS) is used for simulating some analog portions of the timer circuit.
+\end_layout
+
+\begin_layout Standard
+The project files are tracked by a version control system (VCS) called Git.
+ Git is best-suited to saving a detailed history of textual files and their
+ changes over time.
+ As such, all of the files are saved in text format, including the bill
+ of materials spreadsheet, which is saved as a Flat Open Document Format
+ Spreadsheet (FODS).
+\end_layout
+
+\begin_layout Subsection
+Custom Software
+\end_layout
+
+\begin_layout Standard
+To help explore options for component selection, particularly for the passives
+ before the opto-isolator, a small tool has been written in Python.
+ It iterates through possibilities for some resistors, capacitors and TVS
+ breakdown voltages, constraining the resistors and capacitors to common
+ values in the E24 and E12 series, respectively.
+ For details see Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:code-listing-asm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "cpd"
+literal "false"
+
+\end_inset
+
+Continuing Professional Development.
+ (2013.) Retrieved from https://www.oacett.org/Careers/CPD
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "comply"
+literal "false"
+
+\end_inset
+
+Suggested CPD Activities And Samples.
+ (2013.) Retrieved from https://www.oacett.org/Careers/CPD/Suggested_CPD_Activities
+_And_Samples
+\end_layout
+
+\begin_layout Section
+\start_of_appendix
+Code Listing: PIC10F220 Assembly
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:code-listing-asm"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#include <mpasmx.inc>
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    list
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+GP_LIGHT equ GP1
+\end_layout
+
+\begin_layout Plain Layout
+
+GP_FAN   equ GP2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+; The PIC10F220 is a simple device that has:
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; 4/8MHZ internal RC osc
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; 256 words program mem
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; 16 bytes SRAM
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; No banks, interrupts or PPS
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+; Config:
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; 4MHZ internal RC osc
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; pullup enabled on GP3 (has no effect due to MCLRE)
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; watchdog timer disabled
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; code protection off
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; GPIO on MCLR pin so that reset line is tied to Vdd
+\end_layout
+
+\begin_layout Plain Layout
+
+    __config _IOSCFS_4MHZ & _MCPU_ON & _WDTE_OFF & _CP_OFF & _MCLRE_OFF
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    udata
+\end_layout
+
+\begin_layout Plain Layout
+
+post res 2 ; 16-bit software postscaler
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+res_vect code 0
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; Setup --------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; We get here on powerup, any kind of reset, or wakeup-from-sleep.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; First: PC starts at the end of memory, containing MOVLW <factory osccal>
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; but only if it's a power-on-reset
+\end_layout
+
+\begin_layout Plain Layout
+
+    btfsc STATUS, GPWUF  ; wakeup must be clear (no wakeup)
+\end_layout
+
+\begin_layout Plain Layout
+
+    goto cal_done
+\end_layout
+
+\begin_layout Plain Layout
+
+    btfss STATUS, NOT_TO ; !TO must be high (no WDT timeout)
+\end_layout
+
+\begin_layout Plain Layout
+
+    goto cal_done
+\end_layout
+
+\begin_layout Plain Layout
+
+    btfss STATUS, NOT_PD ; !PD must be high (no sleep)
+\end_layout
+
+\begin_layout Plain Layout
+
+    goto cal_done
+\end_layout
+
+\begin_layout Plain Layout
+
+    movwf OSCCAL         ; If these are all true, it was a POR; move W into
+ OSCCAL
+\end_layout
+
+\begin_layout Plain Layout
+
+    bcf OSCCAL, FOSC4    ; Disable osc output; enable digital I/O on GP2
+\end_layout
+
+\begin_layout Plain Layout
+
+cal_done:
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; GP0: analog in - time adj (ANS0=1)
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; GP1: digital in, WPU - !light (ANS1=0)
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; GP2: digital out - fan (FOSC4=0, T0CS=0)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; !GPWU=0: enable wakeup on pin change 
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; !GPPU=0: enable weak pullup on GP0,1,3
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; T0CS=0: timer 0 internally clocked
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; T0SE=0: ignored
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; PSA=0: prescaler assigned to timer 0
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; PS=111: 1:256 prescaler
+\end_layout
+
+\begin_layout Plain Layout
+
+    movlw b'111'
+\end_layout
+
+\begin_layout Plain Layout
+
+    option
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; ANS1=0: GP1 digital
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; ANS0=1: GP0 analog in
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; CHS=00: channel GP0/AN0
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; GO=0: not converting yet
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; ADON=1: ADC is enabled
+\end_layout
+
+\begin_layout Plain Layout
+
+    movlw b'01000001'
+\end_layout
+
+\begin_layout Plain Layout
+
+    movwf ADCON0
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; We can write to the fan port latch even if it's still in input mode;
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; this ensures no glitch between clearing TRIS and sending the fan output.
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; (but this doesn't work in the simulator)
+\end_layout
+
+\begin_layout Plain Layout
+
+    btfsc GPIO, GP_LIGHT  ; Check light status (negative logic)
+\end_layout
+
+\begin_layout Plain Layout
+
+    goto light_off
+\end_layout
+
+\begin_layout Plain Layout
+
+light_on:            ; if it's clear, the light's on
+\end_layout
+
+\begin_layout Plain Layout
+
+    bsf GPIO, GP_FAN ; turn fan on
+\end_layout
+
+\begin_layout Plain Layout
+
+    goto fan_done
+\end_layout
+
+\begin_layout Plain Layout
+
+light_off:           ; if it's set, the light's off
+\end_layout
+
+\begin_layout Plain Layout
+
+    bcf GPIO, GP_FAN ; turn fan off (we'll go to sleep in a bit)
+\end_layout
+
+\begin_layout Plain Layout
+
+fan_done:
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    movlw b'1011'    ; only GP2 output, others input
+\end_layout
+
+\begin_layout Plain Layout
+
+    tris GPIO
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; Pin change logic ---------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; If the light is off, go to sleep.
+ When a pin changes, the MCU will reset
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; and TRIS will be temporarily reset to all inputs, but that's fine
+ because
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; we have a pulldown and output should be low anyway.
+ (The light is logic-
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; low.)
+\end_layout
+
+\begin_layout Plain Layout
+
+    btfsc GPIO, GP_LIGHT ; If the light is on (negative logic), don't sleep
+\end_layout
+
+\begin_layout Plain Layout
+
+    sleep                ; The light is off, so sleep
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+wait_fanoff:
+\end_layout
+
+\begin_layout Plain Layout
+
+    bsf GPIO, GP_FAN     ; The light is on (GP1==0), so turn the fan on.
+\end_layout
+
+\begin_layout Plain Layout
+
+    btfss GPIO, GP_LIGHT ; Until the light is off (negative logic)
+\end_layout
+
+\begin_layout Plain Layout
+
+    goto $-1             ; spin.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; Adjust -------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; For the 4.7k pot, worst-case Rs is (4.7k/2)||(4.7k/2) = 1175
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; Tacq = Tamp + Tc + Tcoff
+\end_layout
+
+\begin_layout Plain Layout
+
+    ;      = 2us + (25pF)(1k + 7k + 1175)*9ln2 + 0
+\end_layout
+
+\begin_layout Plain Layout
+
+    ;      = 3.4us
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; Assume that, after all this time waiting for the light, that's been
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; reached a million times over.
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    bsf ADCON0, NOT_DONE   ; Start conversion
+\end_layout
+
+\begin_layout Plain Layout
+
+    btfsc ADCON0, NOT_DONE ; Done waiting if conversion is done
+\end_layout
+
+\begin_layout Plain Layout
+
+    goto $-1               ; Keep waiting
+\end_layout
+
+\begin_layout Plain Layout
+
+    movf ADRES, W          ; Copy ADC result
+\end_layout
+
+\begin_layout Plain Layout
+
+    movwf post+1           ; to upper postscale byte
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; Timer --------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    clrf TMR0 ; The timer is already running; clear it
+\end_layout
+
+\begin_layout Plain Layout
+
+    clrf post+0 ; Clear lower soft postscaler
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; 1:256 prescaler, 8 bit, uses 4MHz/4
+\end_layout
+
+\begin_layout Plain Layout
+
+    ;     pre tm0 po1 po2 fosc/4
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; t = 256*256*256*x  *4/4MHz = 17s - 72m
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+tmr0_loop:
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; Wait until after we've passed 0
+\end_layout
+
+\begin_layout Plain Layout
+
+    movf TMR0, W    ; Check TMR0
+\end_layout
+
+\begin_layout Plain Layout
+
+    btfsc STATUS, Z ; If it's not 0, stop comparing
+\end_layout
+
+\begin_layout Plain Layout
+
+    goto $-2        ; keep comparing
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; Wait for timer overflow
+\end_layout
+
+\begin_layout Plain Layout
+
+    btfss GPIO, GP_LIGHT ; Check if the light turned on while we were waiting
+\end_layout
+
+\begin_layout Plain Layout
+
+    goto wait_fanoff     ; If so, abort wait
+\end_layout
+
+\begin_layout Plain Layout
+
+    movf TMR0, W         ; Check TMR0
+\end_layout
+
+\begin_layout Plain Layout
+
+    btfss STATUS, Z      ; If it's zero, stop comparing
+\end_layout
+
+\begin_layout Plain Layout
+
+    goto $-4             ; keep comparing
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    decfsz post, f   ; Decrement lower postscale
+\end_layout
+
+\begin_layout Plain Layout
+
+    goto tmr0_loop   ; Wait some more if no overflow
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    decfsz post+1, f ; Decrement upper postscale (use ADRES)
+\end_layout
+
+\begin_layout Plain Layout
+
+    goto tmr0_loop   ; Wait some more if not expired
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    ; Fan off ------------------------------------------------------------------
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    bcf GPIO, GP_FAN ; Turn the fan off
+\end_layout
+
+\begin_layout Plain Layout
+
+    sleep            ; Sleep until light comes on again
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    end
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Code Listing: elsel.py
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#!/usr/bin/env python3
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+from bisect import bisect
+\end_layout
+
+\begin_layout Plain Layout
+
+from itertools import count, islice
+\end_layout
+
+\begin_layout Plain Layout
+
+from math import *
+\end_layout
+
+\begin_layout Plain Layout
+
+import math
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# https://en.wikipedia.org/wiki/E_series_of_preferred_numbers
+\end_layout
+
+\begin_layout Plain Layout
+
+e_series = {3: (1.0, 2.2, 4.7),
+\end_layout
+
+\begin_layout Plain Layout
+
+            6: (1.0, 1.5, 2.2, 3.3, 4.7, 6.8),
+\end_layout
+
+\begin_layout Plain Layout
+
+            12: (1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2),
+\end_layout
+
+\begin_layout Plain Layout
+
+            24: (1.0, 1.1, 1.2, 1.3, 1.5, 1.6, 1.8, 2.0, 2.2, 2.4, 2.7, 3.0,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 3.3, 3.6, 3.9, 4.3, 4.7, 5.1, 5.6, 6.2, 6.8, 7.5, 8.2, 9.1),
+\end_layout
+
+\begin_layout Plain Layout
+
+            48: (1.00, 1.05, 1.10, 1.15, 1.21, 1.27, 1.33, 1.40, 1.47, 1.54,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 1.62, 1.69, 1.78, 1.87, 1.96, 2.05, 2.15, 2.26, 2.37, 2.49,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 2.61, 2.74, 2.87, 3.01, 3.16, 3.32, 3.48, 3.65, 3.83, 4.02,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 4.22, 4.42, 4.64, 4.87, 5.11, 5.36, 5.62, 5.90, 6.19, 6.49,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 6.81, 7.15, 7.50, 7.87, 8.25, 8.66, 9.09, 9.53),
+\end_layout
+
+\begin_layout Plain Layout
+
+            96: (1.00, 1.02, 1.05, 1.07, 1.10, 1.13, 1.15, 1.18, 1.21, 1.24,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 1.27, 1.30, 1.33, 1.37, 1.40, 1.43, 1.47, 1.50, 1.54, 1.58,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 1.62, 1.65, 1.69, 1.74, 1.78, 1.82, 1.87, 1.91, 1.96, 2.00,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 2.05, 2.10, 2.15, 2.21, 2.26, 2.32, 2.37, 2.43, 2.49, 2.55,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 2.61, 2.67, 2.74, 2.80, 2.87, 2.94, 3.01, 3.09, 3.16, 3.24,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 3.32, 3.40, 3.48, 3.57, 3.65, 3.74, 3.83, 3.92, 4.02, 4.12,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 4.22, 4.32, 4.42, 4.53, 4.64, 4.75, 4.87, 4.99, 5.11, 5.23,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 5.36, 5.49, 5.62, 5.76, 5.90, 6.04, 6.19, 6.34, 6.49, 6.65,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 6.81, 6.98, 7.15, 7.32, 7.50, 7.68, 7.87, 8.06, 8.25, 8.45,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 8.66, 8.87, 9.09, 9.31, 9.53, 9.76),
+\end_layout
+
+\begin_layout Plain Layout
+
+            192: (1.00, 1.01, 1.02, 1.04, 1.05, 1.06, 1.07, 1.09, 1.10, 1.11,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  1.13, 1.14, 1.15, 1.17, 1.18, 1.20, 1.21, 1.23, 1.24, 1.26,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  1.27, 1.29, 1.30, 1.32, 1.33, 1.35, 1.37, 1.38, 1.40, 1.42,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  1.43, 1.45, 1.47, 1.49, 1.50, 1.52, 1.54, 1.56, 1.58, 1.60,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  1.62, 1.64, 1.65, 1.67, 1.69, 1.72, 1.74, 1.76, 1.78, 1.80,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  1.82, 1.84, 1.87, 1.89, 1.91, 1.93, 1.96, 1.98, 2.00, 2.03,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  2.05, 2.08, 2.10, 2.13, 2.15, 2.18, 2.21, 2.23, 2.26, 2.29,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  2.32, 2.34, 2.37, 2.40, 2.43, 2.46, 2.49, 2.52, 2.55, 2.58,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  2.61, 2.64, 2.67, 2.71, 2.74, 2.77, 2.80, 2.84, 2.87, 2.91,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  2.94, 2.98, 3.01, 3.05, 3.09, 3.12, 3.16, 3.20, 3.24, 3.28,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  3.32, 3.36, 3.40, 3.44, 3.48, 3.52, 3.57, 3.61, 3.65, 3.70,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  3.74, 3.79, 3.83, 3.88, 3.92, 3.97, 4.02, 4.07, 4.12, 4.17,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  4.22, 4.27, 4.32, 4.37, 4.42, 4.48, 4.53, 4.59, 4.64, 4.70,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  4.75, 4.81, 4.87, 4.93, 4.99, 5.05, 5.11, 5.17, 5.23, 5.30,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  5.36, 5.42, 5.49, 5.56, 5.62, 5.69, 5.76, 5.83, 5.90, 5.97,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  6.04, 6.12, 6.19, 6.26, 6.34, 6.42, 6.49, 6.57, 6.65, 6.73,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  6.81, 6.90, 6.98, 7.06, 7.15, 7.23, 7.32, 7.41, 7.50, 7.59,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  7.68, 7.77, 7.87, 7.96, 8.06, 8.16, 8.25, 8.35, 8.45, 8.56,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  8.66, 8.76, 8.87, 8.98, 9.09, 9.20, 9.31, 9.42, 9.53, 9.65,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  9.76, 9.88)}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+class Var:
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __init__(self, name, vmin=None, vmax=None, precision=None, value=None,
+\end_layout
+
+\begin_layout Plain Layout
+
+                 values=None):
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.name, self.precision = name, precision
+\end_layout
+
+\begin_layout Plain Layout
+
+        if value is not None and not isinstance(value, str):
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.value = None
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.values = (value,)
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.vmin = (value,)
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.vmax = (value,)
+\end_layout
+
+\begin_layout Plain Layout
+
+        elif values is not None:
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.value = None
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.values = values
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.vmin = (min(values),) if vmin is None else (vmin,)
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.vmax = (max(values),) if vmax is None else (vmax,)
+\end_layout
+
+\begin_layout Plain Layout
+
+        else:
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.value = value
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.values = None
+\end_layout
+
+\begin_layout Plain Layout
+
+            self.vmin, self.vmax = vmin, vmax
+\end_layout
+
+\begin_layout Plain Layout
+
+        self.ideal_value = None
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def iter_ser(self, x, delta=0):
+\end_layout
+
+\begin_layout Plain Layout
+
+        man, pw = to_eser(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+        ser = e_series[self.precision]
+\end_layout
+
+\begin_layout Plain Layout
+
+        start = bisect(ser, man) + delta
+\end_layout
+
+\begin_layout Plain Layout
+
+        ser_arranged = ser[start:] + tuple(10*x for x in ser[:start])
+\end_layout
+
+\begin_layout Plain Layout
+
+        for pw in count(pw):
+\end_layout
+
+\begin_layout Plain Layout
+
+            fac = 10**pw
+\end_layout
+
+\begin_layout Plain Layout
+
+            for man in ser_arranged:
+\end_layout
+
+\begin_layout Plain Layout
+
+                yield fac*man
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    @property
+\end_layout
+
+\begin_layout Plain Layout
+
+    def mins(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        return [num_or_eval(l) for l in self.vmin]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    @property
+\end_layout
+
+\begin_layout Plain Layout
+
+    def maxes(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        return [num_or_eval(l) for l in self.vmax]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def get_values(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        if self.values is not None:
+\end_layout
+
+\begin_layout Plain Layout
+
+            yield from self.values
+\end_layout
+
+\begin_layout Plain Layout
+
+        elif isinstance(self.value, str):
+\end_layout
+
+\begin_layout Plain Layout
+
+            x = eval_env(self.value)
+\end_layout
+
+\begin_layout Plain Layout
+
+            if self.precision:
+\end_layout
+
+\begin_layout Plain Layout
+
+                self.ideal_value = x
+\end_layout
+
+\begin_layout Plain Layout
+
+                yield from islice(self.iter_ser(x, -1), 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            else:
+\end_layout
+
+\begin_layout Plain Layout
+
+                yield x
+\end_layout
+
+\begin_layout Plain Layout
+
+        else:
+\end_layout
+
+\begin_layout Plain Layout
+
+            vmin = max(self.mins)
+\end_layout
+
+\begin_layout Plain Layout
+
+            vmax = min(self.maxes)
+\end_layout
+
+\begin_layout Plain Layout
+
+            for x in self.iter_ser(vmin):
+\end_layout
+
+\begin_layout Plain Layout
+
+                if x > vmax:
+\end_layout
+
+\begin_layout Plain Layout
+
+                    return
+\end_layout
+
+\begin_layout Plain Layout
+
+                yield x
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    def __str__(self):
+\end_layout
+
+\begin_layout Plain Layout
+
+        return self.name
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def to_eser(x):
+\end_layout
+
+\begin_layout Plain Layout
+
+    pw = floor(log10(x))
+\end_layout
+
+\begin_layout Plain Layout
+
+    mant = x / 10**pw
+\end_layout
+
+\begin_layout Plain Layout
+
+    return mant, pw
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+dims = (Var('w', value=2*pi*60),         # angular velocity, rad/s
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Vin', value=120*sqrt(2)),   # peak AC live line, V
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Prp', value=40),            # pulse power (1ms), W
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Pr', value=0.2),            # continuous res power, W
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Vf', value=1.1),            # Opto forward drop, V
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('I', value=10e-3),           # peak current for opto, typ, A
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Imax', value=150e-3),       # max current for opto, A
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Vpasv', value='Vin - Vf'),  # potential over passives, V
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Rd', value='Vf/I'),         # equivalent diode res during Ityp,
+ V
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        #Var('Vbr', values=(  6.40,   6.45,   6.67,    7.13,  7.22,  7.78,  7.79,
+\end_layout
+
+\begin_layout Plain Layout
+
+        #                     8.65,   8.89,   9.50,   10.00, 10.50, 11.10, 11.40,
+\end_layout
+
+\begin_layout Plain Layout
+
+        #                    12.20,  12.40,  14.30,   14.40, 15.20, 17.10, 17.80,
+\end_layout
+
+\begin_layout Plain Layout
+
+        #                    19.00,  20.00,  20.90,   22.20, 22.80, 25.70, 28.50,
+\end_layout
+
+\begin_layout Plain Layout
+
+        #                    31.40,  34.20,  37.10,   40.00, 40.90, 44.70, 48.50,
+\end_layout
+
+\begin_layout Plain Layout
+
+        #                    53.20,  58.90,  64.60,   71.30, 77.90, 86.50, 95.00,
+\end_layout
+
+\begin_layout Plain Layout
+
+        #                   105.00, 114.00, 124.00, 143.00)),
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Vbr', value=86.5),
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Zz', value='Vbr/I'),  # typ
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Vrc1', value='Vin - Vbr'),
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Vrc2', value='Vbr - Vf'),
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        # Vz peak is fixed at Vbr, but the proportion between R2 and C2
+ can vary.
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('R2', precision=24, vmin=('Vrc2/Imax',     # Limit opto discharged
+ I
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      'Vrc2**2/Prp'),  # Limit res pulse
+ P
+\end_layout
+
+\begin_layout Plain Layout
+
+                                vmax=('Vrc2/I - 1',    # Turn on opto
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      'Prp/Imax**2',   # Limit res pulse
+ P
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      'Pr/I**2')),     # Limit res continous
+ P
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('C2', precision=12, value='1/w/sqrt(Zz**2 - (R2 + Rd)**2)'),
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Xc2', value='1/w/C2'),
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('ImVz', value='I*Xc2'),
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('R1', precision=24, vmin=('Vrc1/Imax',     # Limit opto discharged
+ I
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      'Vrc1**2/Prp'),  # Limit res pulse
+ P
+\end_layout
+
+\begin_layout Plain Layout
+
+                                vmax=('Vrc1/I - 1',    # Turn on opto
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      'Prp/Imax**2',   # Limit res pulse
+ P
+\end_layout
+
+\begin_layout Plain Layout
+
+                                      'Pr/I**2')),     # Limit res continous
+ P
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('C1', precision=12, value='I/w/(sqrt(Vin**2 - (Vf + I*R2)**2)
+ - ImVz)'),
+\end_layout
+
+\begin_layout Plain Layout
+
+        Var('Xc1', value='1/w/C1'))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+math_locals = {n: getattr(math, n) for n in dir(math) if not n.startswith('_')}
+\end_layout
+
+\begin_layout Plain Layout
+
+sym_locals = {}
+\end_layout
+
+\begin_layout Plain Layout
+
+dims_by_name = {d.name: d for d in dims}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def eval_env(ex):
+\end_layout
+
+\begin_layout Plain Layout
+
+    locs = dict(math_locals)
+\end_layout
+
+\begin_layout Plain Layout
+
+    locs.update(sym_locals)
+\end_layout
+
+\begin_layout Plain Layout
+
+    return eval(ex, {}, locs)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def num_or_eval(n):
+\end_layout
+
+\begin_layout Plain Layout
+
+    return n if isinstance(n, (int, float)) else eval_env(n)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def header():
+\end_layout
+
+\begin_layout Plain Layout
+
+    print(
+\end_layout
+
+\begin_layout Plain Layout
+
+        '
+\backslash
+n'
+\end_layout
+
+\begin_layout Plain Layout
+
+        '{:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7} '
+\end_layout
+
+\begin_layout Plain Layout
+
+        '{:>7} {:>7} {:>7} {:>7} {:>7} {:>7} {:>7}'.format(
+\end_layout
+
+\begin_layout Plain Layout
+
+        'R1', 'C1', 'R2', 'C2', 'Vbr', 'Vz', 'IpkmA', 'IpspkmA',
+\end_layout
+
+\begin_layout Plain Layout
+
+        'Pr1acmW', 'Pr1pkW', 'Pr2acmW', 'Pr2pkW', 'Vc1pk', 'Vc2pk'))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+actuals = []
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def populate_actual():
+\end_layout
+
+\begin_layout Plain Layout
+
+    if (sym_locals['R1'] != sym_locals['R2'] or
+\end_layout
+
+\begin_layout Plain Layout
+
+            sym_locals['C1'] != sym_locals['C2']):
+\end_layout
+
+\begin_layout Plain Layout
+
+        return
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    Rt = eval_env('Rd + R1 + R2')
+\end_layout
+
+\begin_layout Plain Layout
+
+    Xt = eval_env('-Xc1 - Xc2')
+\end_layout
+
+\begin_layout Plain Layout
+
+    Zt = sqrt(Rt**2 + Xt**2)
+\end_layout
+
+\begin_layout Plain Layout
+
+    Zta = atan2(Xt, Rt)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    Itm = sym_locals['Vin'] / Zt
+\end_layout
+
+\begin_layout Plain Layout
+
+    Ita = -Zta
+\end_layout
+
+\begin_layout Plain Layout
+
+    Itr = Itm * cos(Ita)
+\end_layout
+
+\begin_layout Plain Layout
+
+    Iti = Itm * sin(Ita)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    Rz2 = eval_env('Rd + R2')
+\end_layout
+
+\begin_layout Plain Layout
+
+    Xz2 = -sym_locals['Xc2']
+\end_layout
+
+\begin_layout Plain Layout
+
+    Z2m = sqrt(Rz2**2 + Xz2**2)
+\end_layout
+
+\begin_layout Plain Layout
+
+    Z2a = atan2(Xz2, Rz2)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    V2m = Itm * Z2m
+\end_layout
+
+\begin_layout Plain Layout
+
+    V2a = Ita + Z2a
+\end_layout
+
+\begin_layout Plain Layout
+
+    V2r = V2m * cos(V2a)
+\end_layout
+
+\begin_layout Plain Layout
+
+    V2i = V2m * sin(V2a)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    err = V2m/sym_locals['Vbr'] - 1
+\end_layout
+
+\begin_layout Plain Layout
+
+    if not (-0.05 <= err <= 0):
+\end_layout
+
+\begin_layout Plain Layout
+
+        return
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    Rz1 = sym_locals['R1']
+\end_layout
+
+\begin_layout Plain Layout
+
+    Xz1 = -sym_locals['Xc1']
+\end_layout
+
+\begin_layout Plain Layout
+
+    Z1m = sqrt(Rz1**2 + Xz1**2)
+\end_layout
+
+\begin_layout Plain Layout
+
+    Z1a = atan2(Xz1, Rz1)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    V1m = Itm * Z1m
+\end_layout
+
+\begin_layout Plain Layout
+
+    V1a = Ita + Z1a
+\end_layout
+
+\begin_layout Plain Layout
+
+    V1r = V1m * cos(V1a)
+\end_layout
+
+\begin_layout Plain Layout
+
+    V1i = V1m * sin(V1a)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    assert (abs(V1i + V2i) < 1e-12)  # Vin is at 0 degrees
+\end_layout
+
+\begin_layout Plain Layout
+
+    # Vin's components sum to Vin
+\end_layout
+
+\begin_layout Plain Layout
+
+    assert (abs(V1r + V2r - sym_locals['Vin']) < 1e-12)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    Ipulse = sym_locals['Vin'] / Rt
+\end_layout
+
+\begin_layout Plain Layout
+
+    Ppr1 = Ipulse**2 * sym_locals['R1']
+\end_layout
+
+\begin_layout Plain Layout
+
+    Ppr2 = Ipulse**2 * sym_locals['R2']
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    Irms = Itm / sqrt(2)
+\end_layout
+
+\begin_layout Plain Layout
+
+    Pr1 = Irms**2 * sym_locals['R1']
+\end_layout
+
+\begin_layout Plain Layout
+
+    Pr2 = Irms**2 * sym_locals['R2']
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    state = dict(sym_locals)
+\end_layout
+
+\begin_layout Plain Layout
+
+    state.update({'Vz': V2m,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  'Ityp': Itm*1e3,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  'Ichg': Ipulse*1e3,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  'Pr1': Pr1*1e3,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  'Ppr1': Ppr1,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  'Pr2': Pr2*1e3,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  'Ppr2': Ppr2,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  'Vc1': sym_locals['Xc1']*Itm,
+\end_layout
+
+\begin_layout Plain Layout
+
+                  'Vc2': sym_locals['Xc2']*Itm})
+\end_layout
+
+\begin_layout Plain Layout
+
+    actuals.append(state)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def dump():
+\end_layout
+
+\begin_layout Plain Layout
+
+    tab_size = 40
+\end_layout
+
+\begin_layout Plain Layout
+
+    for di in range(0, len(actuals), tab_size):
+\end_layout
+
+\begin_layout Plain Layout
+
+        header()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+        for d in actuals[di: di+tab_size]:
+\end_layout
+
+\begin_layout Plain Layout
+
+            # 'R1', 'C1', 'R2', 'C2', 'Vbr', 'Vz', 'Ityp', 'Ichg', 'Pr1',
+\end_layout
+
+\begin_layout Plain Layout
+
+            # 'Ppr1', 'Pr2', 'Ppr2', 'Vc1', 'Vc2'
+\end_layout
+
+\begin_layout Plain Layout
+
+            print(
+\end_layout
+
+\begin_layout Plain Layout
+
+               '{R1:>7.0f} {C1:>7.1e} {R2:>7.0f} {C2:>7.1e} '
+\end_layout
+
+\begin_layout Plain Layout
+
+               '{Vbr:>7.1f} {Vz:>7.2f} {Ityp:>7.2f} {Ichg:>7.2f} '
+\end_layout
+
+\begin_layout Plain Layout
+
+               '{Pr1:>7.1f} {Ppr1:>7.1f} {Pr2:>7.1f} {Ppr2:>7.1f} '
+\end_layout
+
+\begin_layout Plain Layout
+
+               '{Vc1:>7.2f} {Vc2:>7.2f}'.format(**d))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def recurse(dim_index=0):
+\end_layout
+
+\begin_layout Plain Layout
+
+    dim = dims[dim_index]
+\end_layout
+
+\begin_layout Plain Layout
+
+    for x in dim.get_values():
+\end_layout
+
+\begin_layout Plain Layout
+
+        sym_locals[dim.name] = x
+\end_layout
+
+\begin_layout Plain Layout
+
+        if dim_index < len(dims) - 1:
+\end_layout
+
+\begin_layout Plain Layout
+
+            recurse(dim_index + 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+        else:
+\end_layout
+
+\begin_layout Plain Layout
+
+            populate_actual()
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+recurse()
+\end_layout
+
+\begin_layout Plain Layout
+
+actuals.sort(key=lambda d: d['R1'])
+\end_layout
+
+\begin_layout Plain Layout
+
+dump()
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

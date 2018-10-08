@@ -92,7 +92,7 @@
 \begin_body
 
 \begin_layout Title
-A simple, autonomous mains timed switch
+A simple, automatic timed mains switch
 \end_layout
 
 \begin_layout Author
@@ -147,6 +147,8 @@ Contributions to Technical Knowledge
 \end_inset
 
 , should satisfy these requirements.
+ Study has included topics such as mains line switching, protection and
+ safety; and detailed analysis of optoisolation technologies.
 \end_layout
 
 \begin_layout Section
@@ -619,6 +621,10 @@ noprefix "false"
  The Lite-On LTV-814H fits well.
 \end_layout
 
+\begin_layout Subsubsection
+Optoisolator Input
+\end_layout
+
 \begin_layout Standard
 The input is 120Vac (170Vpk), but the forward voltage drop of the opto is
  only ~1.1V.
@@ -712,7 +718,7 @@ noprefix "false"
 \end_inset
 
 ) shows that, for 1ms, the CF14 (in blue) can tolerate ~39W; and it can
- tolerate 4.5W for over 100ms; so it's safe.
+ tolerate 4.5W for over 100ms; so it is safe.
 \end_layout
 
 \begin_layout Standard
@@ -825,6 +831,10 @@ literal "false"
 .
 \end_layout
 
+\begin_layout Subsubsection
+Optoisolator Output
+\end_layout
+
 \begin_layout Standard
 The output of the optoisolator is an optical-base transistor, in this circuit
  configured for common emitter mode.
@@ -847,11 +857,35 @@ literal "false"
 , p.
  56).
  Due to the way that the opto is biased, the transistor is nearly always
- in saturation except when the input crosses zero.
+ in saturation except when the input crosses zero, going below the opto
+ forward voltage drop: 
+\begin_inset Formula $\left|V_{in}\right|<V_{f}$
+\end_inset
+
+ .
  During this crossing, the output will briefly exit saturation and be pulled
  up.
- To maintain a consistent logic level, this temporary peak cannot exceed
- the input-high level for the port, 
+ On every quarter-cycle of the input (every half-cycle of the output), the
+ off time is expected to be
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t_{off}=\frac{1}{2\pi\cdot60\textrm{Hz}}\sin^{-1}\left(\frac{1.1\textrm{V}}{120\sqrt{2}}\right)=17.2\mu s
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This indicates a pulse width of about 34.4us on every cycle of the output,
+ assuming ideal operation of the opto.
+ In practice, the pulse is wider.
+ To maintain a consistent logic level, the pulse peak cannot exceed the
+ input-high level for the port, 
 \begin_inset Formula $V_{IH}=2\textrm{V}$
 \end_inset
 
@@ -1142,6 +1176,10 @@ No interrupts, memory banking, or reassignable I/O (peripheral pin select,
 \end_layout
 
 \begin_layout Itemize
+Four I/O pins
+\end_layout
+
+\begin_layout Itemize
 A 4 or 8 MHz internal RC oscillator with internal calibration
 \end_layout
 
@@ -1224,7 +1262,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Enumerate
-Configures the oscillator based on factory configuration
+Configures the oscillator based on factory calibration
 \end_layout
 
 \begin_layout Enumerate
@@ -1359,7 +1397,7 @@ By the ADC specification, the minimum acquisition time (neglecting thermal
 \begin_layout Standard
 \begin_inset Formula 
 \[
-t_{acq}=2\mu\textrm{s}+25\textrm{pF}(1\textrm{k}\Omega+7\textrm{k}\Omega+1175\Omega)\cdot9\ln2=3.4\mu\textrm{s}
+t_{acq}=2\mu s+25\textrm{pF}(1\textrm{k}\Omega+7\textrm{k}\Omega+1175\Omega)\cdot9\ln2=3.4\mu s
 \]
 
 \end_inset
@@ -1479,8 +1517,10 @@ The fan is energized by the following sequence of events.
 
 \begin_layout Standard
 When the PIC timing logic needs to activate the fan, it sets GP2 high (5V).
- This activates Q1, a general-purpose MOSFET configured in common-source
- used to drive the relay coil.
+ This activates Q1.
+ Q1 is a general-purpose MOSFET from Supertex Inc.
+ (Microchip Technology since 2014).
+ It is configured in common-source and used to drive the relay coil.
  Due to inductive effects and current higher than that tolerable by the
  PIC output port (71mA), the coil should not be driven by the PIC directly,
  but Q1 can tolerate up to 200mA 
@@ -1496,7 +1536,7 @@ literal "false"
 
 \begin_layout Standard
 Q1 turns on, pulling down its drain and activating the relay coil.
- The relay closes, and current runs between AC/N and LIVE_FAN.
+ The relay closes, and current runs between AC/L and LIVE_FAN.
 \end_layout
 
 \begin_layout Standard
@@ -3079,32 +3119,32 @@ dims = (Var('w', value=2*pi*60),         # angular velocity, rad/s
 
 \begin_layout Plain Layout
 
-        #Var('Vbr', values=(  6.40,   6.45,   6.67,    7.13,  7.22,  7.78,  7.79,
+        #Var('Vbr', values=(  6.40,   6.45,   6.67,   7.13,  7.22,  7.78,  7.79,
 \end_layout
 
 \begin_layout Plain Layout
 
-        #                     8.65,   8.89,   9.50,   10.00, 10.50, 11.10, 11.40,
+        #                     8.65,   8.89,   9.50,  10.00, 10.50, 11.10, 11.40,
 \end_layout
 
 \begin_layout Plain Layout
 
-        #                    12.20,  12.40,  14.30,   14.40, 15.20, 17.10, 17.80,
+        #                    12.20,  12.40,  14.30,  14.40, 15.20, 17.10, 17.80,
 \end_layout
 
 \begin_layout Plain Layout
 
-        #                    19.00,  20.00,  20.90,   22.20, 22.80, 25.70, 28.50,
+        #                    19.00,  20.00,  20.90,  22.20, 22.80, 25.70, 28.50,
 \end_layout
 
 \begin_layout Plain Layout
 
-        #                    31.40,  34.20,  37.10,   40.00, 40.90, 44.70, 48.50,
+        #                    31.40,  34.20,  37.10,  40.00, 40.90, 44.70, 48.50,
 \end_layout
 
 \begin_layout Plain Layout
 
-        #                    53.20,  58.90,  64.60,   71.30, 77.90, 86.50, 95.00,
+        #                    53.20,  58.90,  64.60,  71.30, 77.90, 86.50, 95.00,
 \end_layout
 
 \begin_layout Plain Layout

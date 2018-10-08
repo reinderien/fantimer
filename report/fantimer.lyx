@@ -336,6 +336,17 @@ Exterior connections to the board use a terminal block with a compression
  During installation, mains wires that are stripped should have insulator
  running right to the edge of the terminal block aperture so that any exposed
  copper is shielded by the terminal block.
+ This is described in 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "subsec:mains-conn"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -350,6 +361,13 @@ stics of a TVS.
  heat up in an over-voltage event, their resistance decreases, increasing
  current on the circuit and allowing the circuit breaker to trip; a TVS
  would fail before the circuit breaker tripping.
+\end_layout
+
+\begin_layout Standard
+Whenever switching mains voltage (in this case, for the fan), always switch
+ the live line, not the neutral line.
+ The neutral line is bonded to earth ground upstream, so neutral voltage
+ is close to earth voltage and is safer to use as a common/return than live.
 \end_layout
 
 \begin_layout Section
@@ -456,6 +474,13 @@ Analysis
 
 \begin_layout Subsection
 Mains Connections
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:mains-conn"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1046,6 +1071,453 @@ t_{min}=-15\textrm{k}\Omega\cdot330\textrm{nF}\cdot0.9\ln\left(1-\frac{2}{5.5}\r
 
 \end_layout
 
+\begin_layout Subsection
+Timing
+\end_layout
+
+\begin_layout Subsubsection
+Controller
+\end_layout
+
+\begin_layout Standard
+For a short delay, a simpler RC discharge circuit would be preferable; but
+ for delays on the order of an hour, this is not feasible because of the
+ large capacitance necessary and the risk of leakage error.
+\end_layout
+
+\begin_layout Standard
+An appealing mixed analogue/digital alternative is the CD4060 timer family,
+ originally of Harris Semiconductor, now Texas Instruments since 2002.
+ It has a built-in oscillator supporting either RC or crystal mode, a built-in
+ divider, and support for high supply voltages of up to 20V.
+ However, using it in this application would require surrounding digital
+ latch circuitry, so a small microcontroller is more suitable.
+\end_layout
+
+\begin_layout Standard
+This circuit needs a microcontroller meeting the criteria described in 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "subsec:vendor"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, plus:
+\end_layout
+
+\begin_layout Itemize
+at least one analog-to-digital converter (ADC)
+\end_layout
+
+\begin_layout Itemize
+support for a 5V supply
+\end_layout
+
+\begin_layout Itemize
+support for enough I/O pins connecting the light detection input, fan output,
+ and time trimmer
+\end_layout
+
+\begin_layout Standard
+A good candidate is the PIC10F220 programmable interrupt controller from
+ Microchip Technology.
+ It is an inexpensive and very simple microcontroller with the following
+ characteristics 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pic"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+No interrupts, memory banking, or reassignable I/O (peripheral pin select,
+ or PPS, available on higher-grade PICs)
+\end_layout
+
+\begin_layout Itemize
+A 4 or 8 MHz internal RC oscillator with internal calibration
+\end_layout
+
+\begin_layout Itemize
+256 words of program memory, each 12 bits wide
+\end_layout
+
+\begin_layout Itemize
+33 instructions
+\end_layout
+
+\begin_layout Itemize
+16 bytes of static random access memory (SRAM)
+\end_layout
+
+\begin_layout Itemize
+An 8-bit ADC
+\end_layout
+
+\begin_layout Standard
+Utilization of the PIC's electronically erasible programming read-only memory
+ (EEPROM) by the program is low and leaves room for expansion.
+ According to the map file generated on build,
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+                              Program Memory Usage 
+\end_layout
+
+\begin_layout Plain Layout
+
+                               Start         End      
+\end_layout
+
+\begin_layout Plain Layout
+
+                           ---------   ---------      
+\end_layout
+
+\begin_layout Plain Layout
+
+                            0x000000    0x00002e      
+\end_layout
+
+\begin_layout Plain Layout
+
+                            0x000fff    0x000fff      
+\end_layout
+
+\begin_layout Plain Layout
+
+            48 out of 261 program addresses used, program memory utilization
+ is 18%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The PIC has been programmed in assembly (see 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sec:code-listing-asm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Briefly, it:
+\end_layout
+
+\begin_layout Enumerate
+Configures the oscillator based on factory configuration
+\end_layout
+
+\begin_layout Enumerate
+Configures the OPTION, ADC, and tristate registers, including configuration
+ to enable WPU for the optoisolator collector
+\end_layout
+
+\begin_layout Enumerate
+Sleeps until it sees a 'low' on the light pin, indicating that the light
+ switch has been energized
+\end_layout
+
+\begin_layout Enumerate
+Spins until it sees a 'high' on the light pin, indicating that the light
+ switch has been opened
+\end_layout
+
+\begin_layout Enumerate
+Turns the fan on
+\end_layout
+
+\begin_layout Enumerate
+Runs timer 0 for a period of time controlled by the position of the wiper
+ arm in the time potentiometer, read by the ADC
+\end_layout
+
+\begin_layout Enumerate
+Turns the fan off and goes back to sleep.
+\end_layout
+
+\begin_layout Subsubsection
+Timer Scaling
+\end_layout
+
+\begin_layout Standard
+Timer 0 is clocked by the internal oscillator divided by four.
+ It is configured for the slowest prescaler available (1:256), and is eight
+ bits wide.
+ Thus, in hardware only, the maximum overflow time would be:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t_{o}=\frac{2^{8}\cdot256\cdot4}{4\textrm{MHz}}=65.5\textrm{ms}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is insufficient for the current application, which should support times
+ up to an hour.
+ The minimum number of software postscaler bits required is found by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\lceil \log_{2}\left(\frac{60^{2}\cdot4\textrm{MHz}}{256\cdot2^{8}\cdot4}\right)\right\rceil =\left\lceil 15.7\right\rceil =16
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus, two bytes of SRAM in nested decrement loops after overflow of TMR0
+ will yield a duration above one hour:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t_{o}=\frac{2^{8}\cdot2^{16}\cdot256\cdot4}{4\textrm{MHz}}=4295\textrm{s (1:11:35)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Timer Adjustment
+\end_layout
+
+\begin_layout Standard
+The timer is adjustable via potentiometer R3 connected to the ADC.
+ The effective impedance of the potentiometer circuit must be less than
+ 10k (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pic"
+literal "false"
+
+\end_inset
+
+, p.
+ 32).
+ A suitable potentiometer is 4.7k, from the TE Connectivity CB10 Series 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pot"
+literal "false"
+
+\end_inset
+
+.
+ It is screwdriver-adjustable and has an arrow indicator.
+ The worst-case (highest) resistance is when the wiper arm is in the middle:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R_{max}=\frac{4.7\textrm{k}\Omega}{2}||\frac{4.7\textrm{k}\Omega}{2}=1175\Omega
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By the ADC specification, the minimum acquisition time (neglecting thermal
+ effects) is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t_{acq}=2\mu\textrm{s}+25\textrm{pF}(1\textrm{k}\Omega+7\textrm{k}\Omega+1175\Omega)\cdot9\ln2=3.4\mu\textrm{s}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Due to the way that the firmware is written, the ADC is left on for many
+ orders of magnitude above this acquisition time, so it is not a limiting
+ factor.
+\end_layout
+
+\begin_layout Standard
+The ADC input pin needs to be protected against noise.
+ An RC lowpass filter is formed by
+\end_layout
+
+\begin_layout Itemize
+ADC sample-and-hold capacitance 
+\begin_inset Formula $C_{hold}=25$
+\end_inset
+
+pF (negligible)
+\end_layout
+
+\begin_layout Itemize
+Input pin capacitance 
+\begin_inset Formula $C_{pin}=5$
+\end_inset
+
+pF (negligible)
+\end_layout
+
+\begin_layout Itemize
+Input pin leakage 
+\begin_inset Formula $R_{leak}>10\textrm{M}\Omega$
+\end_inset
+
+ (negligible)
+\end_layout
+
+\begin_layout Itemize
+ADC sample switch resistance 
+\begin_inset Formula $R_{SS}=7\textrm{k}\Omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Interconnect resistance 
+\begin_inset Formula $R_{IC}\leq1\textrm{k}\Omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Exterior potentiometer effective resistance 
+\begin_inset Formula $R_{3eff}\leq1175\Omega$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Exterior ADC filter capacitance 
+\begin_inset Formula $C_{5}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Critically, the cutoff frequency of this filter must be below the mains
+ line frequency of 60Hz.
+ Using a convenient ceramic capacitor of 1uF for C5 yields
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{cmin}=\frac{1}{2\pi\cdot1\mu\textrm{F}\left(7\textrm{k}\Omega+1\textrm{k}\Omega+1175\Omega\right)}=17.3\textrm{Hz}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{cmax}=\frac{1}{2\pi\cdot1\mu\textrm{F}\cdot7\textrm{k}\Omega}=22.7\textrm{Hz}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Fan Output
+\end_layout
+
+\begin_layout Standard
+The fan is energized by the following sequence of events.
+ The PIC uses the tristate (TRIS) bit corresponding to general purpose I/O
+ pin 2 (GP2) to control whether the pin is in input or output mode.
+ In the brief time during initialization where TRIS is not yet low and the
+ port is in high-impedance mode, R4 acts as a weak pulldown and disables
+ the fan by default.
+ Once initialization is complete, TRIS for GP2 is kept low and the port
+ is kept in the output state.
+\end_layout
+
+\begin_layout Standard
+When the PIC timing logic needs to activate the fan, it sets GP2 high (5V).
+ This activates Q1, a general-purpose MOSFET configured in common-source
+ used to drive the relay coil.
+ Due to inductive effects and current higher than that tolerable by the
+ PIC output port (71mA), the coil should not be driven by the PIC directly,
+ but Q1 can tolerate up to 200mA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fet"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Q1 turns on, pulling down its drain and activating the relay coil.
+ The relay closes, and current runs between AC/N and LIVE_FAN.
+\end_layout
+
+\begin_layout Standard
+When the PIC timing logic needs to deactivate the fan, it sets GP2 low,
+ which turns off Q1, opening its drain.
+ The coil inductor voltage will spike when the relay opens, but will be
+ limited by the Schottky diode D1 entering forward bias.
+ Since the fan motor is expected to be an inductive load, it may similarly
+ spike, but will be limited by the MOV R5 (see 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "subsec:Circuit-Safety"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
@@ -1192,6 +1664,69 @@ target "https://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTV-814H_824H
 
 \end_layout
 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "cd4060"
+literal "false"
+
+\end_inset
+
+Texas Instruments Incorporated.
+ (2003).
+ CD4060B Types, Document SCHS049C.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.ti.com/lit/ds/symlink/cd4060b.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pot"
+literal "false"
+
+\end_inset
+
+TE Connectivity.
+ (2014).
+ Carbon Economy Trimmers, Type CB10 Series, Document 1773190 CIS BI 06/2014.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1773190&DocType=DS&DocLang=English"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "fet"
+literal "false"
+
+\end_inset
+
+Supertex Inc.
+ (2013).
+ 2N7000, Document DSFP-2N7000.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en571380"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 \start_of_appendix
 Code Listing: PIC10F220 Assembly
@@ -1250,7 +1785,7 @@ GP_FAN   equ GP2
 
 \begin_layout Plain Layout
 
-    ; 4/8MHZ internal RC osc
+    ; 4/8MHz internal RC osc
 \end_layout
 
 \begin_layout Plain Layout

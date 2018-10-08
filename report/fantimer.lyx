@@ -92,7 +92,7 @@
 \begin_body
 
 \begin_layout Title
-A low-cost, autonomous mains timed switch
+A simple, autonomous mains timed switch
 \end_layout
 
 \begin_layout Author
@@ -187,6 +187,60 @@ perfboard
  Hand soldering is feasible due to the low number of component connections.
 \end_layout
 
+\begin_layout Subsection
+Parts Vendor
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:vendor"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To again simplify prototyping, Digi-Key® is used as the sole vendor for
+ parts, for several reasons: they have a huge variety of products, a fast
+ shipping service, and a fairly good search interface.
+ Some standard criteria are used to select parts that will be inexpensive,
+ readily available, and useful for this project:
+\end_layout
+
+\begin_layout Itemize
+Stock Status: In Stock
+\end_layout
+
+\begin_layout Itemize
+Part Status: Active
+\end_layout
+
+\begin_layout Itemize
+Mounting Type: Through Hole
+\end_layout
+
+\begin_layout Itemize
+Quantity (
+\begin_inset Quotes eld
+\end_inset
+
+View Prices At
+\begin_inset Quotes erd
+\end_inset
+
+) typically 2, so that products with a high minimum quantity are not shown
+\end_layout
+
+\begin_layout Itemize
+Sort ascending by unit price, to choose the least expensive part that still
+ meets criteria
+\end_layout
+
+\begin_layout Standard
+If this product were to be converted to mass manufacturing, it may be more
+ cost-effective to move to a different vendor, but that is not currently
+ a factor.
+\end_layout
+
 \begin_layout Section
 Safety Considerations
 \end_layout
@@ -246,6 +300,13 @@ Always have at least one other person on the premises in case of emergency.
 
 \begin_layout Subsection
 Circuit Safety
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Circuit-Safety"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -340,17 +401,399 @@ Custom Software
 
 \begin_layout Standard
 To help explore options for component selection, particularly for the passives
- before the opto-isolator, a small tool has been written in Python.
+ before the optoisolator, a small tool has been written in Python.
  It iterates through possibilities for some resistors, capacitors and TVS
  breakdown voltages, constraining the resistors and capacitors to common
  values in the E24 and E12 series, respectively.
- For details see Appendix 
+ For details see 
 \begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:code-listing-asm"
+LatexCommand nameref
+reference "sec:code-listing-elsel"
 plural "false"
 caps "false"
 noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename schematic.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuit schematic.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Analysis
+\end_layout
+
+\begin_layout Subsection
+Mains Connections
+\end_layout
+
+\begin_layout Standard
+The mains terminal block (X1) needs four connections: neutral (
+\begin_inset Quotes eld
+\end_inset
+
+AC/N
+\begin_inset Quotes erd
+\end_inset
+
+), live from the source panel (
+\begin_inset Quotes eld
+\end_inset
+
+AC/L
+\begin_inset Quotes erd
+\end_inset
+
+), live from the light switch (
+\begin_inset Quotes eld
+\end_inset
+
+LIVE_LIGHT
+\begin_inset Quotes erd
+\end_inset
+
+), and live to the fan (
+\begin_inset Quotes eld
+\end_inset
+
+LIVE_FAN
+\begin_inset Quotes erd
+\end_inset
+
+).
+ Since nearly all perfboards have a standard 100mil pitch, the most convenient
+ block pitch to use is 200mil, which allows for a good balance between expense
+ and wire size support.
+ The part used actually has a pitch of 5mm, which is very close to 200mil:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(5\textrm{mm}\right)\frac{1\textrm{mil}}{0.0254\textrm{mm}}=196.85\textrm{mil}\approx200\textrm{mil}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The terminal block leads are 1mm wide, which requires that the perfboard
+ holes be slightly drilled out for this part.
+\end_layout
+
+\begin_layout Standard
+The circuit requiring the highest current-carrying capacity is through the
+ terminal block, between AC/L and LIVE_FAN.
+ Most ceiling fans typically consume less than 100W, which implies current
+ up to 100W/120V = 833mA.
+ The Wurth 1377 series can carry 16A, and supports the connection style
+ described in 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "subsec:Circuit-Safety"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Supply
+\end_layout
+
+\begin_layout Standard
+The timer uses a 5V supply.
+ This is low enough to be compatible with microcontrollers in the Microchip
+ PIC® series, but high enough to directly drive a relay coil.
+ The simplest - though not necessarily the most cost-effective, nor physically
+ smallest - style of supply is an integrated, enclosed unit such as the
+ MeanWell IRM-01-5.
+ This meets the isolation and surge requirements described in 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "subsec:Circuit-Safety"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This supply supports up to 200mA output.
+ The current drawn by all parts of the circuit other than the relay coil
+ is negligible.
+ The relay coil draws 71mA, well within the supply's rating.
+\end_layout
+
+\begin_layout Subsection
+Line Detection
+\end_layout
+
+\begin_layout Standard
+The analog section requiring the most detailed analysis is the line detection
+ circuit.
+ This circuit is designed not to directly measure the amount of voltage
+ on the line, but simply to indicate to the timing microcontroller whether
+ the light switch is on or not.
+ As such, it has no linearity requirements.
+\end_layout
+
+\begin_layout Standard
+The central component in the line detection circuit is the optoisolator.
+ The only requirements are that the input be a pair of antiparallel LEDs
+ for AC support, plus the vendor criteria (see 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "subsec:vendor"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The Lite-On LTV-814H fits well.
+\end_layout
+
+\begin_layout Standard
+The input is 120Vac (170Vpk), but the forward voltage drop of the opto is
+ only ~1.1V.
+ During steady-state operation of the circuit, the majority of this voltage
+ difference should be dropped by capacitance rather than resistance, to
+ decrease power and heat output.
+ The circuit should also include a TVS.
+ Both the TVS and the opto should be preceded by an absorption impedance
+ should there be an over-voltage event, but this impedance cannot be purely
+ capacitive, as that would be invisible to transients; so there should be
+ some minimum resistance.
+ The resistance must also account for the worst-case input surge event,
+ where the switch is closed at input cycle peak and the capacitors are uncharged.
+\end_layout
+
+\begin_layout Standard
+For simplicity's sake - and to take advantage of economies of scale, should
+ this be mass-manufactured - make the absorption resistors R1 and R2 equal
+ to each other, and the voltage drop capacitors C1 and C2 also equal to
+ each other.
+ The TVS diode must then have a minimum breakdown voltage equal to the midpoint
+ between the input and opto peak voltages, or
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{mid}\frac{(120\textrm{V})\sqrt{2}+1.1}{2}=85.4\textrm{V}\approx86.5\textrm{V}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The TVS diode D2 can be assigned the Littelfuse P6KE91CA which has a Vbrmin=86.5V
+\begin_inset CommandInset citation
+LatexCommand cite
+key "tvs"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The resistors must be chosen so that during input surge, they allow a current
+ less than the maximum supported by the opto, 150mApk.
+ Using a conservative 50mA,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R_{1,2}=\frac{V_{mid}}{50\textrm{mA}}\approx1.6\textrm{k\ensuremath{\Omega}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The resistors chosen must support the surge power:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{mid}^{2}}{R}=4.5\textrm{W}\ll39\textrm{W}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This surge power occurs for less than 1ms.
+ The surge power derating curve for StackPole's affordable CF14 series (Figure
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "figure-derating"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) shows that, for 1ms, the CF14 (in blue) can tolerate ~39W; and it can
+ tolerate 4.5W for over 100ms; so it's safe.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename res-derating.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Surge power derating curve for the StackPole Electronics Carbon Film (CF)
+ series of resistors 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "stackpole-cfres"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "figure-derating"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The resistors must also support a steady-state power dissipation based on
+ the selected bias current for the opto input.
+ If the bias current is 10mA peak, then the steady-state power is easily
+ supported by an affordable quarter-watt resistor:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{R}=\frac{(10\textrm{mA})^{2}\cdot1.6\textrm{k\Omega}}{2}=80\textrm{mW}\ll250\textrm{mW}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The capacitors must drop the proper voltage during steady-state (non-surge)
+ operation.
+ Neglecting the forward drop of the opto,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{C}=\sqrt{V_{mid}^{2}-(10\textrm{mA}\cdot1.6\textrm{k\Omega})^{2}}=83.9\textrm{V}\ll160\textrm{V}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{1,2}=\frac{10\textrm{mA}}{2\pi\cdot60\textrm{Hz}\cdot V_{C}}=316\textrm{nF}\approx330\textrm{nF}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For high-voltage, mid-capacitance applications like this, metallized polyester-f
+ilm capacitors are well-suited.
+ The Illinois Capacitor MMR series offers a 330nF capacitor that can withstand
+ 160Vac, the 334MMR250K
+\begin_inset CommandInset citation
+LatexCommand cite
+key "illinois-cap"
+literal "false"
 
 \end_inset
 
@@ -365,8 +808,17 @@ literal "false"
 
 \end_inset
 
-Continuing Professional Development.
- (2013.) Retrieved from https://www.oacett.org/Careers/CPD
+OACETT.
+ (2013).
+ Continuing Professional Development.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.oacett.org/Careers/CPD"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography
@@ -377,9 +829,80 @@ literal "false"
 
 \end_inset
 
-Suggested CPD Activities And Samples.
- (2013.) Retrieved from https://www.oacett.org/Careers/CPD/Suggested_CPD_Activities
-_And_Samples
+OACETT.
+ (2013).
+ Suggested CPD Activities And Samples.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.oacett.org/Careers/CPD/Suggested_CPD_Activities_And_Samples"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tvs"
+literal "false"
+
+\end_inset
+
+Littelfuse.
+ (2017).
+ Transient Voltage Suppression Diodes, P6KE Series.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.littelfuse.com/~/media/electronics/datasheets/tvs_diodes/littelfuse_tvs_diode_p6ke_datasheet.pdf.pdf"
+
+\end_inset
+
+ [sic]
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "stackpole-cfres"
+literal "false"
+
+\end_inset
+
+StackPole Electronics Incorporated.
+ (2018).
+ CF/CFM Series Carbon Film Resistors.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.seielect.com/Catalog/SEI-CF_CFM.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "illinois-cap"
+literal "false"
+
+\end_inset
+
+Illinois Capacitor.
+ (2017).
+ MMR Metallized Polyester Film Capacitors.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.illinoiscapacitor.com/pdf/seriesDocuments/MMR%20series.pdf"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1101,6 +1624,13 @@ tmr0_loop:
 
 \begin_layout Section
 Code Listing: elsel.py
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:code-listing-elsel"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

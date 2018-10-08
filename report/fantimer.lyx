@@ -621,7 +621,7 @@ For simplicity's sake - and to take advantage of economies of scale, should
 \begin_layout Standard
 \begin_inset Formula 
 \[
-V_{mid}\frac{(120\textrm{V})\sqrt{2}+1.1}{2}=85.4\textrm{V}\approx86.5\textrm{V}
+V_{mid}=\frac{(120\textrm{V})\sqrt{2}+1.1}{2}=85.4\textrm{V}\approx86.5\textrm{V}
 \]
 
 \end_inset
@@ -800,6 +800,77 @@ literal "false"
 .
 \end_layout
 
+\begin_layout Standard
+The output of the optoisolator is an optical-base transistor.
+ High collector current severely impedes the performance of the transistor
+ and increases saturation voltage, so it should be kept as low as possible.
+ Rather than using a discrete resistor for load, the load resistance can
+ be the weak pull-up (WPU) resistance of a port on the PIC.
+ With 
+\begin_inset Formula $V_{DD}=5\textrm{V}$
+\end_inset
+
+ and T=25°C this is typically 22k
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Ω
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pic"
+literal "false"
+
+\end_inset
+
+, p.
+ 56).
+ Due to the way that the opto is biased, the transistor is nearly always
+ in saturation except when the input crosses zero.
+ During this crossing, the output will briefly exit saturation and be pulled
+ up.
+ To maintain a consistent logic level, this temporary peak cannot exceed
+ the input-high level for the port, 
+\begin_inset Formula $V_{IH}=2\textrm{V}$
+\end_inset
+
+ (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pic"
+literal "false"
+
+\end_inset
+
+, p.
+ 55).
+ Raising the capacitance across the output lowers the peak.
+ The capacitor should be chosen to be high enough such that the input never
+ exceeds 2V minus a safe margin, but low enough that the output still responds
+ quickly when the voltage from the mains input is interrupted.
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
@@ -903,6 +974,27 @@ target "http://www.illinoiscapacitor.com/pdf/seriesDocuments/MMR%20series.pdf"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pic"
+literal "false"
+
+\end_inset
+
+Microchip Technology Inc.
+ (2013).
+ PIC10F220/222 Data Sheet, Document DS40001270F.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en566609"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section

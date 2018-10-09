@@ -2096,6 +2096,43 @@ name "fig:trans-p"
 
 \end_layout
 
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+This has been a good opportunity to stay up-to-date on domain knowledge
+ and skills, and to research some areas of the field that are not covered
+ in detail in school.
+ The design concept is sound, and the device is functional after having
+ been implemented.
+ Future work could include:
+\end_layout
+
+\begin_layout Itemize
+Replacing the enclosed power supply with a custom, discrete-component-based
+ power supply to reduce cost
+\end_layout
+
+\begin_layout Itemize
+Implementing a custom enclosure, potentially using 3D CAD and 3D printing
+ technology
+\end_layout
+
+\begin_layout Itemize
+Scaling the design up to be able to accommodate 240Vac or multi-phase input
+\end_layout
+
+\begin_layout Itemize
+Scaling the design down physically, to use surface-mounted devices (SMD)
+ reducing cost and space requirements
+\end_layout
+
+\begin_layout Itemize
+Implementing additional failsafe measures such as a thermal trip circuit
+ or a polymeric positive temperature coefficient (PPTC) fuse
+\end_layout
+
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem

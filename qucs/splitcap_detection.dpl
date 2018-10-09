@@ -1,6 +1,6 @@
 <Qucs Schematic 0.0.19>
 <Properties>
-  <View=-62,-17,1221,2137,1,0,1269>
+  <View=-62,-17,1221,2137,1,0,0>
   <Grid=10,10,0>
   <DataSet=splitcap_detection.dat>
   <DataDisplay=splitcap_detection.sch>

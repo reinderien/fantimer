@@ -203,7 +203,15 @@ name "subsec:vendor"
 \begin_layout Standard
 To again simplify prototyping, Digi-Key® is used as the sole vendor for
  parts, for several reasons: they have a huge variety of products, a fast
- shipping service, and a fairly good search interface.
+ shipping service 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "dk-shipping"
+literal "false"
+
+\end_inset
+
+, and a fairly good search interface.
  Some standard criteria are used to select parts that will be inexpensive,
  readily available, and useful for this project:
 \end_layout
@@ -271,13 +279,19 @@ The lab must have a working breaker or fuse.
 \begin_layout Itemize
 Have a local switch to disable mains power to the circuit during wiring
  work.
- Never rewire the circuit unless the mains are de-energized.
+ Never rewire or otherwise touch the circuit unless the mains are de-energized.
 \end_layout
 
 \begin_layout Itemize
 Keep a clean and uncluttered workspace.
  Only have on hand the tools and parts needed.
  Remove any unneeded conductors that could cause unintentional shorts.
+\end_layout
+
+\begin_layout Itemize
+The work surface must be non-conductive.
+ Ideally, an electrostatic dissipation (ESD) mat with a grounding line should
+ be used.
 \end_layout
 
 \begin_layout Itemize
@@ -304,7 +318,7 @@ Always have at least one other person on the premises in case of emergency.
 Circuit Safety
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Circuit-Safety"
+name "subsec:circuit-safety"
 
 \end_inset
 
@@ -313,9 +327,39 @@ name "subsec:Circuit-Safety"
 
 \begin_layout Standard
 Detection of the light switch status should be done with a circuit isolated
- from mains voltage; a simple and safe option is an optoisolator.
+ from mains voltage; a simple and safe option is an optoisolator (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "subsec:opto-input"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
  The board power supply and the output switch should also be isolated from
- mains voltage.
+ mains voltage (sections 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "subsec:supply"
+plural "true"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:fan-output"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -338,9 +382,10 @@ Exterior connections to the board use a terminal block with a compression
  During installation, mains wires that are stripped should have insulator
  running right to the edge of the terminal block aperture so that any exposed
  copper is shielded by the terminal block.
- This is described in 
+ Any exterior connections to live mains lines should have fuses.
+ The terminal block and adjoining fuses are described in 
 \begin_inset CommandInset ref
-LatexCommand nameref
+LatexCommand formatted
 reference "subsec:mains-conn"
 plural "false"
 caps "false"
@@ -355,14 +400,29 @@ noprefix "false"
 The circuit should have some safety against surges.
  The board power supply has built-in surge protection.
  The optoisolator is preceded by a bidirectional-channel transient voltage
- suppression (TVS) diode and surge absorption resistors.
+ suppression (TVS) diode and surge absorption resistors, described in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "subsec:opto-input"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  The relay output is protected by a metal-oxide varistor (MOV) and not a
- TVS, due to the absence of absorption resistors and the failure mode characteri
-stics of a TVS.
- MOVs have a negative temperature coefficient (NTC), meaning that as they
- heat up in an over-voltage event, their resistance decreases, increasing
- current on the circuit and allowing the circuit breaker to trip; a TVS
- would fail before the circuit breaker tripping.
+ TVS; this is described in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "subsec:fan-output"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -370,6 +430,17 @@ Whenever switching mains voltage (in this case, for the fan), always switch
  the live line, not the neutral line.
  The neutral line is bonded to earth ground upstream, so neutral voltage
  is close to earth voltage and is safer to use as a common/return than live.
+ This strategy is used in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "subsec:fan-output"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -381,15 +452,29 @@ Third-Party Software
 \end_layout
 
 \begin_layout Standard
-Eagle is the electronic computer-aided design (ECAD) tool used, because
- it is free and popular.
+Eagle (formerly of CadSoft, now Autodesk since 2016 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ad-eats-eagle"
+literal "false"
+
+\end_inset
+
+) is the electronic computer-aided design (ECAD) tool used.
  It is used for the wiring diagram, circuit schematic, and airwire board
  diagram.
 \end_layout
 
 \begin_layout Standard
-Microchip PIC® Lab (MPLAB®) X is used for the embedded integrated development
- environment (IDE).
+Microchip Programmable Interrupt Controller (PIC®) Lab 
+\begin_inset Quotes eld
+\end_inset
+
+MPLAB® X
+\begin_inset Quotes erd
+\end_inset
+
+ is used for the embedded integrated development environment (IDE).
  It includes an editor, assembler, linker, driver for the PICkit™ 3 programmer,
  and simulator, all used in this project.
 \end_layout
@@ -412,7 +497,31 @@ The project files are tracked by a version control system (VCS) called Git.
  changes over time.
  As such, all of the files are saved in text format, including the bill
  of materials spreadsheet, which is saved as a Flat Open Document Format
- Spreadsheet (FODS).
+ Spreadsheet (FODS) from LibreOffice.
+\end_layout
+
+\begin_layout Standard
+All software used is free on the internet.
+ QUCS, Git and LibreOffice are free open-source software (FOSS), but Eagle
+ and MPLABX are proprietary.
+\end_layout
+
+\begin_layout Subsection
+Third-Party Hardware
+\end_layout
+
+\begin_layout Standard
+The digital storage oscilloscope (DSO) used is a low-cost open-source DS203
+ from MiniDSO.
+ Given the low bandwidth requirements and low complexity of this project,
+ it is adequate.
+\end_layout
+
+\begin_layout Standard
+The PIC programmer used is a Microchip PICkit™ 3.
+ It is used for in-circuit serial programming (ICSP) of the firmware, and
+ although it supports in-circuit debugging (ICD), this is not feasible given
+ the low pin count of the PIC.
 \end_layout
 
 \begin_layout Subsection
@@ -425,9 +534,9 @@ To help explore options for component selection, particularly for the passives
  It iterates through possibilities for some resistors, capacitors and TVS
  breakdown voltages, constraining the resistors and capacitors to common
  values in the E24 and E12 series, respectively.
- For details see 
+ For details see appendix 
 \begin_inset CommandInset ref
-LatexCommand nameref
+LatexCommand ref
 reference "sec:code-listing-elsel"
 plural "false"
 caps "false"
@@ -458,6 +567,13 @@ status open
 
 \begin_layout Plain Layout
 Circuit schematic.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:schematic"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -486,7 +602,17 @@ name "subsec:mains-conn"
 \end_layout
 
 \begin_layout Standard
-The mains terminal block (X1) needs four connections: neutral (
+The mains terminal block (X1 in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:schematic"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) needs four connections: neutral (
 \begin_inset Quotes eld
 \end_inset
 
@@ -528,7 +654,7 @@ LIVE_FAN
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\left(5\textrm{mm}\right)\frac{1\textrm{mil}}{0.0254\textrm{mm}}=196.85\textrm{mil}\approx200\textrm{mil}
+\left(5\textrm{mm}\right)\frac{100\textrm{mil}}{2.54\textrm{mm}}=196.85\textrm{mil}\approx200\textrm{mil}
 \]
 
 \end_inset
@@ -546,11 +672,56 @@ The circuit requiring the highest current-carrying capacity is through the
  terminal block, between AC/L and LIVE_FAN.
  Most ceiling fans typically consume less than 100W, which implies current
  up to 100W/120V = 833mA.
- The Wurth 1377 series can carry 16A, and supports the connection style
+ The Würth 1377 series can carry 16A, and supports the connection style
  described in 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "subsec:Circuit-Safety"
+LatexCommand formatted
+reference "subsec:circuit-safety"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "term"
+literal "false"
+
+\end_inset
+
+.
+ The switch side of the relay can carry 15A 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "relay"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Both AC/L and LIVE_LIGHT should be fused.
+ LIVE_FAN does not need to be fused because it is derived from AC/L.
+ For LIVE_LIGHT, a ceramic positive temperature coefficient (CPTC) self-resettin
+g fuse is used (F2 in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:schematic"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ For more details see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "subsec:opto-input"
 plural "false"
 caps "false"
 noprefix "false"
@@ -560,12 +731,113 @@ noprefix "false"
 .
 \end_layout
 
-\begin_layout Subsection
-Supply
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fuse.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Time-to-open against current for the BelFuse 5MF series 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fuses"
+literal "false"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fuse-times"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-The timer uses a 5V supply.
+For AC/L, PTC fuses were considered, but for the current ranges needed,
+ there is not a good selection, and the components are bulky, expensive
+ and slow to trip.
+ A filament fuse is used instead (F1 in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:schematic"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The standard fuse form factor chosen is 5mm diameter by 20mm length, and
+ the manufacturer chosen is Bel Fuse Inc.; they carry fast-response filament
+ fuses over a wide current rating range.
+ The fuse is held with two 5mm clips.
+ Although the fan is not expected to draw over 833mA steady-state, motors
+ typically have a surge current many times above that.
+ For this reason, the chosen fuse is rated for 5A, and will trip in 1s with
+ a current of about 9.5A (
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:fuse-times"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Supply
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:supply"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The timer uses a 5V supply, U1 in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:schematic"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  This is low enough to be compatible with microcontrollers in the Microchip
  PIC® series, but high enough to directly drive a relay coil.
  The simplest - though not necessarily the most cost-effective, nor physically
@@ -573,8 +845,8 @@ The timer uses a 5V supply.
  MeanWell IRM-01-5.
  This meets the isolation and surge requirements described in 
 \begin_inset CommandInset ref
-LatexCommand nameref
-reference "subsec:Circuit-Safety"
+LatexCommand formatted
+reference "subsec:circuit-safety"
 plural "false"
 caps "false"
 noprefix "false"
@@ -585,7 +857,15 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-This supply supports up to 200mA output.
+This supply supports up to 200mA output 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "psu"
+literal "false"
+
+\end_inset
+
+.
  The current drawn by all parts of the circuit other than the relay coil
  is negligible.
  The relay coil draws 71mA, well within the supply's rating.
@@ -648,8 +928,8 @@ The input is 120Vac (170Vpk), but the forward voltage drop of the opto is
 \end_layout
 
 \begin_layout Standard
-For simplicity's sake - and to take advantage of economies of scale, should
- this be mass-manufactured - make the absorption resistors R1 and R2 equal
+For simplicity's sake – and to take advantage of economies of scale, should
+ this be mass-manufactured – make the absorption resistors R1 and R2 equal
  to each other, and the voltage drop capacitors C1 and C2 also equal to
  each other.
  The TVS diode must then have a minimum breakdown voltage equal to the midpoint
@@ -796,6 +1076,43 @@ P_{R}=\frac{(10\textrm{mA})^{2}\cdot1.6\textrm{k\Omega}}{2}=80\textrm{mW}\ll250\
 \end_layout
 
 \begin_layout Standard
+F2 is a CPTC.
+ Polymeric and ceramic fuses open the circuit during thermal overload from
+ high current, and are able to recover after the short condition is removed.
+ Ceramic fuses have a much faster response time than polymeric fuses.
+ The chosen CPTC is the Bourns CMF-RL35-0 (
+\begin_inset Quotes eld
+\end_inset
+
+ceramic fuse, radial lead, 35 ohms
+\begin_inset Quotes erd
+\end_inset
+
+).
+ The inline resistance is negligible compared to the 3.2k through the rest
+ of the detector circuit.
+ The hold current (the current below which the fuse will not trip) must
+ exceed the maximum surge current of 50mA; the CMF-RL35-0 has an 
+\begin_inset Formula $I_{hold}=75$
+\end_inset
+
+mA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cptc"
+literal "false"
+
+\end_inset
+
+.
+ It will trip after 150ms when the current exceeds 
+\begin_inset Formula $I_{trip}=150$
+\end_inset
+
+mA, another way to ensure that the maximum opto input current is never exceeded.
+\end_layout
+
+\begin_layout Standard
 The capacitors must drop the proper voltage during steady-state (non-surge)
  operation.
  Neglecting the forward drop of the opto,
@@ -847,8 +1164,8 @@ The output of the optoisolator is an optical-base transistor, in this circuit
  configured for common emitter mode.
  High collector current severely impedes the performance of the transistor
  and increases saturation voltage, so it should be kept as low as possible.
- Rather than using a discrete resistor for load, the load resistance can
- be the weak pull-up (WPU) resistance of a port on the PIC.
+ Rather than using a discrete resistor for load, the load can be the weak
+ pull-up (WPU) resistance of a port on the PIC.
  With 
 \begin_inset Formula $V_{DD}=5\textrm{V}$
 \end_inset
@@ -910,7 +1227,7 @@ literal "false"
  The capacitor should be chosen to be high enough such that the input never
  exceeds 2V minus a safe margin, but low enough that the output still responds
  quickly when the voltage from the mains input is interrupted.
- When the PIC WPU is enabled, C3 is set to 100nF and the switch is energized,
+ When C3 is set to 100nF, the PIC WPU is enabled and the switch is energized,
  the zero-crossing peak reaches ~500mV (
 \begin_inset CommandInset ref
 LatexCommand formatted
@@ -1128,7 +1445,15 @@ For a short delay, a simpler RC discharge circuit would be preferable; but
 
 \begin_layout Standard
 An appealing mixed analogue/digital alternative is the CD4060 timer family,
- originally of Harris Semiconductor, now Texas Instruments since 2002.
+ originally of Harris Semiconductor, now Texas Instruments since 1998 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ti-eats-harris"
+literal "false"
+
+\end_inset
+
+.
  It has a built-in oscillator supporting either RC or crystal mode, a built-in
  divider, and support for high supply voltages of up to 20V.
  However, using it in this application would require surrounding digital
@@ -1414,8 +1739,8 @@ t_{acq}=2\mu s+25\textrm{pF}(1\textrm{k}\Omega+7\textrm{k}\Omega+1175\Omega)\cdo
 
 \begin_layout Standard
 Due to the way that the firmware is written, the ADC is left on for many
- orders of magnitude above this acquisition time, so it is not a limiting
- factor.
+ orders of magnitude above this acquisition time prior to initiating a conversio
+n, so it is not a limiting factor.
 \end_layout
 
 \begin_layout Standard
@@ -1509,12 +1834,19 @@ f_{cmax}=\frac{1}{2\pi\cdot1\mu\textrm{F}\cdot7\textrm{k}\Omega}=22.7\textrm{Hz}
 
 \begin_layout Subsection
 Fan Output
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:fan-output"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 The fan is energized by the following sequence of events.
  The PIC uses the tristate (TRIS) bit corresponding to general purpose I/O
- pin 2 (GP2) to control whether the pin is in input or output mode.
+ port 2 (GP2) to control whether the pin is in input or output mode.
  In the brief time during initialization where TRIS is not yet low and the
  port is in high-impedance mode, R4 acts as a weak pulldown and disables
  the fan by default.
@@ -1526,7 +1858,15 @@ The fan is energized by the following sequence of events.
 When the PIC timing logic needs to activate the fan, it sets GP2 high (5V).
  This activates Q1.
  Q1 is a general-purpose MOSFET from Supertex Inc.
- (Microchip Technology since 2014).
+ (Microchip Technology since 2014 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "microchip-eats-supertex"
+literal "false"
+
+\end_inset
+
+).
  It is configured in common-source and used to drive the relay coil.
  Due to inductive effects and current higher than that tolerable by the
  PIC output port (71mA), the coil should not be driven by the PIC directly,
@@ -1549,20 +1889,16 @@ Q1 turns on, pulling down its drain and activating the relay coil.
 \begin_layout Standard
 When the PIC timing logic needs to deactivate the fan, it sets GP2 low,
  which turns off Q1, opening its drain.
- The coil inductor voltage will spike when the relay opens, but will be
- limited by the Schottky diode D1 entering forward bias.
+ The coil voltage will spike when the relay opens, but will be limited by
+ the Schottky diode D1 entering forward bias.
  Since the fan motor is expected to be an inductive load, it may similarly
- spike, but will be limited by the MOV R5 (see 
-\begin_inset CommandInset ref
-LatexCommand nameref
-reference "subsec:Circuit-Safety"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-).
+ spike, but will be limited by the MOV R5.
+ A MOV is used due to the absence of absorption resistors and the failure
+ mode characteristics of a TVS.
+ MOVs have a negative temperature coefficient (NTC), meaning that as they
+ heat up in an over-voltage event, their resistance decreases, increasing
+ current on the circuit and allowing the circuit breaker to trip or fuse
+ to blow; a TVS would fail before the circuit breaker or fuse could act.
 \end_layout
 
 \begin_layout Section
@@ -1604,8 +1940,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename stimulus.PNG
-	width 60line%
+	filename stimulus.png
+	width 80line%
 
 \end_inset
 
@@ -1685,7 +2021,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename pic-init.PNG
+	filename pic-init.png
 	width 100line%
 
 \end_inset
@@ -2128,11 +2464,6 @@ Scaling the design down physically, to use surface-mounted devices (SMD)
  reducing cost and space requirements
 \end_layout
 
-\begin_layout Itemize
-Implementing additional failsafe measures such as a thermal trip circuit
- or a polymeric positive temperature coefficient (PPTC) fuse
-\end_layout
-
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
@@ -2178,6 +2509,69 @@ target "https://www.oacett.org/Careers/CPD/Suggested_CPD_Activities_And_Samples"
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "dk-shipping"
+literal "false"
+
+\end_inset
+
+Digi-Key Electronics.
+ (2018).
+ Digi-Key Same Day Shipping.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.digikey.ca/en/help/same-day-shipping"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ad-eats-eagle"
+literal "false"
+
+\end_inset
+
+Berggen, Matt.
+ (2016).
+ Autodesk acquires EAGLE: Q&A and a look into future.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.autodesk.com/products/eagle/blog/autodesk-acquires-eagle-qa-look-future"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psu"
+literal "false"
+
+\end_inset
+
+MeanWell.
+ (2018).
+ IRM-01 Series, Document IRM-01-SPEC.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.meanwell.com/Upload/PDF/IRM-01/IRM-01-SPEC.PDF"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "tvs"
 literal "false"
 
@@ -2199,18 +2593,103 @@ target "http://www.littelfuse.com/~/media/electronics/datasheets/tvs_diodes/litt
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "term"
+literal "false"
+
+\end_inset
+
+Würth Elektronik eiSos GmbH & Co.
+ KG.
+ (2017).
+ Serie 1377 – 5.00mm Horizontal Entry w.
+ Pressure Clamp.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://katalog.we-online.de/em/datasheet/691137710004.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "relay"
+literal "false"
+
+\end_inset
+
+TE Connectivity.
+ (2012).
+ ORWH-1T Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1721150&DocType=Customer+Drawing&DocLang=English"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "stackpole-cfres"
 literal "false"
 
 \end_inset
 
-StackPole Electronics Incorporated.
+StackPole Electronics Inc.
  (2018).
  CF/CFM Series Carbon Film Resistors.
  Retrieved from 
 \begin_inset CommandInset href
 LatexCommand href
 target "https://www.seielect.com/Catalog/SEI-CF_CFM.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "fuses"
+literal "false"
+
+\end_inset
+
+Bel Power Solutions & Protection.
+ (2016).
+ Type 5MF/5MFP Fast Blow Fuse Series.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://belfuse.com/resources/datasheets/circuitprotection/ds-cp-5mf-5mfp-series.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "cptc"
+literal "false"
+
+\end_inset
+
+Bourns, Inc.
+ (2018).
+ CMF-RL Series - Telecom CPTC Resettable Fuses, C1753 05/17/18.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.bourns.com/docs/Product-Datasheets/cmfrl.pdf"
 
 \end_inset
 
@@ -2232,6 +2711,34 @@ Illinois Capacitor.
 \begin_inset CommandInset href
 LatexCommand href
 target "http://www.illinoiscapacitor.com/pdf/seriesDocuments/MMR%20series.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ti-eats-harris"
+literal "false"
+
+\end_inset
+
+Lineback, J.
+ Robert.
+ (1998, November).
+ TI buying Harris' logic portfolio.
+ 
+\shape italic
+Semiconductor Business News
+\shape default
+.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://web.archive.org/web/20000523164052/http://www.semibiznews.com/stories98/nov98x/8k05ti.htm"
+literal "false"
 
 \end_inset
 
@@ -2324,6 +2831,27 @@ target "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrt
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "microchip-eats-supertex"
+literal "false"
+
+\end_inset
+
+Microchip Technology Inc.
+ (2014).
+ Microchip Technology Announces Acquisition of Supertex, Inc.
+ Retrieved from 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.microchip.com/investor/Pressrelease/MCHP%20Announces%20Acquisition%20of%20Supertex,%20Inc.021014.pdf"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "fet"
 literal "false"
 
@@ -2342,8 +2870,1224 @@ target "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en571380"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Part*
 \start_of_appendix
+Appendix
+\end_layout
+
+\begin_layout Section
+Bill of Materials
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="18" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Reference
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+DKey Part No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Mfg Part No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Description
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Qty
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+$/Unit
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+$
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Total
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Section
 Code Listing: PIC10F220 Assembly
 \begin_inset CommandInset label
 LatexCommand label

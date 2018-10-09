@@ -623,6 +623,13 @@ noprefix "false"
 
 \begin_layout Subsubsection
 Optoisolator Input
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:opto-input"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -751,14 +758,14 @@ literal "false"
 \end_inset
 
 
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:derating"
 
 \end_inset
 
 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:derating"
+\end_layout
 
 \end_inset
 
@@ -1556,6 +1563,537 @@ noprefix "false"
 \end_inset
 
 ).
+\end_layout
+
+\begin_layout Section
+Simulation
+\end_layout
+
+\begin_layout Subsection
+MPLAB
+\end_layout
+
+\begin_layout Standard
+MPLAB has simulation facilities useful for predicting the behaviour of a
+ PIC.
+ Timed events on inputs can be constructed using stimuli, for example those
+ of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:stimulus"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, where AN0 (the trimmer) is set to 20mV; and the fan is set to turn on
+ at 30us and off at 60us.
+ In this scenario, we expect that the PIC will go to sleep soon after initializa
+tion; wake up at 30us and turn on the fan; start the counter at 60us; and
+ turn it off after the timer expires.
+ The upper postscaler from ADRES should be
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename stimulus.PNG
+	width 60line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stimulus example in MPLABX simulator.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:stimulus"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\lfloor \frac{2^{8}\cdot20\textrm{mV}}{5\textrm{V}}\right\rfloor =1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So the total timer should run for
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t_{o}=\frac{2^{24}\cdot4}{4\textrm{MHz}}=16.777216\textrm{s}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:pic-sim-begin"
+plural "false"
+caps "true"
+noprefix "false"
+
+\end_inset
+
+ shows that, for these stimuli, the processing latency between the 'light
+ on' and 'fan on' events is 16us.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pic-init.PNG
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PIC in simulation, showing fan turning on and then off.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:pic-sim-begin"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:pic-sim-regs"
+plural "false"
+caps "true"
+noprefix "false"
+
+\end_inset
+
+ shows that, after the ADC has been run, the ADRES and upper-post values
+ are as expected.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pic-sim-regs.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PIC in simulation, showing file registers after ADC conversion.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:pic-sim-regs"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:pic-sim-off"
+plural "false"
+caps "true"
+noprefix "false"
+
+\end_inset
+
+ shows that the fan is turned off exactly when predicted.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename pic-sim-stop.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PIC in simulation, showing time at which timer expires and fan is turned
+ off.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:pic-sim-off"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+QUCS
+\end_layout
+
+\begin_layout Standard
+The Quite Universal Circuit Simulator is used here to confirm some behaviours
+ of the circuit leading up to the optoisolator.
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:qucs-sch"
+plural "false"
+caps "true"
+noprefix "false"
+
+\end_inset
+
+ shows the schematic for this simulation.
+ Notable features include:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename qucs-sch.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+QUCS simulation for optoisolator protection circuit.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:qucs-sch"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The input phase is set to 90° so that the mains voltage starts at cycle
+ peak, modelling a worst-case surge.
+\end_layout
+
+\begin_layout Itemize
+The TVS is modelled as serial opposing zeners, which is fairly close to
+ how a bidirectional TVS is constructed.
+\end_layout
+
+\begin_layout Itemize
+Similarly, the antiparallel LEDs of the optoisolator input are modelled
+ by two diodes.
+\end_layout
+
+\begin_layout Standard
+Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:trans-v"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:trans-i"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:trans-p"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ show the results of transient simulation over one input cycle, demonstrating
+ surge behaviour and results close to those predicted by the analyses in
+ 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "subsec:opto-input"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename trans-v.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Transient simulation of pre-optocoupler network, voltages.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:trans-v"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename trans-i.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Transient simulation of pre-optocoupler network, current.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:trans-i"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename trans-p.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Transient simulation of pre-optocoupler network, resistor power.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:trans-p"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Bibliography

@@ -2447,6 +2447,130 @@ name "fig:trans-p"
 \end_layout
 
 \begin_layout Section
+Board
+\end_layout
+
+\begin_layout Standard
+The perfboard, being manually soldered, does not have traces or vias.
+ However, care must still be taken in placement, to reduce the length of
+ wiring needed, and to physically separate high-voltage regions from low-voltage
+ regions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename board.png
+	height 80pheight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Perfboard with airwires.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:board"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Layers shown in 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:board"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ are:
+\end_layout
+
+\begin_layout Itemize
+Unrouted (
+\begin_inset Quotes eld
+\end_inset
+
+ratsnest/airwires
+\begin_inset Quotes erd
+\end_inset
+
+) - The yellow lines between pins indicate wire that needs to be run.
+\end_layout
+
+\begin_layout Itemize
+Dimension - the golden rectangle shows the edge of the board.
+\end_layout
+
+\begin_layout Itemize
+tPlace and tDocu (grey) - component shapes.
+ Some of these are approximations due to exact libraries being unavailable.
+\end_layout
+
+\begin_layout Itemize
+tNames (grey) - component names.
+\end_layout
+
+\begin_layout Itemize
+tValues (grey) - component values.
+\end_layout
+
+\begin_layout Itemize
+tKeepout (red stipple) - these regions indicate where there are no holes
+ in the perfboard; component pins cannot be placed here.
+\end_layout
+
+\begin_layout Itemize
+vRestrict (green dash) - this illustrates the division between high voltage
+ (left) isolated from low voltage (right).
+\end_layout
+
+\begin_layout Itemize
+Drills (grey) - illustrates where holes for component pins must be.
+ Pads are not shown.
+\end_layout
+
+\begin_layout Itemize
+Holes (grey) - the holes in each corner of the board for mounting.
+\end_layout
+
+\begin_layout Itemize
+Measures (grey) - the dimensions shown around the sides of the board.
+ The board is 58x78mm edge to edge, but the usable pin area is 2100x2500mil.
+ This is in mil because of the 100mil perforation pitch.
+\end_layout
+
+\begin_layout Section
 Conclusion
 \end_layout
 

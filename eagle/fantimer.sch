@@ -3163,6 +3163,8 @@ transient-voltage suppressor</description>
 <wire x1="-2.85" y1="-11.1" x2="-2.85" y2="11.1" width="0.127" layer="21"/>
 <wire x1="-2.85" y1="11.1" x2="30.85" y2="11.1" width="0.127" layer="21"/>
 <wire x1="30.85" y1="11.1" x2="30.85" y2="-11.1" width="0.127" layer="21"/>
+<text x="-2.54" y="11.43" size="1.778" layer="25">&gt;NAME</text>
+<text x="-2.54" y="-13.208" size="1.778" layer="27">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>

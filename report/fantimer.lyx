@@ -164,6 +164,63 @@ The device being designed is a timed switch.
  When the light switch turns on, the timer turns on the fan; when the light
  switch turns off, the timer continues to run the fan for an additional
  amount of time configurable by an on-board potentiometer.
+ For an overall depiction of the timer and the wiring of the system into
+ which it is connected, see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:wiring"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename wiring.png
+	width 60line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Wiring diagram.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:wiring"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

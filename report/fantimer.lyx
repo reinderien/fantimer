@@ -2603,6 +2603,7 @@ Scaling the design down physically, to use surface-mounted devices (SMD)
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "cpd"
@@ -2613,7 +2614,11 @@ literal "false"
 OACETT.
  (2013).
  Continuing Professional Development.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "https://www.oacett.org/Careers/CPD"
@@ -2624,6 +2629,7 @@ target "https://www.oacett.org/Careers/CPD"
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "comply"
@@ -2634,7 +2640,11 @@ literal "false"
 OACETT.
  (2013).
  Suggested CPD Activities And Samples.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "https://www.oacett.org/Careers/CPD/Suggested_CPD_Activities_And_Samples"
@@ -2645,6 +2655,7 @@ target "https://www.oacett.org/Careers/CPD/Suggested_CPD_Activities_And_Samples"
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "dk-shipping"
@@ -2655,7 +2666,11 @@ literal "false"
 Digi-Key Electronics.
  (2018).
  Digi-Key Same Day Shipping.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "https://www.digikey.ca/en/help/same-day-shipping"
@@ -2666,6 +2681,7 @@ target "https://www.digikey.ca/en/help/same-day-shipping"
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "ad-eats-eagle"
@@ -2676,7 +2692,11 @@ literal "false"
 Berggen, Matt.
  (2016).
  Autodesk acquires EAGLE: Q&A and a look into future.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "https://www.autodesk.com/products/eagle/blog/autodesk-acquires-eagle-qa-look-future"
@@ -2687,6 +2707,7 @@ target "https://www.autodesk.com/products/eagle/blog/autodesk-acquires-eagle-qa-
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "psu"
@@ -2697,7 +2718,11 @@ literal "false"
 MeanWell.
  (2018).
  IRM-01 Series, Document IRM-01-SPEC.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "http://www.meanwell.com/Upload/PDF/IRM-01/IRM-01-SPEC.PDF"
@@ -2708,6 +2733,7 @@ target "http://www.meanwell.com/Upload/PDF/IRM-01/IRM-01-SPEC.PDF"
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "tvs"
@@ -2718,7 +2744,11 @@ literal "false"
 Littelfuse.
  (2017).
  Transient Voltage Suppression Diodes, P6KE Series.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "http://www.littelfuse.com/~/media/electronics/datasheets/tvs_diodes/littelfuse_tvs_diode_p6ke_datasheet.pdf.pdf"
@@ -2729,6 +2759,7 @@ target "http://www.littelfuse.com/~/media/electronics/datasheets/tvs_diodes/litt
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "term"
@@ -2741,7 +2772,11 @@ Würth Elektronik eiSos GmbH & Co.
  (2017).
  Serie 1377 – 5.00mm Horizontal Entry w.
  Pressure Clamp.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "https://katalog.we-online.de/em/datasheet/691137710004.pdf"
@@ -2752,6 +2787,7 @@ target "https://katalog.we-online.de/em/datasheet/691137710004.pdf"
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "relay"
@@ -2761,7 +2797,11 @@ literal "false"
 
 TE Connectivity.
  (2012).
- ORWH-1T Retrieved from 
+ ORWH-1T Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1721150&DocType=Customer+Drawing&DocLang=English"
@@ -2772,6 +2812,7 @@ target "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrt
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "stackpole-cfres"
@@ -2782,7 +2823,11 @@ literal "false"
 StackPole Electronics Inc.
  (2018).
  CF/CFM Series Carbon Film Resistors.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "https://www.seielect.com/Catalog/SEI-CF_CFM.pdf"
@@ -2793,6 +2838,7 @@ target "https://www.seielect.com/Catalog/SEI-CF_CFM.pdf"
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "fuses"
@@ -2803,7 +2849,11 @@ literal "false"
 Bel Power Solutions & Protection.
  (2016).
  Type 5MF/5MFP Fast Blow Fuse Series.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "https://belfuse.com/resources/datasheets/circuitprotection/ds-cp-5mf-5mfp-series.pdf"
@@ -2814,6 +2864,7 @@ target "https://belfuse.com/resources/datasheets/circuitprotection/ds-cp-5mf-5mf
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "cptc"
@@ -2824,7 +2875,11 @@ literal "false"
 Bourns, Inc.
  (2018).
  CMF-RL Series - Telecom CPTC Resettable Fuses, C1753 05/17/18.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "https://www.bourns.com/docs/Product-Datasheets/cmfrl.pdf"
@@ -2835,6 +2890,7 @@ target "https://www.bourns.com/docs/Product-Datasheets/cmfrl.pdf"
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "illinois-cap"
@@ -2845,7 +2901,11 @@ literal "false"
 Illinois Capacitor.
  (2017).
  MMR Metallized Polyester Film Capacitors.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "http://www.illinoiscapacitor.com/pdf/seriesDocuments/MMR%20series.pdf"
@@ -2856,6 +2916,7 @@ target "http://www.illinoiscapacitor.com/pdf/seriesDocuments/MMR%20series.pdf"
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "ti-eats-harris"
@@ -2872,7 +2933,11 @@ Lineback, J.
 Semiconductor Business News
 \shape default
 .
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "https://web.archive.org/web/20000523164052/http://www.semibiznews.com/stories98/nov98x/8k05ti.htm"
@@ -2884,6 +2949,7 @@ literal "false"
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "pic"
@@ -2894,7 +2960,11 @@ literal "false"
 Microchip Technology Inc.
  (2013).
  PIC10F220/222 Data Sheet, Document DS40001270F.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en566609"
@@ -2905,6 +2975,7 @@ target "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en566609"
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "opto"
@@ -2914,7 +2985,11 @@ literal "false"
 
 Lite-On Technology Corporation.
  Part No LTV-814H/824H/844H (M, S, S-TA1), BNS-OD-C131/A4.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "https://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTV-814H_824H_844H%20(M,S,S_TA1).pdf"
@@ -2925,6 +3000,7 @@ target "https://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTV-814H_824H
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "cd4060"
@@ -2935,7 +3011,11 @@ literal "false"
 Texas Instruments Incorporated.
  (2003).
  CD4060B Types, Document SCHS049C.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "http://www.ti.com/lit/ds/symlink/cd4060b.pdf"
@@ -2946,6 +3026,7 @@ target "http://www.ti.com/lit/ds/symlink/cd4060b.pdf"
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "pot"
@@ -2956,7 +3037,11 @@ literal "false"
 TE Connectivity.
  (2014).
  Carbon Economy Trimmers, Type CB10 Series, Document 1773190 CIS BI 06/2014.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1773190&DocType=DS&DocLang=English"
@@ -2967,6 +3052,7 @@ target "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrt
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "microchip-eats-supertex"
@@ -2977,7 +3063,11 @@ literal "false"
 Microchip Technology Inc.
  (2014).
  Microchip Technology Announces Acquisition of Supertex, Inc.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "http://www.microchip.com/investor/Pressrelease/MCHP%20Announces%20Acquisition%20of%20Supertex,%20Inc.021014.pdf"
@@ -2988,6 +3078,7 @@ target "http://www.microchip.com/investor/Pressrelease/MCHP%20Announces%20Acquis
 \end_layout
 
 \begin_layout Bibliography
+\noindent
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
 key "fet"
@@ -2998,7 +3089,11 @@ literal "false"
 Supertex Inc.
  (2013).
  2N7000, Document DSFP-2N7000.
- Retrieved from 
+ Retrieved from
+\begin_inset Newline newline
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 target "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en571380"

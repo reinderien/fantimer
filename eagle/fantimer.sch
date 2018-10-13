@@ -12159,56 +12159,31 @@ The 6-pin products of the PIC10F family offer the motor control designer an oppo
 Block, Siemens and generic&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="S05K300" urn="urn:adsk.eagle:footprint:30440/1" library_version="1">
+<package name="S05K11" urn="urn:adsk.eagle:footprint:30434/1" library_version="1">
 <description>&lt;b&gt;VARISTOR&lt;/b&gt;</description>
-<wire x1="-1.651" y1="3.683" x2="1.651" y2="3.683" width="0.1524" layer="21"/>
-<wire x1="2.667" y1="2.667" x2="2.667" y2="-2.667" width="0.1524" layer="21"/>
-<wire x1="-2.667" y1="2.667" x2="-2.667" y2="-2.667" width="0.1524" layer="21"/>
-<wire x1="-1.651" y1="-3.683" x2="1.651" y2="-3.683" width="0.1524" layer="21"/>
-<wire x1="-1.778" y1="-1.143" x2="-1.778" y2="2.032" width="0.0508" layer="21"/>
-<wire x1="1.778" y1="-2.032" x2="1.778" y2="1.143" width="0.0508" layer="21"/>
-<wire x1="1.651" y1="-3.683" x2="2.667" y2="-2.667" width="0.1524" layer="21" curve="90"/>
-<wire x1="-2.667" y1="2.667" x2="-1.651" y2="3.683" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-2.667" y1="-2.667" x2="-1.651" y2="-3.683" width="0.1524" layer="21" curve="90"/>
-<wire x1="1.651" y1="3.683" x2="2.667" y2="2.667" width="0.1524" layer="21" curve="-90"/>
-<wire x1="1.524" y1="0" x2="1.524" y2="1.143" width="0.0508" layer="21"/>
-<wire x1="-1.524" y1="-1.143" x2="-1.524" y2="0" width="0.0508" layer="21"/>
-<pad name="1" x="-1.524" y="-2.54" drill="0.9144" shape="long"/>
-<pad name="2" x="1.524" y="2.54" drill="0.9144" shape="long"/>
-<text x="-3.175" y="-2.54" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
-<text x="4.318" y="-2.54" size="1.27" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
-</package>
-<package name="S05K460" urn="urn:adsk.eagle:footprint:30444/1" library_version="1">
-<description>&lt;b&gt;VARISTOR&lt;/b&gt;</description>
-<wire x1="-2.54" y1="3.683" x2="2.54" y2="3.683" width="0.1524" layer="21"/>
-<wire x1="3.556" y1="2.667" x2="3.556" y2="-2.667" width="0.1524" layer="21"/>
-<wire x1="-3.556" y1="2.667" x2="-3.556" y2="-2.667" width="0.1524" layer="21"/>
-<wire x1="-2.54" y1="-3.683" x2="2.54" y2="-3.683" width="0.1524" layer="21"/>
-<wire x1="-2.286" y1="0.889" x2="-2.286" y2="1.905" width="0.0508" layer="21"/>
-<wire x1="2.286" y1="-1.905" x2="2.286" y2="-0.889" width="0.0508" layer="21"/>
-<wire x1="2.54" y1="-3.683" x2="3.556" y2="-2.667" width="0.1524" layer="21" curve="90"/>
-<wire x1="-3.556" y1="2.667" x2="-2.54" y2="3.683" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-3.556" y1="-2.667" x2="-2.54" y2="-3.683" width="0.1524" layer="21" curve="90"/>
-<wire x1="2.54" y1="3.683" x2="3.556" y2="2.667" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-2.54" y1="-1.143" x2="-2.54" y2="1.905" width="0.0508" layer="21"/>
-<wire x1="2.54" y1="-1.905" x2="2.54" y2="1.143" width="0.0508" layer="21"/>
-<pad name="1" x="-2.413" y="-2.54" drill="0.9144" shape="long"/>
-<pad name="2" x="2.413" y="2.54" drill="0.9144" shape="long"/>
-<text x="-4.064" y="-2.54" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
-<text x="5.334" y="-2.54" size="1.27" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
+<wire x1="-0.762" y1="3.683" x2="0.762" y2="3.683" width="0.1524" layer="21"/>
+<wire x1="1.778" y1="2.667" x2="1.778" y2="-2.667" width="0.1524" layer="21"/>
+<wire x1="-1.778" y1="2.667" x2="-1.778" y2="-2.667" width="0.1524" layer="21"/>
+<wire x1="-0.762" y1="-3.683" x2="0.762" y2="-3.683" width="0.1524" layer="21"/>
+<wire x1="-1.016" y1="-1.143" x2="-1.016" y2="2.032" width="0.0508" layer="21"/>
+<wire x1="1.016" y1="-2.032" x2="1.016" y2="1.143" width="0.0508" layer="21"/>
+<wire x1="0.762" y1="-3.683" x2="1.778" y2="-2.667" width="0.1524" layer="21" curve="90"/>
+<wire x1="-1.778" y1="2.667" x2="-0.762" y2="3.683" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-1.778" y1="-2.667" x2="-0.762" y2="-3.683" width="0.1524" layer="21" curve="90"/>
+<wire x1="0.762" y1="3.683" x2="1.778" y2="2.667" width="0.1524" layer="21" curve="-90"/>
+<wire x1="0.762" y1="0" x2="0.762" y2="1.143" width="0.0508" layer="21"/>
+<wire x1="-0.762" y1="-1.143" x2="-0.762" y2="0" width="0.0508" layer="21"/>
+<pad name="1" x="-0.635" y="-2.54" drill="0.9144" shape="long"/>
+<pad name="2" x="0.635" y="2.54" drill="0.9144" shape="long"/>
+<text x="-2.032" y="-2.54" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="3.302" y="-2.54" size="1.27" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
 </package>
 </packages>
 <packages3d>
-<package3d name="S05K300" urn="urn:adsk.eagle:package:30536/1" type="box" library_version="1">
+<package3d name="S05K11" urn="urn:adsk.eagle:package:30524/1" type="box" library_version="1">
 <description>VARISTOR</description>
 <packageinstances>
-<packageinstance name="S05K300"/>
-</packageinstances>
-</package3d>
-<package3d name="S05K460" urn="urn:adsk.eagle:package:30535/1" type="box" library_version="1">
-<description>VARISTOR</description>
-<packageinstances>
-<packageinstance name="S05K460"/>
+<packageinstance name="S05K11"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -12244,39 +12219,19 @@ Block, Siemens and generic&lt;p&gt;
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="S05K300" urn="urn:adsk.eagle:component:30627/1" prefix="R" library_version="1">
+<deviceset name="S05K11" urn="urn:adsk.eagle:component:30613/1" prefix="R" library_version="1">
 <description>&lt;b&gt;VARISTOR&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="VDR" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="S05K300">
+<device name="" package="S05K11">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:30536/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="S05K460" urn="urn:adsk.eagle:component:30625/1" prefix="R" library_version="1">
-<description>&lt;b&gt;VARISTOR&lt;/b&gt;</description>
-<gates>
-<gate name="G$1" symbol="VDR" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="S05K460">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:30535/1"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:30524/1"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -14116,10 +14071,10 @@ Wickmann</description>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R4" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-US_" device="0207/7" package3d_urn="urn:adsk.eagle:package:23493/1" value="100k"/>
 <part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="1uF"/>
-<part name="R5" library="varistor" library_urn="urn:adsk.eagle:library:410" deviceset="S05K300" device="" package3d_urn="urn:adsk.eagle:package:30536/1" value="MOV-07D201K"/>
+<part name="R5" library="varistor" library_urn="urn:adsk.eagle:library:410" deviceset="S05K11" device="" package3d_urn="urn:adsk.eagle:package:30524/1" value="MOV-07D201K"/>
 <part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-025X050" package3d_urn="urn:adsk.eagle:package:23629/2" value="1uF"/>
 <part name="F1" library="fuse" library_urn="urn:adsk.eagle:library:233" deviceset="FUSE" device="SHK20Q" package3d_urn="urn:adsk.eagle:package:14073/1" value="5MF 5-R"/>
-<part name="F2" library="varistor" library_urn="urn:adsk.eagle:library:410" deviceset="S05K460" device="" package3d_urn="urn:adsk.eagle:package:30535/1" value="CMF-RL35-0"/>
+<part name="F2" library="varistor" library_urn="urn:adsk.eagle:library:410" deviceset="S05K11" device="" package3d_urn="urn:adsk.eagle:package:30524/1" value="CMF-RL35-0"/>
 </parts>
 <sheets>
 <sheet>
@@ -14221,9 +14176,9 @@ F2 rated 75mA, trips 150mA (150ms)</text>
 <attribute name="NAME" x="25.4" y="81.5086" size="1.778" layer="95"/>
 <attribute name="VALUE" x="25.4" y="79.248" size="1.778" layer="96"/>
 </instance>
-<instance part="R3" gate="1" x="10.16" y="22.86" rot="MR270">
-<attribute name="NAME" x="5.08" y="22.86" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="5.08" y="20.32" size="1.778" layer="96" rot="MR0"/>
+<instance part="R3" gate="1" x="10.16" y="22.86" rot="R90">
+<attribute name="NAME" x="2.54" y="22.86" size="1.778" layer="95"/>
+<attribute name="VALUE" x="2.54" y="20.32" size="1.778" layer="96"/>
 </instance>
 <instance part="P+6" gate="1" x="55.88" y="33.02">
 <attribute name="VALUE" x="54.61" y="34.29" size="1.778" layer="96"/>
@@ -14368,11 +14323,11 @@ F2 rated 75mA, trips 150mA (150ms)</text>
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
 <wire x1="10.16" y1="11.43" x2="10.16" y2="12.7" width="0.1524" layer="91"/>
-<pinref part="R3" gate="1" pin="2"/>
 <pinref part="C5" gate="G$1" pin="2"/>
-<wire x1="10.16" y1="12.7" x2="10.16" y2="17.78" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="13.97" x2="17.78" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="12.7" x2="10.16" y2="12.7" width="0.1524" layer="91"/>
+<pinref part="R3" gate="1" pin="1"/>
+<wire x1="10.16" y1="17.78" x2="10.16" y2="12.7" width="0.1524" layer="91"/>
 <junction x="10.16" y="12.7"/>
 </segment>
 <segment>
@@ -14489,11 +14444,6 @@ F2 rated 75mA, trips 150mA (150ms)</text>
 <pinref part="C3" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="R3" gate="1" pin="1"/>
-<pinref part="P+2" gate="1" pin="+5V"/>
-<wire x1="10.16" y1="27.94" x2="10.16" y2="29.21" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="P+6" gate="1" pin="+5V"/>
 <pinref part="IC1" gate="G$1" pin="VDD"/>
 <wire x1="55.88" y1="30.48" x2="55.88" y2="29.21" width="0.1524" layer="91"/>
@@ -14503,15 +14453,20 @@ F2 rated 75mA, trips 150mA (150ms)</text>
 <wire x1="63.5" y1="29.21" x2="55.88" y2="29.21" width="0.1524" layer="91"/>
 <junction x="55.88" y="29.21"/>
 </segment>
+<segment>
+<pinref part="R3" gate="1" pin="2"/>
+<pinref part="P+2" gate="1" pin="+5V"/>
+<wire x1="10.16" y1="27.94" x2="10.16" y2="29.21" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="ADJ" class="0">
 <segment>
-<pinref part="R3" gate="1" pin="3"/>
-<wire x1="15.24" y1="22.86" x2="17.78" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="GP0"/>
 <wire x1="17.78" y1="22.86" x2="38.1" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="1"/>
 <wire x1="17.78" y1="21.59" x2="17.78" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="R3" gate="1" pin="3"/>
+<wire x1="15.24" y1="22.86" x2="17.78" y2="22.86" width="0.1524" layer="91"/>
 <junction x="17.78" y="22.86"/>
 </segment>
 </net>

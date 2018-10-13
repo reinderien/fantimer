@@ -2574,6 +2574,12 @@ noprefix "false"
 \end_layout
 
 \begin_layout Itemize
+Bottom – the blue buses on the left and right come built into the perfboard.
+ Although they are marked VCC and GND, they are being used for AC/N on the
+ high-voltage side and ground on the low-voltage side.
+\end_layout
+
+\begin_layout Itemize
 Unrouted (
 \begin_inset Quotes eld
 \end_inset
@@ -2582,47 +2588,47 @@ ratsnest/airwires
 \begin_inset Quotes erd
 \end_inset
 
-) - The yellow lines between pins indicate wire that needs to be run.
+) – The yellow lines between pins indicate wire that needs to be run.
 \end_layout
 
 \begin_layout Itemize
-Dimension - the golden rectangle shows the edge of the board.
+Dimension – the golden rectangle shows the edge of the board.
 \end_layout
 
 \begin_layout Itemize
-tPlace and tDocu (grey) - component shapes.
+tPlace and tDocu (grey) – component shapes.
  Some of these are approximations due to exact libraries being unavailable.
 \end_layout
 
 \begin_layout Itemize
-tNames (grey) - component names.
+tNames (grey) – component names.
 \end_layout
 
 \begin_layout Itemize
-tValues (grey) - component values.
+tValues (grey) – component values.
 \end_layout
 
 \begin_layout Itemize
-tKeepout (red stipple) - these regions indicate where there are no holes
+tKeepout (red stipple) – these regions indicate where there are no holes
  in the perfboard; component pins cannot be placed here.
 \end_layout
 
 \begin_layout Itemize
-vRestrict (green dash) - this illustrates the division between high voltage
+vRestrict (green dash) – this illustrates the division between high voltage
  (left) isolated from low voltage (right).
 \end_layout
 
 \begin_layout Itemize
-Drills (grey) - illustrates where holes for component pins must be.
+Drills (grey) – illustrates where holes for component pins must be.
  Pads are not shown.
 \end_layout
 
 \begin_layout Itemize
-Holes (grey) - the holes in each corner of the board for mounting.
+Holes (grey) – the holes in each corner of the board for mounting.
 \end_layout
 
 \begin_layout Itemize
-Measures (grey) - the dimensions shown around the sides of the board.
+Measures (grey) – the dimensions shown around the sides of the board.
  The board is 58x78mm edge to edge, but the usable pin area is 2100x2500mil.
  This is in mil because of the 100mil perforation pitch.
 \end_layout

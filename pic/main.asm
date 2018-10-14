@@ -5,12 +5,6 @@
 GP_LIGHT equ GP1
 GP_FAN   equ GP2
 
-; The PIC10F220 is a simple device that has:
-    ; 4/8MHz internal RC osc
-    ; 256 words program mem
-    ; 16 bytes SRAM
-    ; No banks, interrupts or PPS
-    
 ; Config:
     ; 4MHZ internal RC osc
     ; pullup enabled on GP3 (has no effect due to MCLRE)

@@ -106,9 +106,9 @@
 <wire x1="38.1" y1="17.78" x2="30.48" y2="17.78" width="0.1524" layer="43" style="shortdash"/>
 <wire x1="30.48" y1="17.78" x2="30.48" y2="12.7" width="0.1524" layer="43" style="shortdash"/>
 <wire x1="30.48" y1="12.7" x2="38.1" y2="12.7" width="0.1524" layer="43" style="shortdash"/>
-<wire x1="38.1" y1="12.7" x2="43.18" y2="7.62" width="0.1524" layer="43" style="shortdash"/>
-<wire x1="43.18" y1="7.62" x2="45.72" y2="7.62" width="0.1524" layer="43" style="shortdash"/>
-<wire x1="45.72" y1="7.62" x2="45.72" y2="-7.62" width="0.1524" layer="43" style="shortdash"/>
+<wire x1="38.1" y1="12.7" x2="40.64" y2="10.16" width="0.1524" layer="43" style="shortdash"/>
+<wire x1="40.64" y1="10.16" x2="45.72" y2="10.16" width="0.1524" layer="43" style="shortdash"/>
+<wire x1="45.72" y1="10.16" x2="45.72" y2="-7.62" width="0.1524" layer="43" style="shortdash"/>
 </plain>
 <libraries>
 <library name="con-wago-500" urn="urn:adsk.eagle:library:195">
@@ -3118,14 +3118,14 @@ design rules under a new name.</description>
 <contactref element="U1" pad="AC/N"/>
 <contactref element="OK1" pad="2"/>
 <contactref element="D2" pad="A"/>
-<contactref element="R5" pad="2"/>
 <wire x1="0" y1="60.96" x2="0" y2="2.54" width="1.016" layer="16"/>
+<contactref element="R5" pad="2"/>
 <wire x1="0" y1="60.96" x2="2.48" y2="60.94" width="0" layer="19" extent="16-16"/>
 <wire x1="0" y1="18.034" x2="0" y2="2.54" width="0" layer="19" extent="1-1"/>
 <wire x1="2.54" y1="37.853" x2="0" y2="18.034" width="0" layer="19" extent="1-1"/>
 <wire x1="43.18" y1="2.54" x2="0" y2="2.54" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="AC/L">
+<signal name="AC/L_FUSED">
 <contactref element="K1" pad="S"/>
 <contactref element="U1" pad="AC/L"/>
 <contactref element="F1" pad="2A"/>
@@ -3133,13 +3133,13 @@ design rules under a new name.</description>
 <wire x1="2.48" y1="45.74" x2="20.701" y2="27.178" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="LIVE_FAN">
-<contactref element="X1" pad="3"/>
 <contactref element="K1" pad="P"/>
 <contactref element="R5" pad="1"/>
+<contactref element="X1" pad="4"/>
 <wire x1="5.08" y1="16.764" x2="34.925" y2="21.209" width="0" layer="19" extent="1-1"/>
-<wire x1="2.54" y1="27.853" x2="5.08" y2="16.764" width="0" layer="19" extent="1-1"/>
+<wire x1="2.54" y1="22.853" x2="5.08" y2="16.764" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="LIVE_LIGHT">
+<signal name="LIVE_LIGHT_FUSED">
 <contactref element="C1" pad="1"/>
 <contactref element="F2" pad="2"/>
 <wire x1="5.08" y1="10.16" x2="10.033" y2="17.907" width="0" layer="19" extent="1-1"/>
@@ -3229,15 +3229,15 @@ design rules under a new name.</description>
 <wire x1="50.8" y1="35.56" x2="50.8" y2="50.8" width="0" layer="19" extent="1-1"/>
 <wire x1="45.72" y1="35.56" x2="50.8" y2="35.56" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="AC/L_FUSE">
+<signal name="AC/L">
 <contactref element="X1" pad="2"/>
 <contactref element="F1" pad="1A"/>
 <wire x1="2.54" y1="32.853" x2="14.986" y2="38.1" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="LIGHT_FUSE">
-<contactref element="X1" pad="4"/>
+<signal name="LIVE_LIGHT">
 <contactref element="F2" pad="1"/>
-<wire x1="2.54" y1="22.853" x2="11.303" y2="22.987" width="0" layer="19" extent="1-1"/>
+<contactref element="X1" pad="3"/>
+<wire x1="2.54" y1="27.853" x2="11.303" y2="22.987" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

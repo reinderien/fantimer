@@ -734,11 +734,6 @@ LIVE_FAN
 \end_layout
 
 \begin_layout Standard
-The terminal block leads are 1mm wide, which requires that the perfboard
- holes be slightly drilled out for this part.
-\end_layout
-
-\begin_layout Standard
 The circuit requiring the highest current-carrying capacity is through the
  terminal block, between AC/L and LIVE_FAN.
  Most ceiling fans typically consume less than 100W, which implies current
@@ -985,7 +980,7 @@ name "subsec:opto-input"
 
 \begin_layout Standard
 The input is 120Vac (170Vpk), but the forward voltage drop of the opto is
- only ~1.1V.
+ only ≈1.1V.
  During steady-state operation of the circuit, the majority of this voltage
  difference should be dropped by capacitance rather than resistance, to
  decrease power and heat output.
@@ -1075,7 +1070,7 @@ noprefix "false"
 
 \end_inset
 
-) shows that, for 1ms, the CF14 (in blue) can tolerate ~39W; and it can
+) shows that, for 1ms, the CF14 (in blue) can tolerate ≈39W; and it can
  tolerate 4.5W for over 100ms; so it is safe.
 \end_layout
 
@@ -1299,7 +1294,7 @@ literal "false"
  exceeds 2V minus a safe margin, but low enough that the output still responds
  quickly when the voltage from the mains input is interrupted.
  When C3 is set to 100nF, the PIC WPU is enabled and the switch is energized,
- the zero-crossing peak reaches ~500mV (
+ the zero-crossing peak reaches ≈500mV (
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "fig:scope-on-light"
@@ -1574,7 +1569,7 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-No interrupts, memory banking, or reassignable I/O (peripheral pin select,
+No interrupts, memory banking, or re-assignable I/O (peripheral pin select,
  or PPS, available on higher-grade PICs)
 \end_layout
 
@@ -1603,8 +1598,8 @@ An 8-bit ADC
 \end_layout
 
 \begin_layout Standard
-Utilization of the PIC's electronically erasible programming read-only memory
- (EEPROM) by the program is low and leaves room for expansion.
+Utilization of the PIC's electronically erasable programmable read-only
+ memory (EEPROM) by the program is low and leaves room for expansion.
  According to the map file generated on build,
 \end_layout
 
@@ -1679,12 +1674,12 @@ Sleeps until it sees a 'low' on the light pin, indicating that the light
 \end_layout
 
 \begin_layout Enumerate
-Spins until it sees a 'high' on the light pin, indicating that the light
- switch has been opened
+Turns the fan on
 \end_layout
 
 \begin_layout Enumerate
-Turns the fan on
+Spins until it sees a 'high' on the light pin, indicating that the light
+ switch has been opened
 \end_layout
 
 \begin_layout Enumerate
@@ -1940,8 +1935,8 @@ literal "false"
 ).
  It is configured in common-source and used to drive the relay coil.
  Due to inductive effects and current higher than that tolerable by the
- PIC output port (71mA), the coil should not be driven by the PIC directly,
- but Q1 can tolerate up to 200mA 
+ PIC output port (71mA > 25mA), the coil should not be driven by the PIC
+ directly, but Q1 can tolerate up to 200mA 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "fet"
@@ -1960,8 +1955,8 @@ Q1 turns on, pulling down its drain and activating the relay coil.
 \begin_layout Standard
 When the PIC timing logic needs to deactivate the fan, it sets GP2 low,
  which turns off Q1, opening its drain.
- The coil voltage will spike when the relay opens, but will be limited by
- the Schottky diode D1 entering forward bias.
+ The coil voltage will spike when Q1 opens, but will be limited by the Schottky
+ diode D1 entering forward bias.
  Since the fan motor is expected to be an inductive load, it may similarly
  spike, but will be limited by the MOV R5.
  A MOV is used due to the absence of absorption resistors and the failure
@@ -2587,6 +2582,12 @@ Assembled and soldered board.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Leads from the terminal block, the relay and the fuse clips are all ≈1mm
+ wide, which requires that some of the perfboard holes be slightly drilled
+ out.
 \end_layout
 
 \begin_layout Standard
@@ -4925,36 +4926,6 @@ GP_FAN   equ GP2
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
-; The PIC10F220 is a simple device that has:
-\end_layout
-
-\begin_layout Plain Layout
-
-    ; 4/8MHz internal RC osc
-\end_layout
-
-\begin_layout Plain Layout
-
-    ; 256 words program mem
-\end_layout
-
-\begin_layout Plain Layout
-
-    ; 16 bytes SRAM
-\end_layout
-
-\begin_layout Plain Layout
-
-    ; No banks, interrupts or PPS
-\end_layout
-
-\begin_layout Plain Layout
-
-    
 \end_layout
 
 \begin_layout Plain Layout

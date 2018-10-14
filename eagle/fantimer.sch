@@ -14082,22 +14082,22 @@ Wickmann</description>
 <text x="35.56" y="99.06" size="1.778" layer="96">732-10957-ND
 5mm 16A 300V</text>
 <text x="110.49" y="116.84" size="1.778" layer="96">200mA max</text>
-<text x="138.43" y="19.05" size="1.778" layer="96">Motor P&lt;100W I&lt;833mA</text>
-<text x="109.22" y="11.43" size="1.778" layer="96">Icoil=71mA
+<text x="120.65" y="1.27" size="1.778" layer="96">Motor P&lt;100W I&lt;833mA</text>
+<text x="104.14" y="13.97" size="1.778" layer="96">Icoil=71mA
 Iswitch&lt;15A</text>
 <text x="97.79" y="52.07" size="1.778" layer="96">(input actually double
 opposing LEDs)</text>
 <text x="21.59" y="68.58" size="1.778" layer="96" rot="MR180">120Vrms</text>
 <text x="76.2" y="52.07" size="1.778" layer="96">Vbrmin = 86.5V</text>
-<text x="127" y="76.2" size="1.778" layer="96">GP1 WPU 22kΩ
+<text x="124.46" y="78.74" size="1.778" layer="96">GP1 WPU 22kΩ
 used for load</text>
 <text x="54.61" y="73.66" size="1.778" layer="97">CF14JT1K60‎ - 250mW</text>
 <text x="48.26" y="60.96" size="1.778" layer="97">334MMR250K‎ - 250V</text>
 <text x="88.9" y="129.54" size="2.54" layer="97">5V Supply</text>
 <text x="73.66" y="82.55" size="2.54" layer="97">Line Detection</text>
-<text x="81.28" y="36.83" size="2.54" layer="97">Fan Output</text>
+<text x="76.2" y="39.37" size="2.54" layer="97">Fan Output</text>
 <text x="30.48" y="33.02" size="2.54" layer="97">Timing</text>
-<text x="135.89" y="7.62" size="1.778" layer="96">Vmax=130Vac</text>
+<text x="130.81" y="10.16" size="1.778" layer="96">Vmax=130Vac</text>
 <text x="49.53" y="114.3" size="1.778" layer="97">Rated 5A, trips ~9.5A (1s)</text>
 <text x="30.48" y="57.15" size="1.778" layer="97">Rated 75mA,
 trips 150mA (150ms)</text>
@@ -14113,8 +14113,8 @@ trips 150mA (150ms)</text>
 <instance part="X1" gate="-3" x="27.94" y="71.12">
 <attribute name="NAME" x="21.59" y="70.231" size="1.778" layer="95"/>
 </instance>
-<instance part="X1" gate="-4" x="137.16" y="22.86" rot="R180">
-<attribute name="NAME" x="138.43" y="21.971" size="1.778" layer="95"/>
+<instance part="X1" gate="-4" x="132.08" y="25.4" rot="R180">
+<attribute name="NAME" x="133.35" y="24.511" size="1.778" layer="95"/>
 </instance>
 <instance part="P+1" gate="1" x="116.84" y="128.27">
 <attribute name="VALUE" x="115.57" y="129.54" size="1.778" layer="96"/>
@@ -14122,24 +14122,24 @@ trips 150mA (150ms)</text>
 <instance part="GND1" gate="1" x="116.84" y="99.06">
 <attribute name="VALUE" x="114.3" y="96.52" size="1.778" layer="96"/>
 </instance>
-<instance part="GND3" gate="1" x="104.14" y="-1.27">
-<attribute name="VALUE" x="101.6" y="-3.81" size="1.778" layer="96"/>
+<instance part="GND3" gate="1" x="99.06" y="1.27">
+<attribute name="VALUE" x="96.52" y="-1.27" size="1.778" layer="96"/>
 </instance>
-<instance part="Q1" gate="G$1" x="96.52" y="17.78">
-<attribute name="VALUE" x="91.44" y="11.43" size="1.778" layer="96"/>
-<attribute name="NAME" x="91.44" y="19.05" size="1.778" layer="95"/>
+<instance part="Q1" gate="G$1" x="91.44" y="20.32">
+<attribute name="VALUE" x="86.36" y="13.97" size="1.778" layer="96"/>
+<attribute name="NAME" x="86.36" y="21.59" size="1.778" layer="95"/>
 </instance>
-<instance part="K1" gate="1" x="113.03" y="26.67" rot="R180">
-<attribute name="VALUE" x="109.22" y="16.891" size="1.778" layer="96"/>
-<attribute name="PART" x="115.57" y="20.32" size="1.778" layer="95"/>
+<instance part="K1" gate="1" x="107.95" y="29.21" rot="R180">
+<attribute name="VALUE" x="104.14" y="19.431" size="1.778" layer="96"/>
+<attribute name="PART" x="110.49" y="22.86" size="1.778" layer="95"/>
 </instance>
-<instance part="K1" gate="2" x="129.54" y="26.67"/>
-<instance part="P+3" gate="1" x="104.14" y="39.37">
-<attribute name="VALUE" x="102.87" y="40.64" size="1.778" layer="96"/>
+<instance part="K1" gate="2" x="124.46" y="29.21"/>
+<instance part="P+3" gate="1" x="99.06" y="41.91">
+<attribute name="VALUE" x="97.79" y="43.18" size="1.778" layer="96"/>
 </instance>
-<instance part="D1" gate="G$1" x="104.14" y="29.21" rot="R90">
-<attribute name="NAME" x="99.06" y="30.9626" size="1.778" layer="95"/>
-<attribute name="VALUE" x="91.44" y="28.1686" size="1.778" layer="96"/>
+<instance part="D1" gate="G$1" x="99.06" y="31.75" rot="R90">
+<attribute name="NAME" x="93.98" y="33.5026" size="1.778" layer="95"/>
+<attribute name="VALUE" x="86.36" y="30.7086" size="1.778" layer="96"/>
 </instance>
 <instance part="U1" gate="G$1" x="95.25" y="113.03">
 <attribute name="NAME" x="82.55" y="128.27" size="1.27" layer="95"/>
@@ -14199,17 +14199,17 @@ trips 150mA (150ms)</text>
 <instance part="GND2" gate="1" x="55.88" y="3.81">
 <attribute name="VALUE" x="53.34" y="1.27" size="1.778" layer="96"/>
 </instance>
-<instance part="R4" gate="G$1" x="88.9" y="8.89" rot="R90">
-<attribute name="NAME" x="83.82" y="11.6586" size="1.778" layer="95"/>
-<attribute name="VALUE" x="82.55" y="9.398" size="1.778" layer="96"/>
+<instance part="R4" gate="G$1" x="83.82" y="11.43" rot="R90">
+<attribute name="NAME" x="78.74" y="14.1986" size="1.778" layer="95"/>
+<attribute name="VALUE" x="77.47" y="11.938" size="1.778" layer="96"/>
 </instance>
 <instance part="C4" gate="G$1" x="63.5" y="20.32">
 <attribute name="NAME" x="65.024" y="20.701" size="1.778" layer="95"/>
 <attribute name="VALUE" x="65.024" y="15.621" size="1.778" layer="96"/>
 </instance>
-<instance part="R5" gate="G$1" x="129.54" y="16.51" rot="R270">
-<attribute name="NAME" x="135.89" y="14.0716" size="1.778" layer="95"/>
-<attribute name="VALUE" x="135.89" y="10.795" size="1.778" layer="96"/>
+<instance part="R5" gate="G$1" x="124.46" y="19.05" rot="R270">
+<attribute name="NAME" x="130.81" y="16.6116" size="1.778" layer="95"/>
+<attribute name="VALUE" x="130.81" y="13.335" size="1.778" layer="96"/>
 </instance>
 <instance part="C5" gate="G$1" x="17.78" y="19.05">
 <attribute name="NAME" x="19.304" y="19.431" size="1.778" layer="95"/>
@@ -14247,18 +14247,18 @@ trips 150mA (150ms)</text>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="129.54" y1="11.43" x2="129.54" y2="6.35" width="0.1524" layer="91"/>
-<junction x="129.54" y="6.35"/>
-<label x="127" y="2.54" size="1.778" layer="95"/>
+<wire x1="124.46" y1="13.97" x2="124.46" y2="8.89" width="0.1524" layer="91"/>
+<junction x="124.46" y="8.89"/>
+<label x="121.92" y="5.08" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="AC/L_FUSED" class="0">
 <segment>
 <pinref part="K1" gate="2" pin="S"/>
-<wire x1="121.92" y1="34.29" x2="121.92" y2="31.75" width="0.1524" layer="91"/>
-<wire x1="121.92" y1="31.75" x2="124.46" y2="31.75" width="0.1524" layer="91"/>
-<label x="123.19" y="35.56" size="1.778" layer="95"/>
-<junction x="121.92" y="34.29"/>
+<wire x1="116.84" y1="36.83" x2="116.84" y2="34.29" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="34.29" x2="119.38" y2="34.29" width="0.1524" layer="91"/>
+<label x="118.11" y="38.1" size="1.778" layer="95"/>
+<junction x="116.84" y="36.83"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="AC/L"/>
@@ -14269,12 +14269,12 @@ trips 150mA (150ms)</text>
 </net>
 <net name="LIVE_FAN" class="0">
 <segment>
-<label x="138.43" y="25.4" size="1.778" layer="95"/>
+<label x="128.27" y="27.94" size="1.778" layer="95"/>
 <pinref part="K1" gate="2" pin="P"/>
-<wire x1="132.08" y1="22.86" x2="129.54" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="22.86" x2="129.54" y2="24.13" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="21.59" x2="129.54" y2="22.86" width="0.1524" layer="91"/>
-<junction x="129.54" y="22.86"/>
+<wire x1="127" y1="25.4" x2="124.46" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="25.4" x2="124.46" y2="26.67" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="24.13" x2="124.46" y2="25.4" width="0.1524" layer="91"/>
+<junction x="124.46" y="25.4"/>
 <pinref part="R5" gate="G$1" pin="1"/>
 <pinref part="X1" gate="-4" pin="KL"/>
 </segment>
@@ -14296,13 +14296,13 @@ trips 150mA (150ms)</text>
 <segment>
 <pinref part="Q1" gate="G$1" pin="S"/>
 <pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="101.6" y1="15.24" x2="104.14" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="15.24" x2="104.14" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="17.78" x2="99.06" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="17.78" x2="99.06" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="104.14" y1="2.54" x2="104.14" y2="1.27" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="3.81" x2="88.9" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="2.54" x2="104.14" y2="2.54" width="0.1524" layer="91"/>
-<junction x="104.14" y="2.54"/>
+<wire x1="99.06" y1="5.08" x2="99.06" y2="3.81" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="6.35" x2="83.82" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="5.08" x2="99.06" y2="5.08" width="0.1524" layer="91"/>
+<junction x="99.06" y="5.08"/>
 </segment>
 <segment>
 <pinref part="GND4" gate="1" pin="GND"/>
@@ -14333,14 +14333,14 @@ trips 150mA (150ms)</text>
 </net>
 <net name="FAN" class="0">
 <segment>
-<wire x1="81.28" y1="15.24" x2="88.9" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="17.78" x2="83.82" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="Q1" gate="G$1" pin="G"/>
-<label x="81.28" y="16.51" size="1.778" layer="95"/>
-<junction x="81.28" y="15.24"/>
+<label x="76.2" y="19.05" size="1.778" layer="95"/>
+<junction x="76.2" y="17.78"/>
 <pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="88.9" y1="15.24" x2="91.44" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="13.97" x2="88.9" y2="15.24" width="0.1524" layer="91"/>
-<junction x="88.9" y="15.24"/>
+<wire x1="83.82" y1="17.78" x2="86.36" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="16.51" x2="83.82" y2="17.78" width="0.1524" layer="91"/>
+<junction x="83.82" y="17.78"/>
 </segment>
 <segment>
 <wire x1="38.1" y1="17.78" x2="34.29" y2="17.78" width="0.1524" layer="91"/>
@@ -14352,13 +14352,13 @@ trips 150mA (150ms)</text>
 <net name="COILOUT" class="0">
 <segment>
 <pinref part="Q1" gate="G$1" pin="D"/>
-<wire x1="101.6" y1="20.32" x2="104.14" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="22.86" x2="99.06" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="K1" gate="1" pin="1"/>
-<wire x1="104.14" y1="20.32" x2="113.03" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="113.03" y1="20.32" x2="113.03" y2="21.59" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="22.86" x2="107.95" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="107.95" y1="22.86" x2="107.95" y2="24.13" width="0.1524" layer="91"/>
 <pinref part="D1" gate="G$1" pin="A"/>
-<wire x1="104.14" y1="26.67" x2="104.14" y2="20.32" width="0.1524" layer="91"/>
-<junction x="104.14" y="20.32"/>
+<wire x1="99.06" y1="29.21" x2="99.06" y2="22.86" width="0.1524" layer="91"/>
+<junction x="99.06" y="22.86"/>
 </segment>
 </net>
 <net name="!LIGHT" class="0">
@@ -14421,12 +14421,12 @@ trips 150mA (150ms)</text>
 <segment>
 <pinref part="P+3" gate="1" pin="+5V"/>
 <pinref part="K1" gate="1" pin="2"/>
-<wire x1="104.14" y1="36.83" x2="104.14" y2="34.29" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="39.37" x2="99.06" y2="36.83" width="0.1524" layer="91"/>
 <pinref part="D1" gate="G$1" pin="C"/>
-<wire x1="104.14" y1="34.29" x2="113.03" y2="34.29" width="0.1524" layer="91"/>
-<wire x1="113.03" y1="34.29" x2="113.03" y2="31.75" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="31.75" x2="104.14" y2="34.29" width="0.1524" layer="91"/>
-<junction x="104.14" y="34.29"/>
+<wire x1="99.06" y1="36.83" x2="107.95" y2="36.83" width="0.1524" layer="91"/>
+<wire x1="107.95" y1="36.83" x2="107.95" y2="34.29" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="34.29" x2="99.06" y2="36.83" width="0.1524" layer="91"/>
+<junction x="99.06" y="36.83"/>
 </segment>
 <segment>
 <pinref part="P+4" gate="1" pin="+5V"/>

@@ -1669,7 +1669,7 @@ Configures the OPTION, ADC, and tristate registers, including configuration
 \end_layout
 
 \begin_layout Enumerate
-Sleeps until it sees a 'low' on the light pin, indicating that the light
+Sleeps until it sees a ‘low’ on the light pin, indicating that the light
  switch has been energized
 \end_layout
 
@@ -1678,7 +1678,7 @@ Turns the fan on
 \end_layout
 
 \begin_layout Enumerate
-Spins until it sees a 'high' on the light pin, indicating that the light
+Spins until it sees a ‘high’ on the light pin, indicating that the light
  switch has been opened
 \end_layout
 
@@ -2074,8 +2074,8 @@ noprefix "false"
 
 \end_inset
 
- shows that, for these stimuli, the processing latency between the 'light
- on' and 'fan on' events is 16us.
+ shows that, for these stimuli, the processing latency between the ‘light
+ on’ and ‘fan on’ events is 16us.
 \end_layout
 
 \begin_layout Standard
@@ -2585,9 +2585,9 @@ Assembled and soldered board.
 \end_layout
 
 \begin_layout Standard
-Leads from the terminal block, the relay and the fuse clips are all ≈1mm
- wide, which requires that some of the perfboard holes be slightly drilled
- out.
+Leads from the terminal block, the relay, the trimmer and the fuse clips
+ are all ≈1mm wide, which requires that some of the perfboard holes be slightly
+ drilled out.
 \end_layout
 
 \begin_layout Standard
